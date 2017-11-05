@@ -1,0 +1,2 @@
+/usr/bin/ar cr lib3000fps.a  CMakeFiles/3000fps.dir/LBFRegressor.cpp.o CMakeFiles/3000fps.dir/RandomForest.cpp.o CMakeFiles/3000fps.dir/Tree.cpp.o CMakeFiles/3000fps.dir/Utils.cpp.o
+/usr/bin/ranlib lib3000fps.a

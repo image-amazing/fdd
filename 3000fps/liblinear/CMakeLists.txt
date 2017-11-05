@@ -1,0 +1,6 @@
+add_subdirectory(blas)
+aux_source_directory(. LIBLINEAR_CPPS)
+add_library(liblinear ${LIBLINEAR_CPPS})
+target_link_libraries(liblinear blas)
+install(TARGETS liblinear EXPORT 3000fps DESTINATION lib/liblinear)
+install(FILES tron.h linear.h DESTINATION include/liblinear)

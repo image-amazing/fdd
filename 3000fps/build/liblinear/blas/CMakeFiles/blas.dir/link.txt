@@ -1,0 +1,2 @@
+/usr/bin/ar cr libblas.a  CMakeFiles/blas.dir/ddot.c.o CMakeFiles/blas.dir/dscal.c.o CMakeFiles/blas.dir/dnrm2.c.o CMakeFiles/blas.dir/daxpy.c.o
+/usr/bin/ranlib libblas.a
