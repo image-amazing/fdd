@@ -237,17 +237,18 @@ bool IsShapeInRect(Mat_<double>& shape, Rect& rect,double scale){
     return true;
 }
 
-/*void LoadOpencvBbxData(string filepath,
+void LoadOpencvBbxData(string filepath,
                        vector<Mat_<uchar> >& images,
                        vector<Mat_<double> >& ground_truth_shapes,
-                       vector<BoundingBox> & bounding_boxs
+                       vector<BoundingBox> & bounding_boxs,
+			string cascadeName
               ){
     ifstream fin;
     fin.open(filepath);
 
     CascadeClassifier cascade;
     double scale = 1.3;
-    extern string cascadeName;
+    //extern string cascadeName;
     vector<Rect> faces;
     Mat gray;
     
@@ -315,7 +316,7 @@ bool IsShapeInRect(Mat_<double>& shape, Rect& rect,double scale){
         }
     }
     fin.close();
-}*/
+}
 double CalculateError(const Mat_<double>& ground_truth_shape, const Mat_<double>& predicted_shape){
     Mat_<double> temp;
     temp = ground_truth_shape.rowRange(4, 9)-ground_truth_shape.rowRange(10, 15);

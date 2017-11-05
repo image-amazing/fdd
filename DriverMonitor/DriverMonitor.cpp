@@ -41,7 +41,7 @@ void configGlobalVariables(const string &configFile) {
 		libconfig::Config cfg;
 		cfg.readFile(configFile.c_str());
         projectHome=cfg.lookup("projectHome").c_str();
-		modelHome = cfg.lookup("modelHome").c_str();
+		re_modelHome = cfg.lookup("re_modelHome").c_str();
 		fccModelName = cfg.lookup("fccModelName").c_str();
         pfccModelName=cfg.lookup("pfccModelName").c_str();
 		rightEyeStatusSVMModelName = cfg.lookup("rightEyeStatusSVMModelName").c_str();
@@ -98,7 +98,7 @@ int main(int argc,char *args[])
     checkFolder(outputDataHome+eyesEvidenceFolder);
     checkFolder(outputDataHome+mouthEvidenceFolder);
 
-    std::string ab_modelHome=projectHome+modelHome;
+    std::string ab_modelHome=projectHome+re_modelHome;
     ReadGlobalParamFromFile(ab_modelHome + featurePointsRegressorModelName);
     //initialize FaceAnalysisModel
 

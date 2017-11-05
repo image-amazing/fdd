@@ -30,7 +30,7 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_liblinear "${_IMPORT_PREFIX}/lib/liblinear/l
 set_property(TARGET 3000fps APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(3000fps PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LINK_INTERFACE_LIBRARIES_NOCONFIG "liblinear"
+  IMPORTED_LINK_INTERFACE_LIBRARIES_NOCONFIG "liblinear;opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab;opencv_viz"
   IMPORTED_LOCATION_NOCONFIG "${_IMPORT_PREFIX}/lib/lib3000fps.a"
   )
 

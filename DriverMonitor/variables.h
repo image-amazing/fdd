@@ -3,7 +3,7 @@
 Params global_params;
 std::string projectHome;
 //model root folder
-std::string modelHome;
+std::string re_modelHome;
 //front face detection model
 std::string fccModelName;
 //profile face detection model

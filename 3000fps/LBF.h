@@ -45,7 +45,7 @@ struct Params{
     int max_numthreshs;
 };
 extern Params global_params;
-extern std::string modelHome;
+//extern std::string modelPath;
 //extern std::string dataPath;
 class BoundingBox{
     public:
@@ -87,6 +87,12 @@ void LoadDataAdjust(std::string filepath,
               std::vector<cv::Mat_<uchar> >& images,
               std::vector<cv::Mat_<double> >& ground_truth_shapes,
               std::vector<BoundingBox> & bounding_box);
+void LoadOpencvBbxData(std::string filepath,
+                       std::vector<cv::Mat_<uchar> >& images,
+                       std::vector<cv::Mat_<double> >& ground_truth_shapes,
+                       std::vector<BoundingBox> & bounding_boxs,
+			std::string cascadeName
+                       );
 void LoadCofwTrainData(std::vector<cv::Mat_<uchar> >& images,
                        std::vector<cv::Mat_<double> >& ground_truth_shapes,
                        std::vector<BoundingBox>& bounding_boxs);
@@ -100,9 +106,13 @@ void adjustImage(cv::Mat_<uchar>& img,
                  cv::Mat_<double>& ground_truth_shape,
                  BoundingBox& bounding_box);
 
-//void  TrainModel(std::vector<std::string> trainDataName);
-//double TestModel(std::vector<std::string> testDataName);
-//int FaceDetectionAndAlignment(const char* inputname);
+void  TrainModel(std::vector<std::string> trainDataName
+		,std::string modelPath,std::string dataPath
+		,std::string cascadeName);
+double TestModel(std::vector<std::string> testDataName
+		,std::string modelPath,std::string dataPath
+		,std::string cascadeName);
+int FaceDetectionAndAlignment(const char* inputname,std::string modelPath);
 void ReadGlobalParamFromFile(std::string path);
 double CalculateError(const cv::Mat_<double>& ground_truth_shape, const cv::Mat_<double>& predicted_shape);
 #endif

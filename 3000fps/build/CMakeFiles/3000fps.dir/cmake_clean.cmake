@@ -1,6 +1,9 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/3000fps.dir/TestModel.cpp.o"
+  "CMakeFiles/3000fps.dir/Facedetect.cpp.o"
   "CMakeFiles/3000fps.dir/LBFRegressor.cpp.o"
   "CMakeFiles/3000fps.dir/RandomForest.cpp.o"
+  "CMakeFiles/3000fps.dir/TrainModel.cpp.o"
   "CMakeFiles/3000fps.dir/Tree.cpp.o"
   "CMakeFiles/3000fps.dir/Utils.cpp.o"
   "lib3000fps.pdb"
