@@ -73,8 +73,8 @@ public:
     
     
     Tree(){
-        overlap_ration_ = global_params.bagging_overlap;
-        max_depth_ = global_params.max_depth;
+        overlap_ration_ = _3000fps_global_params.bagging_overlap;
+        max_depth_ = _3000fps_global_params.max_depth;
         max_numnodes_ = pow(2, max_depth_)-1;
         nodes_.resize(max_numnodes_);
     }

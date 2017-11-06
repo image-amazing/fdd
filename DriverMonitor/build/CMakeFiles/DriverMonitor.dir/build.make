@@ -375,9 +375,21 @@ DriverMonitor: /usr/local/lib/libopencv_video.so.3.2.0
 DriverMonitor: /usr/local/lib/libopencv_videoio.so.3.2.0
 DriverMonitor: /usr/local/lib/libopencv_videostab.so.3.2.0
 DriverMonitor: /usr/local/lib/libopencv_viz.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_objdetect.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_calib3d.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_features2d.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_flann.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_ml.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_photo.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_video.so.3.2.0
 DriverMonitor: /usr/local/lib/liblinear/libliblinear.a
 DriverMonitor: /usr/local/lib/liblinear/blas/libblas.a
 DriverMonitor: /home/lyfe667/caffe/build/lib/libcaffe.so.1.0.0
+DriverMonitor: /usr/local/lib/libopencv_highgui.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_videoio.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_imgcodecs.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_imgproc.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_core.so.3.2.0
 DriverMonitor: /home/lyfe667/caffe/build/lib/libcaffeproto.a
 DriverMonitor: /usr/lib/x86_64-linux-gnu/libboost_system.so
 DriverMonitor: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -394,18 +406,6 @@ DriverMonitor: /usr/lib/x86_64-linux-gnu/liblmdb.so
 DriverMonitor: /usr/lib/x86_64-linux-gnu/libleveldb.so
 DriverMonitor: /usr/lib/libopenblas.so
 DriverMonitor: /usr/lib/x86_64-linux-gnu/libboost_python.so
-DriverMonitor: /usr/local/lib/libopencv_objdetect.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_calib3d.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_features2d.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_flann.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_highgui.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_ml.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_photo.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_video.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_videoio.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_imgcodecs.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_imgproc.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_core.so.3.2.0
 DriverMonitor: CMakeFiles/DriverMonitor.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable DriverMonitor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DriverMonitor.dir/link.txt --verbose=$(VERBOSE)

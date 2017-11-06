@@ -206,7 +206,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
 //        rectangle(img, cvPoint(boundingbox.start_x,boundingbox.start_y),
 //                  cvPoint(boundingbox.start_x+boundingbox.width,boundingbox.start_y+boundingbox.height),Scalar(0,255,0), 1, 8, 0);
         // draw result :: red
-        for(int i = 0;i < global_params.landmark_num;i++){
+        for(int i = 0;i < _3000fps_global_params.landmark_num;i++){
              circle(img,Point2d(current_shape(i,0),current_shape(i,1)),3,Scalar(255,255,255),-1,8,0);
         }
     }

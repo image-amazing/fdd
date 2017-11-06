@@ -1,6 +1,5 @@
 #include<iostream>
 #include<fstream>
-#include"LBF.h"
 #include"LBFRegressor.h"
 #include"Camera.h"
 #include"variables.h"
@@ -9,32 +8,7 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 
-// read global 3000fps parameters from files
-void ReadGlobalParamFromFile(std::string path)
-{
-	std::cout << "Loading GlobalParam..." << std::endl;
-	std::ifstream fin;
-	fin.open(path);
-	if (!fin) {
-        std::cout << "fail to open "<<path.c_str() << std::endl;
-		return;
-	}
-	fin >> global_params.bagging_overlap;
-	fin >> global_params.max_numtrees;
-	fin >> global_params.max_depth;
-	fin >> global_params.max_numthreshs;
-	fin >> global_params.landmark_num;
-	fin >> global_params.initial_num;
-	fin >> global_params.max_numstage;
-	for (int i = 0; i< global_params.max_numstage; i++) {
-		fin >> global_params.max_radio_radius[i];
-	}
-	for (int i = 0; i < global_params.max_numstage; i++) {
-		fin >> global_params.max_numfeats[i];
-	}
-	std::cout << "Loading GlobalParam end" << std::endl;
-	fin.close();
-}
+
 //config global parameters
 void configGlobalVariables(const string &configFile) {
 	try {
@@ -89,10 +63,10 @@ inline void checkFolder(const string &folderName){
 
 int main(int argc,char *args[])
 {
-	if (argc<=1) {
-        std::cout << "config file needed!" << std::endl;
-		return -1;
-	}
+      if (argc<=1) {
+       std::cout << "config file needed!" << std::endl;
+	return -1;
+      }
 	configGlobalVariables(args[1]); 
     checkFolder(outputDataHome+videoFolder);
     checkFolder(outputDataHome+eyesEvidenceFolder);

@@ -22,10 +22,10 @@ public:
     
     
     RandomForest(){
-        max_numtrees_ = global_params.max_numtrees;
-        num_landmark_ = global_params.landmark_num;
-        max_depth_    = global_params.max_depth;
-        overlap_ratio_ = global_params.bagging_overlap;
+        max_numtrees_ = _3000fps_global_params.max_numtrees;
+        num_landmark_ = _3000fps_global_params.landmark_num;
+        max_depth_    = _3000fps_global_params.max_depth;
+        overlap_ratio_ = _3000fps_global_params.bagging_overlap;
         
         // resize the trees
         rfs_.resize(num_landmark_);

@@ -487,8 +487,6 @@ iostream
 -
 fstream
 -
-LBF.h
-/home/lyfe667/fdd/DriverMonitor/LBF.h
 LBFRegressor.h
 /home/lyfe667/fdd/DriverMonitor/LBFRegressor.h
 Camera.h

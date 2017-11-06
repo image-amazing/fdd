@@ -44,7 +44,7 @@ struct Params{
     int max_numfeats[10]; // number of pixel pairs
     int max_numthreshs;
 };
-extern Params global_params;
+extern Params _3000fps_global_params;
 //extern std::string modelPath;
 //extern std::string dataPath;
 class BoundingBox{
@@ -115,4 +115,5 @@ double TestModel(std::vector<std::string> testDataName
 int FaceDetectionAndAlignment(const char* inputname,std::string modelPath);
 void ReadGlobalParamFromFile(std::string path);
 double CalculateError(const cv::Mat_<double>& ground_truth_shape, const cv::Mat_<double>& predicted_shape);
+void ReadGlobalParamFromFile(std::string path);
 #endif

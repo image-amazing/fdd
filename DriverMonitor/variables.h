@@ -1,6 +1,4 @@
 #pragma once
-//3000fps global parameters
-Params global_params;
 std::string projectHome;
 //model root folder
 std::string re_modelHome;

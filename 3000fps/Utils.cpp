@@ -3,6 +3,37 @@
 using namespace std;
 using namespace cv;
 
+//3000fps global parameters
+
+Params _3000fps_global_params;
+
+// read global 3000fps parameters from files
+void ReadGlobalParamFromFile(std::string path)
+{
+	std::cout << "Loading GlobalParam..." << std::endl;
+	std::ifstream fin;
+	fin.open(path);
+	if (!fin) {
+        std::cout << "fail to open "<<path.c_str() << std::endl;
+		return;
+	}
+    fin >> _3000fps_global_params.bagging_overlap;
+    fin >> _3000fps_global_params.max_numtrees;
+    fin >> _3000fps_global_params.max_depth;
+    fin >> _3000fps_global_params.max_numthreshs;
+    fin >> _3000fps_global_params.landmark_num;
+    fin >> _3000fps_global_params.initial_num;
+    fin >> _3000fps_global_params.max_numstage;
+    for (int i = 0; i< _3000fps_global_params.max_numstage; i++) {
+        fin >> _3000fps_global_params.max_radio_radius[i];
+	}
+    for (int i = 0; i < _3000fps_global_params.max_numstage; i++) {
+        fin >> _3000fps_global_params.max_numfeats[i];
+	}
+	std::cout << "Loading GlobalParam end" << std::endl;
+	fin.close();
+}
+
 Mat_<double> GetMeanShape(const vector<Mat_<double> >& shapes,
                           const vector<BoundingBox>& bounding_box){
     Mat_<double> result = Mat::zeros(shapes[0].rows,2,CV_64FC1);
@@ -122,7 +153,7 @@ double calculate_covariance(const vector<double>& v_1,
     return mean(v1.mul(v2))[0]; 
 }
 Mat_<double> LoadGroundTruthShape(string& filename){
-    Mat_<double> shape(global_params.landmark_num,2);
+    Mat_<double> shape(_3000fps_global_params.landmark_num,2);
     ifstream fin;
     string temp;
     
@@ -130,7 +161,7 @@ Mat_<double> LoadGroundTruthShape(string& filename){
     getline(fin, temp);
     getline(fin, temp);
     getline(fin, temp);
-    for (int i=0;i<global_params.landmark_num;i++){
+    for (int i=0;i<_3000fps_global_params.landmark_num;i++){
         fin >> shape(i,0) >> shape(i,1);
     }
     fin.close();
@@ -355,11 +386,11 @@ void LoadCofwTrainData(vector<Mat_<uchar> >& images,
 
     fin.open("/Users/lequan/workspace/xcode/myopencv/COFW_Dataset/keypoints.txt");
     for(int i = 0;i < img_num;i++){
-        Mat_<double> temp(global_params.landmark_num,2);
-        for(int j = 0;j < global_params.landmark_num;j++){
+        Mat_<double> temp(_3000fps_global_params.landmark_num,2);
+        for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
             fin>>temp(j,0); 
         }
-        for(int j = 0;j < global_params.landmark_num;j++){
+        for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
             fin>>temp(j,1); 
         }
         ground_truth_shapes.push_back(temp);
@@ -391,11 +422,11 @@ void LoadCofwTestData(vector<Mat_<uchar> >& images,
     
     fin.open("/Users/lequan/workspace/xcode/myopencv/COFW_Dataset/keypoints_test.txt");
     for(int i = 0;i < img_num;i++){
-        Mat_<double> temp(global_params.landmark_num,2);
-        for(int j = 0;j < global_params.landmark_num;j++){
+        Mat_<double> temp(_3000fps_global_params.landmark_num,2);
+        for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
             fin>>temp(j,0);
         }
-        for(int j = 0;j < global_params.landmark_num;j++){
+        for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
             fin>>temp(j,1);
         }
         ground_truth_shapes.push_back(temp);

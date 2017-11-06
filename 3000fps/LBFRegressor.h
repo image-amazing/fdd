@@ -20,7 +20,7 @@ public:
     int max_numstage_;
 public:
     LBFRegressor(){
-        max_numstage_ = global_params.max_numstage;
+        max_numstage_ = _3000fps_global_params.max_numstage;
         RandomForest_.resize(max_numstage_);
         Models_.resize(max_numstage_);
     }

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 lequan. All rights reserved.
 //
 #include "LBFRegressor.h"
-#include "LBF.h"
 using namespace std;
 using namespace cv;
 

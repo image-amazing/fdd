@@ -108,7 +108,7 @@ void FaceAnalysisModel::regressFeaturePoints(const cv::Mat &inputImg, const cv::
     regressedShapeWithoutScale = featurePointsRegressor_.Predict(inputImg, boundingbox, 0);
 	clock_t end = clock();
 	faceAlignmentTime_ = double(end - begin) / CLOCKS_PER_SEC;
-	for (int i = 0;i < global_params.landmark_num;i++) {
+    for (int i = 0;i < _3000fps_global_params.landmark_num;i++) {
 		//circle(cImg, Point2d(current_shape(i, 0)/ scaleForFaceDetection, current_shape(i, 1)/ scaleForFaceDetection), 2, Scalar(255, 255, 255), -1, 8, 0);
         //save all feature points
 		featurePoints.push_back(cv::Point(regressedShapeWithoutScale(i, 0)/scale , regressedShapeWithoutScale(i, 1)/scale));

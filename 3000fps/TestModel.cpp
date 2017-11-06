@@ -47,7 +47,7 @@ double TestModel (vector<string> testDataName,string modelPath,string dataPath,s
 //        rectangle(test_images[i], cvPoint(test_bounding_boxs[i].start_x,test_bounding_boxs[i].start_y),
 //                  cvPoint(test_bounding_boxs[i].start_x+test_bounding_boxs[i].width,test_bounding_boxs[i].start_y+test_bounding_boxs[i].height),Scalar(0,255,0), 1, 8, 0);
         // draw result :: red
-//        for(int j = 0;j < global_params.landmark_num;j++){
+//        for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
 //            circle(test_images[i],Point2d(current_shapes[i](j,0),current_shapes[i](j,1)),1,Scalar(255,255,255),-1,8,0);
 //        }
 //        imshow("result", test_images[i]);

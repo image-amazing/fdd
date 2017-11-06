@@ -285,7 +285,7 @@ void LBFRegressor::Train(const vector<Mat_<uchar> >& images,
     
     RNG random_generator(getTickCount());
     for(int i = 0;i < images.size();i++){
-        for(int j = 0;j < global_params.initial_num;j++){
+        for(int j = 0;j < _3000fps_global_params.initial_num;j++){
             int index = 0;
             do{
                 // index = (i+j+1) % (images.size());
@@ -308,11 +308,11 @@ void LBFRegressor::Train(const vector<Mat_<uchar> >& images,
     mean_shape_ = GetMeanShape(ground_truth_shapes,bounding_boxs);
     cout << mean_shape_<<endl;
     // train random forest
-    int num_feature = global_params.landmark_num * global_params.max_numtrees * pow(2,(global_params.max_depth-1));
+    int num_feature = _3000fps_global_params.landmark_num * _3000fps_global_params.max_numtrees * pow(2,(_3000fps_global_params.max_depth-1));
     int num_train_sample = (int)augmented_images.size();
 
     double t0 =(double)cvGetTickCount();
-    for (int stage = 0; stage < global_params.max_numstage; stage++){
+    for (int stage = 0; stage < _3000fps_global_params.max_numstage; stage++){
         double t1 =(double)cvGetTickCount();
         GetShapeResidual(augmented_ground_truth_shapes,current_shapes,augmented_bounding_boxs,
                          mean_shape_,shapes_residual_);
@@ -344,7 +344,7 @@ void LBFRegressor::Train(const vector<Mat_<uchar> >& images,
         cout << "the linear model of "<< stage<<" stage has been trained, cost "<< (t4-t3)/((double)cvGetTickFrequency()*1000*1000) <<" s"<<endl<<endl;
 
         cout << "the "<<stage<<" has completed, cost "<<(t4-t0)/((double)cvGetTickFrequency()*1000*1000) <<" s"<<endl;
-        cout << "Remaining time is about "<< (t4-t0)/((double)cvGetTickFrequency()*1000*1000*(stage+1))*(global_params.max_numstage-stage-1)<< "s"<<endl<<endl;
+        cout << "Remaining time is about "<< (t4-t0)/((double)cvGetTickFrequency()*1000*1000*(stage+1))*(_3000fps_global_params.max_numstage-stage-1)<< "s"<<endl<<endl;
     }
 }
 void LBFRegressor::ReleaseFeatureSpace(struct feature_node ** binfeatures,
@@ -373,12 +373,12 @@ vector<Mat_<double> > LBFRegressor::Predict(const vector<Mat_<uchar> >& images,
     cout <<"mean shape "<<", error: "<<MRSE_sum/current_shapes.size()<<endl;
 
     int stage1 =0;
-    for ( int stage = 0; stage < global_params.max_numstage; stage++){
-        if(stage<global_params.max_numstage){
+    for ( int stage = 0; stage < _3000fps_global_params.max_numstage; stage++){
+        if(stage<_3000fps_global_params.max_numstage){
             stage1 = stage;
         }
         else{
-            stage1 = global_params.max_numstage-1;
+            stage1 = _3000fps_global_params.max_numstage-1;
         }
         struct feature_node ** binfeatures ;
         binfeatures = DeriveBinaryFeat(RandomForest_[stage1],images,current_shapes,bounding_boxs);
@@ -408,7 +408,7 @@ Mat_<double>  LBFRegressor::Predict(const cv::Mat_<uchar>& image,
 
 //    Mat img = imread("/Users/lequan/workspace/LBF/Datasets/lfpw/testset/image_0078.png");
 //    // draw result :: red
-//    for(int j = 0;j < global_params.landmark_num;j++){
+//    for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
 //        circle(img,Point2d(current_shapes[0](j,0),current_shapes[0](j,1)),1,Scalar(255,255,255),-1,8,0);
 //    }
 //    imshow("result", img);
@@ -417,7 +417,7 @@ Mat_<double>  LBFRegressor::Predict(const cv::Mat_<uchar>& image,
 //    imwrite(name,img);
 
 
-    for ( int stage = 0; stage < global_params.max_numstage; stage++){
+    for ( int stage = 0; stage < _3000fps_global_params.max_numstage; stage++){
         struct feature_node ** binfeatures ;
         binfeatures = DeriveBinaryFeat(RandomForest_[stage],images,current_shapes,bounding_boxs);
         GlobalPrediction(binfeatures, current_shapes,bounding_boxs,stage);
@@ -425,7 +425,7 @@ Mat_<double>  LBFRegressor::Predict(const cv::Mat_<uchar>& image,
 
 //        Mat image = imread("/Users/lequan/workspace/LBF/Datasets/afw/image_0078.png");
 //        // draw result :: red
-//        for(int j = 0;j < global_params.landmark_num;j++){
+//        for(int j = 0;j < _3000fps_global_params.landmark_num;j++){
 //            circle(image,Point2d(current_shapes[0](j,0),current_shapes[0](j,1)),1,Scalar(255,255,255),-1,8,0);
 //        }
 //        imshow("result", image);
@@ -460,34 +460,34 @@ void LBFRegressor::Load(string path,string regName){
     cout << "End"<<endl;
 }
 void  LBFRegressor::WriteGlobalParam(ofstream& fout){
-    fout << global_params.bagging_overlap << endl;
-    fout << global_params.max_numtrees << endl;
-    fout << global_params.max_depth << endl;
-    fout << global_params.max_numthreshs << endl;
-    fout << global_params.landmark_num << endl;
-    fout << global_params.initial_num << endl;
-    fout << global_params.max_numstage << endl;
+    fout << _3000fps_global_params.bagging_overlap << endl;
+    fout << _3000fps_global_params.max_numtrees << endl;
+    fout << _3000fps_global_params.max_depth << endl;
+    fout << _3000fps_global_params.max_numthreshs << endl;
+    fout << _3000fps_global_params.landmark_num << endl;
+    fout << _3000fps_global_params.initial_num << endl;
+    fout << _3000fps_global_params.max_numstage << endl;
     
-    for (int i = 0; i< global_params.max_numstage; i++){
-        fout << global_params.max_radio_radius[i] << " ";
+    for (int i = 0; i< _3000fps_global_params.max_numstage; i++){
+        fout << _3000fps_global_params.max_radio_radius[i] << " ";
         
     }
     fout << endl;
     
-    for (int i = 0; i < global_params.max_numstage; i++){
-        fout << global_params.max_numfeats[i] << " ";
+    for (int i = 0; i < _3000fps_global_params.max_numstage; i++){
+        fout << _3000fps_global_params.max_numfeats[i] << " ";
     }
     fout << endl;
 }
 void  LBFRegressor::WriteRegressor(ofstream& fout,std::string regName){
-    for(int i = 0;i < global_params.landmark_num;i++){
+    for(int i = 0;i < _3000fps_global_params.landmark_num;i++){
         fout << mean_shape_(i,0)<<" "<< mean_shape_(i,1)<<" ";
     }
     fout<<endl;
     ofstream fout_reg;
     //fout_reg.open(modelHome + "Regressor.model",ios::binary);
       fout_reg.open(regName,ios::binary);
-    for (int i=0; i < global_params.max_numstage; i++ ){
+    for (int i=0; i < _3000fps_global_params.max_numstage; i++ ){
         RandomForest_[i].Write(fout);
         fout << Models_[i].size()<< endl;
         for (int j=0; j<Models_[i].size();j++){
@@ -497,32 +497,32 @@ void  LBFRegressor::WriteRegressor(ofstream& fout,std::string regName){
     fout_reg.close();
 }
 void  LBFRegressor::ReadGlobalParam(ifstream& fin){
-    fin >> global_params.bagging_overlap;
-    fin >> global_params.max_numtrees;
-    fin >> global_params.max_depth;
-    fin >> global_params.max_numthreshs;
-    fin >> global_params.landmark_num;
-    fin >> global_params.initial_num;
-    fin >> global_params.max_numstage;
+    fin >> _3000fps_global_params.bagging_overlap;
+    fin >> _3000fps_global_params.max_numtrees;
+    fin >> _3000fps_global_params.max_depth;
+    fin >> _3000fps_global_params.max_numthreshs;
+    fin >> _3000fps_global_params.landmark_num;
+    fin >> _3000fps_global_params.initial_num;
+    fin >> _3000fps_global_params.max_numstage;
     
-    for (int i = 0; i< global_params.max_numstage; i++){
-        fin >> global_params.max_radio_radius[i];
+    for (int i = 0; i< _3000fps_global_params.max_numstage; i++){
+        fin >> _3000fps_global_params.max_radio_radius[i];
     }
     
-    for (int i = 0; i < global_params.max_numstage; i++){
-        fin >> global_params.max_numfeats[i];
+    for (int i = 0; i < _3000fps_global_params.max_numstage; i++){
+        fin >> _3000fps_global_params.max_numfeats[i];
     }
 }
 
 void LBFRegressor::ReadRegressor(ifstream& fin,std::string regName){
-    mean_shape_ = Mat::zeros(global_params.landmark_num,2,CV_64FC1);
-    for(int i = 0;i < global_params.landmark_num;i++){
+    mean_shape_ = Mat::zeros(_3000fps_global_params.landmark_num,2,CV_64FC1);
+    for(int i = 0;i < _3000fps_global_params.landmark_num;i++){
         fin >> mean_shape_(i,0) >> mean_shape_(i,1);
     }
     ifstream fin_reg;
    // fin_reg.open(modelHome + "Regressor.model",ios::binary);
     fin_reg.open(regName,ios::binary);
-    for (int i=0; i < global_params.max_numstage; i++ ){
+    for (int i=0; i < _3000fps_global_params.max_numstage; i++ ){
         RandomForest_[i].Read(fin);
         int num =0;
         fin >> num;
