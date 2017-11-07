@@ -49,193 +49,9 @@ include CMakeFiles/DriverMonitor.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DriverMonitor.dir/flags.make
 
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.o: ../RightEye.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/RightEye.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/RightEye.cpp.o -c /home/lyfe667/fdd/DriverMonitor/RightEye.cpp
-
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/RightEye.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/RightEye.cpp > CMakeFiles/DriverMonitor.dir/RightEye.cpp.i
-
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/RightEye.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/RightEye.cpp -o CMakeFiles/DriverMonitor.dir/RightEye.cpp.s
-
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.provides: CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/RightEye.cpp.o
-
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o: ../ResourceManagers.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o -c /home/lyfe667/fdd/DriverMonitor/ResourceManagers.cpp
-
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/ResourceManagers.cpp > CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.i
-
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/ResourceManagers.cpp -o CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.s
-
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.provides: CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o
-
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o: ../LeftEye.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o -c /home/lyfe667/fdd/DriverMonitor/LeftEye.cpp
-
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/LeftEye.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/LeftEye.cpp > CMakeFiles/DriverMonitor.dir/LeftEye.cpp.i
-
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/LeftEye.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/LeftEye.cpp -o CMakeFiles/DriverMonitor.dir/LeftEye.cpp.s
-
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.provides: CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o
-
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.o: ../Mouth.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/Mouth.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/Mouth.cpp.o -c /home/lyfe667/fdd/DriverMonitor/Mouth.cpp
-
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/Mouth.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/Mouth.cpp > CMakeFiles/DriverMonitor.dir/Mouth.cpp.i
-
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/Mouth.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/Mouth.cpp -o CMakeFiles/DriverMonitor.dir/Mouth.cpp.s
-
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.provides: CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/Mouth.cpp.o
-
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o: ../FrameSequenceProcessor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o -c /home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.cpp
-
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.cpp > CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.i
-
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.cpp -o CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.s
-
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.provides: CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o
-
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o: ../FDDGlobal.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o -c /home/lyfe667/fdd/DriverMonitor/FDDGlobal.cpp
-
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/FDDGlobal.cpp > CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.i
-
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/FDDGlobal.cpp -o CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.s
-
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.provides: CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o
-
-CMakeFiles/DriverMonitor.dir/Camera.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/Camera.cpp.o: ../Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/Camera.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/Camera.cpp.o -c /home/lyfe667/fdd/DriverMonitor/Camera.cpp
-
-CMakeFiles/DriverMonitor.dir/Camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/Camera.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/Camera.cpp > CMakeFiles/DriverMonitor.dir/Camera.cpp.i
-
-CMakeFiles/DriverMonitor.dir/Camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/Camera.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/Camera.cpp -o CMakeFiles/DriverMonitor.dir/Camera.cpp.s
-
-CMakeFiles/DriverMonitor.dir/Camera.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/Camera.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/Camera.cpp.o.provides: CMakeFiles/DriverMonitor.dir/Camera.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/Camera.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/Camera.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/Camera.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/Camera.cpp.o
-
-CMakeFiles/DriverMonitor.dir/Frame.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/Frame.cpp.o: ../Frame.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/Frame.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/Frame.cpp.o -c /home/lyfe667/fdd/DriverMonitor/Frame.cpp
-
-CMakeFiles/DriverMonitor.dir/Frame.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/Frame.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/Frame.cpp > CMakeFiles/DriverMonitor.dir/Frame.cpp.i
-
-CMakeFiles/DriverMonitor.dir/Frame.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/Frame.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/Frame.cpp -o CMakeFiles/DriverMonitor.dir/Frame.cpp.s
-
-CMakeFiles/DriverMonitor.dir/Frame.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/Frame.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/Frame.cpp.o.provides: CMakeFiles/DriverMonitor.dir/Frame.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/Frame.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/Frame.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/Frame.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/Frame.cpp.o
-
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: ../DriverMonitor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o -c /home/lyfe667/fdd/DriverMonitor/DriverMonitor.cpp
 
@@ -256,159 +72,32 @@ CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o.provides: CMakeFiles/DriverMoni
 
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o
 
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o: ../FaceAnalysisModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o -c /home/lyfe667/fdd/DriverMonitor/FaceAnalysisModel.cpp
-
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/FaceAnalysisModel.cpp > CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.i
-
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/FaceAnalysisModel.cpp -o CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.s
-
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.provides: CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o
-
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o: ../FaceComponent.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o -c /home/lyfe667/fdd/DriverMonitor/FaceComponent.cpp
-
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/FaceComponent.cpp > CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.i
-
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/FaceComponent.cpp -o CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.s
-
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.provides: CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o
-
-CMakeFiles/DriverMonitor.dir/Face.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/Face.cpp.o: ../Face.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/Face.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/Face.cpp.o -c /home/lyfe667/fdd/DriverMonitor/Face.cpp
-
-CMakeFiles/DriverMonitor.dir/Face.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/Face.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/Face.cpp > CMakeFiles/DriverMonitor.dir/Face.cpp.i
-
-CMakeFiles/DriverMonitor.dir/Face.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/Face.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/Face.cpp -o CMakeFiles/DriverMonitor.dir/Face.cpp.s
-
-CMakeFiles/DriverMonitor.dir/Face.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/Face.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/Face.cpp.o.provides: CMakeFiles/DriverMonitor.dir/Face.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/Face.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/Face.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/Face.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/Face.cpp.o
-
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: ../FatigueDetectionFrameSequenceProcessor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o -c /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp
-
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp > CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i
-
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp -o CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s
-
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires:
-.PHONY : CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires
-
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides.build
-.PHONY : CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides
-
-CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
-
 # Object files for target DriverMonitor
 DriverMonitor_OBJECTS = \
-"CMakeFiles/DriverMonitor.dir/RightEye.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/Mouth.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/Camera.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/Frame.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/Face.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o"
+"CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o"
 
 # External object files for target DriverMonitor
 DriverMonitor_EXTERNAL_OBJECTS =
 
-DriverMonitor: CMakeFiles/DriverMonitor.dir/RightEye.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/Mouth.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/Camera.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/Frame.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/Face.cpp.o
-DriverMonitor: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/build.make
+DriverMonitor: /usr/local/lib/liblibfdd.a
 DriverMonitor: /usr/local/lib/lib3000fps.a
-DriverMonitor: /usr/local/lib/libCaffeClassifier.a
-DriverMonitor: /usr/local/lib/libopencv_calib3d.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_core.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_features2d.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_flann.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_highgui.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_imgcodecs.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_imgproc.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_ml.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_objdetect.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_photo.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_shape.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_stitching.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_superres.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_video.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_videoio.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_videostab.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_viz.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_objdetect.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_calib3d.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_features2d.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_flann.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_ml.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_photo.so.3.2.0
-DriverMonitor: /usr/local/lib/libopencv_video.so.3.2.0
 DriverMonitor: /usr/local/lib/liblinear/libliblinear.a
 DriverMonitor: /usr/local/lib/liblinear/blas/libblas.a
+DriverMonitor: /usr/local/lib/libopencv_shape.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_stitching.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_objdetect.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_superres.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_videostab.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_calib3d.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_features2d.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_flann.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_ml.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_photo.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_video.so.3.2.0
+DriverMonitor: /usr/local/lib/libopencv_viz.so.3.2.0
+DriverMonitor: /usr/local/lib/libCaffeClassifier.a
 DriverMonitor: /home/lyfe667/caffe/build/lib/libcaffe.so.1.0.0
 DriverMonitor: /usr/local/lib/libopencv_highgui.so.3.2.0
 DriverMonitor: /usr/local/lib/libopencv_videoio.so.3.2.0
@@ -439,19 +128,7 @@ DriverMonitor: CMakeFiles/DriverMonitor.dir/link.txt
 CMakeFiles/DriverMonitor.dir/build: DriverMonitor
 .PHONY : CMakeFiles/DriverMonitor.dir/build
 
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/RightEye.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/ResourceManagers.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/Mouth.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FDDGlobal.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/Camera.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/Frame.cpp.o.requires
 CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/Face.cpp.o.requires
-CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires
 .PHONY : CMakeFiles/DriverMonitor.dir/requires
 
 CMakeFiles/DriverMonitor.dir/clean:

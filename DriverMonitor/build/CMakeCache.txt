@@ -179,9 +179,6 @@ DriverMonitor_BINARY_DIR:STATIC=/home/lyfe667/fdd/DriverMonitor/build
 //Value Computed by CMake
 DriverMonitor_SOURCE_DIR:STATIC=/home/lyfe667/fdd/DriverMonitor
 
-//The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=/usr/local/share/OpenCV
-
 
 ########################
 # INTERNAL cache entries
