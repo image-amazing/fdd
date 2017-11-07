@@ -1,38 +1,9 @@
 #include<iostream>
 #include<opencv2/opencv.hpp>
-#include "LBF.h"
 #include "LBFRegressor.h"
-#include"variables.h"
-#include<afx.h>
-#pragma comment(lib,"winmm.lib")
-
 
 using namespace std;
 using namespace cv;
-
-//3000fps读取全局参数
-void ReadGlobalParamFromFile(string path) {
-	cout << "Loading GlobalParam..." << endl;
-	ifstream fin;
-	fin.open(path);
-	fin >> global_params.bagging_overlap;
-	fin >> global_params.max_numtrees;
-	fin >> global_params.max_depth;
-	fin >> global_params.max_numthreshs;
-	fin >> global_params.landmark_num;
-	fin >> global_params.initial_num;
-	fin >> global_params.max_numstage;
-
-	for (int i = 0; i< global_params.max_numstage; i++) {
-		fin >> global_params.max_radio_radius[i];
-	}
-
-	for (int i = 0; i < global_params.max_numstage; i++) {
-		fin >> global_params.max_numfeats[i];
-	}
-	cout << "Loading GlobalParam end" << endl;
-	fin.close();
-}
 
 //返回特征点外接矩形中的图像
 cv::Mat boundingBoxImg(cv::Mat & cImg, vector<cv::Point> &featurePoints, double scale = 1.0)
@@ -181,7 +152,6 @@ int main()
 						sprintf(buf, "%d", i);
 						putText(cImg, buf, cv::Point(current_shape(i, 0) * 5, current_shape(i, 1) * 5), 0, 0.5, cv::Scalar(255, 0, 0));*/
 					}
-					
 					vector<cv::Point> rightEyePoints;
 					rightEyePoints.push_back(allPoints[4]);
 					rightEyePoints.push_back(allPoints[5]);
@@ -244,7 +214,6 @@ int main()
 				}
 			}
 		}
-	}
-	
+	}	
 	return 0;
 }

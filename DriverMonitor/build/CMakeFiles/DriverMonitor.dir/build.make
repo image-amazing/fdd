@@ -325,6 +325,29 @@ CMakeFiles/DriverMonitor.dir/Face.cpp.o.provides: CMakeFiles/DriverMonitor.dir/F
 
 CMakeFiles/DriverMonitor.dir/Face.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/Face.cpp.o
 
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: ../FatigueDetectionFrameSequenceProcessor.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o -c /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp
+
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp > CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i
+
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp -o CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s
+
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires:
+.PHONY : CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires
+
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides.build
+.PHONY : CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides
+
+CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
+
 # Object files for target DriverMonitor
 DriverMonitor_OBJECTS = \
 "CMakeFiles/DriverMonitor.dir/RightEye.cpp.o" \
@@ -338,7 +361,8 @@ DriverMonitor_OBJECTS = \
 "CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o" \
 "CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o" \
 "CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o" \
-"CMakeFiles/DriverMonitor.dir/Face.cpp.o"
+"CMakeFiles/DriverMonitor.dir/Face.cpp.o" \
+"CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o"
 
 # External object files for target DriverMonitor
 DriverMonitor_EXTERNAL_OBJECTS =
@@ -355,6 +379,7 @@ DriverMonitor: CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/Face.cpp.o
+DriverMonitor: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/build.make
 DriverMonitor: /usr/local/lib/lib3000fps.a
 DriverMonitor: /usr/local/lib/libCaffeClassifier.a
@@ -426,6 +451,7 @@ CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/DriverMonito
 CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o.requires
 CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o.requires
 CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/Face.cpp.o.requires
+CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o.requires
 .PHONY : CMakeFiles/DriverMonitor.dir/requires
 
 CMakeFiles/DriverMonitor.dir/clean:

@@ -10,6 +10,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/lyfe667/fdd/DriverMonitor/Face.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/Face.cpp.o"
   "/home/lyfe667/fdd/DriverMonitor/FaceAnalysisModel.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o"
   "/home/lyfe667/fdd/DriverMonitor/FaceComponent.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o"
+  "/home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o"
   "/home/lyfe667/fdd/DriverMonitor/Frame.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/Frame.cpp.o"
   "/home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/FrameSequenceProcessor.cpp.o"
   "/home/lyfe667/fdd/DriverMonitor/LeftEye.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/LeftEye.cpp.o"

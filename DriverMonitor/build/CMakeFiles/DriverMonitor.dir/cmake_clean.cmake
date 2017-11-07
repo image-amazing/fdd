@@ -11,6 +11,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/DriverMonitor.dir/FaceAnalysisModel.cpp.o"
   "CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.o"
   "CMakeFiles/DriverMonitor.dir/Face.cpp.o"
+  "CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o"
   "DriverMonitor.pdb"
   "DriverMonitor"
 )

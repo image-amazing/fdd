@@ -501,6 +501,8 @@ sys/types.h
 -
 sys/stat.h
 -
+FatigueDetectionFrameSequenceProcessor.h
+/home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.h
 
 /home/lyfe667/fdd/DriverMonitor/FDDGlobal.cpp
 FDDGlobal.h
@@ -556,6 +558,28 @@ FDDGlobal.h
 Frame.h
 /home/lyfe667/fdd/DriverMonitor/Frame.h
 
+/home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.cpp
+FatigueDetectionFrameSequenceProcessor.h
+/home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.h
+limits.h
+-
+
+/home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.h
+string
+-
+opencv2/opencv.hpp
+-
+FaceComponent.h
+/home/lyfe667/fdd/DriverMonitor/FaceComponent.h
+FaceAnalysisModel.h
+/home/lyfe667/fdd/DriverMonitor/FaceAnalysisModel.h
+Face.h
+/home/lyfe667/fdd/DriverMonitor/Face.h
+ResourceManagers.h
+/home/lyfe667/fdd/DriverMonitor/ResourceManagers.h
+FrameSequenceProcessor.h
+/home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.h
+
 /home/lyfe667/fdd/DriverMonitor/Frame.cpp
 Frame.h
 /home/lyfe667/fdd/DriverMonitor/Frame.h
@@ -567,24 +591,12 @@ opencv2/opencv.hpp
 /home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.cpp
 FrameSequenceProcessor.h
 /home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.h
-limits.h
--
 
 /home/lyfe667/fdd/DriverMonitor/FrameSequenceProcessor.h
-string
--
 opencv2/opencv.hpp
 -
-FaceComponent.h
-/home/lyfe667/fdd/DriverMonitor/FaceComponent.h
 Frame.h
 /home/lyfe667/fdd/DriverMonitor/Frame.h
-FaceAnalysisModel.h
-/home/lyfe667/fdd/DriverMonitor/FaceAnalysisModel.h
-Face.h
-/home/lyfe667/fdd/DriverMonitor/Face.h
-ResourceManagers.h
-/home/lyfe667/fdd/DriverMonitor/ResourceManagers.h
 
 /home/lyfe667/fdd/DriverMonitor/LeftEye.cpp
 LeftEye.h

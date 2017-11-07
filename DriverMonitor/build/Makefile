@@ -255,6 +255,30 @@ FaceComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FaceComponent.cpp.s
 .PHONY : FaceComponent.cpp.s
 
+FatigueDetectionFrameSequenceProcessor.o: FatigueDetectionFrameSequenceProcessor.cpp.o
+.PHONY : FatigueDetectionFrameSequenceProcessor.o
+
+# target to build an object file
+FatigueDetectionFrameSequenceProcessor.cpp.o:
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
+.PHONY : FatigueDetectionFrameSequenceProcessor.cpp.o
+
+FatigueDetectionFrameSequenceProcessor.i: FatigueDetectionFrameSequenceProcessor.cpp.i
+.PHONY : FatigueDetectionFrameSequenceProcessor.i
+
+# target to preprocess a source file
+FatigueDetectionFrameSequenceProcessor.cpp.i:
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.i
+.PHONY : FatigueDetectionFrameSequenceProcessor.cpp.i
+
+FatigueDetectionFrameSequenceProcessor.s: FatigueDetectionFrameSequenceProcessor.cpp.s
+.PHONY : FatigueDetectionFrameSequenceProcessor.s
+
+# target to generate assembly for a file
+FatigueDetectionFrameSequenceProcessor.cpp.s:
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/FatigueDetectionFrameSequenceProcessor.cpp.s
+.PHONY : FatigueDetectionFrameSequenceProcessor.cpp.s
+
 Frame.o: Frame.cpp.o
 .PHONY : Frame.o
 
@@ -426,6 +450,9 @@ help:
 	@echo "... FaceComponent.o"
 	@echo "... FaceComponent.i"
 	@echo "... FaceComponent.s"
+	@echo "... FatigueDetectionFrameSequenceProcessor.o"
+	@echo "... FatigueDetectionFrameSequenceProcessor.i"
+	@echo "... FatigueDetectionFrameSequenceProcessor.s"
 	@echo "... Frame.o"
 	@echo "... Frame.i"
 	@echo "... Frame.s"

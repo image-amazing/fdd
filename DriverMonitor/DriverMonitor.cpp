@@ -7,10 +7,11 @@
 #include<unistd.h>
 #include<sys/types.h>
 #include<sys/stat.h>
+#include"FatigueDetectionFrameSequenceProcessor.h"
 
 
 //config global parameters
-void configGlobalVariables(const string &configFile) {
+void configGlobalVariables(const std::string &configFile) {
 	try {
 		libconfig::Config cfg;
 		cfg.readFile(configFile.c_str());
@@ -49,7 +50,7 @@ void configGlobalVariables(const string &configFile) {
 	}
 }
 //check if folder exists,if not ,make the folder
-inline void checkFolder(const string &folderName){
+inline void checkFolder(const std::string &folderName){
     //determine if the folder exists
     if(-1==access(folderName.c_str(),F_OK)){
         //folder doesn't exists
@@ -88,7 +89,7 @@ int main(int argc,char *args[])
                                                              , ab_modelHome+headposeDNNMeanFile,ab_modelHome+headposeLabelFile));
 
     //initialize FrameSequenceProcessor
-    FrameSequenceProcessor fps(pfam
+    FatigueDetectionFrameSequenceProcessor fps(pfam
                                , outputDataHome+videoFolder
                                ,outputDataHome+eyesEvidenceFolder
                                ,outputDataHome+mouthEvidenceFolder);
