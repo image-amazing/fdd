@@ -11,8 +11,8 @@ FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(c
     ,eeFolder_(eeFolder)
     ,meFolder_(meFolder)
 {
-	face_.rightEye().colorImgScale(1.3);
-	face_.leftEye().colorImgScale(1.3);
+    face_.rightEye().colorImgScale(1.3);
+    face_.leftEye().colorImgScale(1.3);
 }
 
 FatigueDetectionFrameSequenceProcessor::~FatigueDetectionFrameSequenceProcessor()
@@ -393,6 +393,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     {
         std::cout<<"distraction detected!!!  left"<<std::endl;
     }
+    countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Left);
     printParamsToMiddle(frame_.colorImg());
     printParamsToRight(frame_.colorImg());
@@ -401,6 +402,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right)){
         std::cout<<"distraction detected!!! right"<<std::endl;
     }
+    countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Right);
     printParamsToMiddle(frame_.colorImg());
     printParamsToRight(frame_.colorImg());

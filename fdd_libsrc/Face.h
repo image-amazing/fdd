@@ -30,6 +30,7 @@ public:
 	~Face();
     void pFrame(const cv::Ptr<Frame> &pFrame);
     void pModel(const cv::Ptr<FaceAnalysisModel> &pModel);
+    void setFaceDetectionRect(const cv::Rect &faceDetectionRect);
 	RightEye &rightEye();
 	LeftEye &leftEye();
 	Mouth &mouth();
@@ -37,13 +38,13 @@ public:
     bool bContainLeftFace();
     bool bContainRightFace();
     bool bContainFace();
-    void faceDetectionRect(const cv::Rect &faceDetectionRect);
+    cv::Rect maxFaceOnSmallImgForFaceDetection();
+       int headpose();
+     cv::Rect flipRect(const cv::Rect &rect,const cv::Size &imgSize,Frame::Direction direction);
      bool detectFaces(FaceAnalysisModel::FaceType faceType);
      void analyzeFrontFace();
      void analyzeHeadpose();
      void detectFaces();
      void drawFaceRect(const cv::Scalar &color);
-     cv::Rect flipRect(const cv::Rect &rect,const cv::Size &imgSize,Frame::Direction direction);
-	cv::Rect maxFaceOnSmallImgForFaceDetection();
-    int headpose();
+     void resetLastStatus();
 };

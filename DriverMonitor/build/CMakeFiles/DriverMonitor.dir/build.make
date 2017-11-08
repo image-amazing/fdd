@@ -49,9 +49,32 @@ include CMakeFiles/DriverMonitor.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DriverMonitor.dir/flags.make
 
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o: ../dm_global.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/dm_global.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/dm_global.cpp.o -c /home/lyfe667/fdd/DriverMonitor/dm_global.cpp
+
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DriverMonitor.dir/dm_global.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/DriverMonitor/dm_global.cpp > CMakeFiles/DriverMonitor.dir/dm_global.cpp.i
+
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DriverMonitor.dir/dm_global.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/DriverMonitor/dm_global.cpp -o CMakeFiles/DriverMonitor.dir/dm_global.cpp.s
+
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.requires:
+.PHONY : CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.requires
+
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.provides: CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.requires
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.provides.build
+.PHONY : CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.provides
+
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.provides.build: CMakeFiles/DriverMonitor.dir/dm_global.cpp.o
+
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: CMakeFiles/DriverMonitor.dir/flags.make
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: ../DriverMonitor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o -c /home/lyfe667/fdd/DriverMonitor/DriverMonitor.cpp
 
@@ -74,11 +97,13 @@ CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o.provides.build: CMakeFiles/Driv
 
 # Object files for target DriverMonitor
 DriverMonitor_OBJECTS = \
+"CMakeFiles/DriverMonitor.dir/dm_global.cpp.o" \
 "CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o"
 
 # External object files for target DriverMonitor
 DriverMonitor_EXTERNAL_OBJECTS =
 
+DriverMonitor: CMakeFiles/DriverMonitor.dir/dm_global.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o
 DriverMonitor: CMakeFiles/DriverMonitor.dir/build.make
 DriverMonitor: /usr/local/lib/liblibfdd.a
@@ -128,6 +153,7 @@ DriverMonitor: CMakeFiles/DriverMonitor.dir/link.txt
 CMakeFiles/DriverMonitor.dir/build: DriverMonitor
 .PHONY : CMakeFiles/DriverMonitor.dir/build
 
+CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/dm_global.cpp.o.requires
 CMakeFiles/DriverMonitor.dir/requires: CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o.requires
 .PHONY : CMakeFiles/DriverMonitor.dir/requires
 

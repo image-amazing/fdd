@@ -10,6 +10,7 @@ private:
     cv::CascadeClassifier pfcc_;
 	cv::Ptr<cv::ml::SVM> rightEyeStatusSVM_;
 	cv::Ptr<CaffeClassifier> rightEyeStatusDNN_;
+    cv::Ptr<cv::ml::SVM> leftEyeStatusSVM_;
 	cv::Ptr<CaffeClassifier> leftEyeStatusDNN_;
 	cv::Ptr <cv::ml::SVM> mouthChinStatusSVM_;
 	cv::Ptr<CaffeClassifier> mouthChinStatusDNN_;
@@ -32,14 +33,28 @@ public:
         ,const std::string &headposeDNNModelPath,const std::string &headposeDNNWeightsPath
         ,const std::string &headposeDNNMeanPath,const std::string &headposeDNNLabelPath);
 	~FaceAnalysisModel();
-    void fcc(const std::string &fccPath);
-    void rightEyeStatusSVM(const std::string &rightEyeStatusSVMPath);
-    void mouthChinStatusSVM(const std::string &mouthChinStatusSVMPath);
-    void featurePointsRegressor(const std::string &featurePointsRegressor,const std::string &regPath);
+    void loadFCC(const std::string &fccPath);
+    void loadPFCC(const std::string &pfccPath);
+    void loadRightEyeStatusSVM(const std::string &rightEyeStatusSVMPath);
+    void loadRightEyeStatusDNN(const std::string &rightEyeDNNModelPath
+                                ,const std::string &rightEyeDNNWeightsPath
+                                ,const std::string &rightEyeDNNMeanPath
+                                ,const std::string &rightEyeDNNLabelPath);
+    void loadLeftEyeStatusSVM(const std::string &leftEyeStatusSVMPath);
+    void loadLeftEyeStatusDNN(const std::string &leftEyeDNNModelPath
+                               ,const std::string &leftEyeDNNWeightsPath
+                               ,const std::string &leftEyeDNNMeanPath
+                               ,const std::string &leftEyeDNNLabelPath);
+    void loadMouthChinStatusSVM(const std::string &mouthChinStatusSVMPath);
+    void loadMouthChinStatusDNN(const std::string &mouthChinDNNModelPath,const std::string &mouthChinDNNWeightsPath
+                                ,const std::string &mouthChinDNNMeanPath,const std::string &mouthChinDNNLabelPath);
+    void loadHeadposeDNN(const std::string &headposeDNNModelPath,const std::string &headposeDNNWeightsPath
+                         ,const std::string &headposeDNNMeanPath,const std::string &headposeDNNLabelPath);
+    void loadFeaturePointsRegressor(const std::string &featurePointsRegressor,const std::string &regPath);
     void detectFaces(const cv::Mat &inputImg,std::vector<cv::Rect> &faces,FaceAnalysisModel::FaceType faceType,double scale=1.1,
 		int minNeighbor=3,int flags=0,cv::Size minSize=cv::Size(),cv::Size maxSize=cv::Size());
-    void regressFeaturePoints(const cv::Mat &inputImg,const cv::Rect &face
-        ,std::vector<cv::Point> &featurePoints, cv::Mat_<double> &regressedShapeWithoutScale,double scale=1.0);
+    void regressFeaturePoints(const cv::Mat &inputImg,const cv::Rect &face ,std::vector<cv::Point> &featurePoints
+                              , cv::Mat_<double> &regressedShapeWithoutScale,double scale=1.0);
     FaceComponent::Status predictRightEyeStatus(cv::Mat rightEyeImg,const cv::Size &normalizedSize=cv::Size(48,16));
     FaceComponent::Status predictRightEyeStatusByDNN(cv::Mat rightEyeImg,const cv::Size &normalizedSize=cv::Size(48,24));
     FaceComponent::Status predictLeftEyeStatusByDNN(cv::Mat cImg,const cv::Size &normalizedSize = cv::Size(48, 24));
@@ -48,7 +63,6 @@ public:
     int predictHeadposeByDNN(cv::Mat faceImg,const cv::Size &normalizedSize=cv::Size(64,64));
     double faceDetectionTime();
 	double faceAlignmentTime();
-	cv::Mat_<double> meanFeaturePointsShape();
 	BoundingBox convertRectToBoundingBox(const cv::Rect &rect);
 private:
         int predictStatusByDNN(cv::Mat cImg,const cv::Size &normalizedSize, cv::Ptr<CaffeClassifier> &pDnn) {

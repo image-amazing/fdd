@@ -17,8 +17,8 @@ public:
     Frame(const cv::Mat &rawFrame,double scaleForFaceDetection=0.2);
 	~Frame();
     Frame &operator=(const cv::Mat &rawFrame);
-	void scaleForFaceDetection(double scaleForFaceDetection);
-	double scaleForFaceDetection();
+    void setScaleForFaceDetection(double scaleForFaceDetection);
+    double getScaleForFaceDetection();
 	cv::Mat &rawFrame();
 	cv::Mat &colorImg();
 	cv::Mat &grayImg();

@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/lyfe667/fdd/DriverMonitor/build
 CMakeFiles/DriverMonitor.dir/all:
 	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/depend
 	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles  1 2
 	@echo "Built target DriverMonitor"
 .PHONY : CMakeFiles/DriverMonitor.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/DriverMonitor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DriverMonitor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/DriverMonitor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles 0
 .PHONY : CMakeFiles/DriverMonitor.dir/rule
@@ -85,6 +85,41 @@ CMakeFiles/DriverMonitor.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/DriverMonitor.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dm_global.dir
+
+# All Build rule for target.
+CMakeFiles/dm_global.dir/all:
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/depend
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles  3
+	@echo "Built target dm_global"
+.PHONY : CMakeFiles/dm_global.dir/all
+
+# Include target in all.
+all: CMakeFiles/dm_global.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dm_global.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/dm_global.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/DriverMonitor/build/CMakeFiles 0
+.PHONY : CMakeFiles/dm_global.dir/rule
+
+# Convenience name for target.
+dm_global: CMakeFiles/dm_global.dir/rule
+.PHONY : dm_global
+
+# clean rule for target.
+CMakeFiles/dm_global.dir/clean:
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/clean
+.PHONY : CMakeFiles/dm_global.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/dm_global.dir/clean
 .PHONY : clean
 
 #=============================================================================

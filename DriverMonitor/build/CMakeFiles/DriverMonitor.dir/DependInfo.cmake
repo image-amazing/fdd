@@ -5,6 +5,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/lyfe667/fdd/DriverMonitor/DriverMonitor.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o"
+  "/home/lyfe667/fdd/DriverMonitor/dm_global.cpp" "/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir/dm_global.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

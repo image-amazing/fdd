@@ -1,4 +1,5 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/DriverMonitor.dir/dm_global.cpp.o"
   "CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o"
   "DriverMonitor.pdb"
   "DriverMonitor"

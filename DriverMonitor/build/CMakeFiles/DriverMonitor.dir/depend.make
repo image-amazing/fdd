@@ -39,7 +39,7 @@ CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /home/lyfe667/caffe/build/inst
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/nccl.hpp
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: ../DriverMonitor.cpp
-CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: ../variables.h
+CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: ../dm_global.h
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/CaffeClassifier.h
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/Camera.h
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/Face.h
@@ -188,4 +188,8 @@ CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/opencv2/viz
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
 CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
+
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o: ../dm_global.cpp
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o: ../dm_global.h
+CMakeFiles/DriverMonitor.dir/dm_global.cpp.o: /usr/local/include/libconfig.h++
 

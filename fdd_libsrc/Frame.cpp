@@ -32,12 +32,12 @@ Frame &Frame::operator=(const cv::Mat &rawFrame)
 	return *this;
 }
 
-void Frame::scaleForFaceDetection(double scaleForFaceDetection)
+void Frame::setScaleForFaceDetection(double scaleForFaceDetection)
 {
 	scaleForFaceDetection_ = scaleForFaceDetection;
 }
 
-double Frame::scaleForFaceDetection()
+double Frame::getScaleForFaceDetection()
 {
 	return scaleForFaceDetection_;
 }

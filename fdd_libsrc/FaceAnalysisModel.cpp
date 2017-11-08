@@ -35,22 +35,50 @@ FaceAnalysisModel::~FaceAnalysisModel()
 	
 }
 
-void FaceAnalysisModel::fcc(const std::string &fccPath)
+void FaceAnalysisModel::loadFCC(const std::string &fccPath)
 {
 	fcc_.load(fccPath);
 }
 
-void FaceAnalysisModel::rightEyeStatusSVM(const std::string &rightEyeStatusSVMPath)
+void FaceAnalysisModel::loadPFCC(const std::string &pfccPath){
+    pfcc_.load(pfccPath);
+}
+
+void FaceAnalysisModel::loadRightEyeStatusSVM(const std::string &rightEyeStatusSVMPath)
 {
 	rightEyeStatusSVM_ = cv::ml::SVM::load(rightEyeStatusSVMPath);
 }
 
-void FaceAnalysisModel::mouthChinStatusSVM(const std::string &mouthChinStatusSVMPath)
+void FaceAnalysisModel::loadRightEyeStatusDNN(const std::string &rightEyeDNNModelPath ,const std::string &rightEyeDNNWeightsPath
+                                              ,const std::string &rightEyeDNNMeanPath ,const std::string &rightEyeDNNLabelPath){
+    rightEyeStatusDNN_.reset(new CaffeClassifier(rightEyeDNNModelPath,rightEyeDNNWeightsPath,rightEyeDNNMeanPath,rightEyeDNNLabelPath));
+}
+
+void FaceAnalysisModel::loadLeftEyeStatusSVM(const std::string &leftEyeStatusSVMPath){
+    leftEyeStatusSVM_=cv::ml::SVM::load(leftEyeStatusSVMPath);
+}
+
+void FaceAnalysisModel::loadLeftEyeStatusDNN(const std::string &leftEyeDNNModelPath,const std::string &leftEyeDNNWeightsPath
+                                             ,const std::string &leftEyeDNNMeanPath ,const std::string &leftEyeDNNLabelPath){
+    leftEyeStatusDNN_.reset(new CaffeClassifier(leftEyeDNNModelPath,leftEyeDNNWeightsPath,leftEyeDNNMeanPath,leftEyeDNNLabelPath));
+}
+
+void FaceAnalysisModel::loadMouthChinStatusSVM(const std::string &mouthChinStatusSVMPath)
 {
 	mouthChinStatusSVM_ = cv::ml::SVM::load(mouthChinStatusSVMPath);
 }
 
-void FaceAnalysisModel::featurePointsRegressor(const std::string &featurePointsRegressorPath,const std::string &regPath)
+void FaceAnalysisModel::loadMouthChinStatusDNN(const std::string &mouthChinDNNModelPath,const std::string &mouthChinDNNWeightsPath
+                                               ,const std::string &mouthChinDNNMeanPath,const std::string &mouthChinDNNLabelPath){
+    mouthChinStatusDNN_.reset(new CaffeClassifier(mouthChinDNNModelPath,mouthChinDNNWeightsPath,mouthChinDNNMeanPath,mouthChinDNNLabelPath));
+}
+
+void FaceAnalysisModel::loadHeadposeDNN(const std::string &headposeDNNModelPath,const std::string &headposeDNNWeightsPath
+                                        ,const std::string &headposeDNNMeanPath,const std::string &headposeDNNLabelPath){
+     headposeDNN_.reset(new CaffeClassifier(headposeDNNModelPath,headposeDNNWeightsPath,headposeDNNMeanPath,headposeDNNLabelPath));
+}
+
+void FaceAnalysisModel::loadFeaturePointsRegressor(const std::string &featurePointsRegressorPath,const std::string &regPath)
 {
     featurePointsRegressor_.Load(featurePointsRegressorPath,regPath);
 }
@@ -183,9 +211,4 @@ double FaceAnalysisModel::faceDetectionTime()
 double FaceAnalysisModel::faceAlignmentTime()
 {
 	return faceAlignmentTime_;
-}
-
-cv::Mat_<double> FaceAnalysisModel::meanFeaturePointsShape()
-{
-	return featurePointsRegressor_.mean_shape_;
 }

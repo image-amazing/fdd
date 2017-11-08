@@ -28,11 +28,12 @@ public:
 	void generateColorImg();
     //template method
 	FaceComponent::Status analyzeStatus();
-	FaceComponent::Status status();
     void pFrame(const cv::Ptr<Frame> &pFrame);
     void pModel(const cv::Ptr<FaceAnalysisModel> &pModel);
-	void featurePoints(std::vector<cv::Point> &featurePoints);
-	void colorImgScale(double colorImgScale);
+    void featurePoints(std::vector<cv::Point> &featurePoints);
+    void colorImgScale(double colorImgScale);
+    FaceComponent::Status status();
+    cv::Mat colorImg();
     //get the vertices of the bounding box
 	cv::Point2f * vertices();
     //draw the bounding box

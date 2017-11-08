@@ -179,6 +179,9 @@ DriverMonitor_BINARY_DIR:STATIC=/home/lyfe667/fdd/DriverMonitor/build
 //Value Computed by CMake
 DriverMonitor_SOURCE_DIR:STATIC=/home/lyfe667/fdd/DriverMonitor
 
+//Dependencies for the target
+dm_global_LIB_DEPENDS:STATIC=general;config++;
+
 
 ########################
 # INTERNAL cache entries

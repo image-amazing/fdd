@@ -51,7 +51,7 @@ void Face::pModel(const cv::Ptr<FaceAnalysisModel> &pModel)
 	mouth_.pModel(pModel);
 }
 
-void Face::faceDetectionRect(const cv::Rect &faceDetectionRect)
+void Face::setFaceDetectionRect(const cv::Rect &faceDetectionRect)
 {
     faceDetectionRect_ = faceDetectionRect;
 }
@@ -86,6 +86,10 @@ bool Face::bContainRightFace(){
 cv::Rect Face::maxFaceOnSmallImgForFaceDetection()
 {
     return maxFaceOnSmallImgForFaceDetection_;
+}
+
+int Face::headpose(){
+    return headpose_;
 }
 
 inline cv::Rect Face::flipRect(const cv::Rect &rect,const cv::Size &imgSize,Frame::Direction direction){
@@ -157,7 +161,7 @@ void Face::analyzeFrontFace(){
                                   , maxFaceOnSmallImgForFaceDetection_
                                   ,featurePoints_
                                   ,regressedShapeWithoutScale_
-                                  ,pFrame_->scaleForFaceDetection());
+                                  ,pFrame_->getScaleForFaceDetection());
     //save right eye feature points
     std::vector<cv::Point> rightEyePoints;
     rightEyePoints.push_back(featurePoints_[4]);
@@ -198,12 +202,12 @@ void Face::analyzeFrontFace(){
     mouth_.analyzeStatus();
     mouth_.drawMinAreaRect();
 }
-static int count=0;
+//static int count=0;
 void Face::analyzeHeadpose(){
-    cv::Mat faceImg=pFrame_->colorImg()(cv::Rect(maxFaceOnSmallImgForFaceDetection_.x/pFrame_->scaleForFaceDetection()
-                                                 ,maxFaceOnSmallImgForFaceDetection_.y/pFrame_->scaleForFaceDetection()
-                                                 ,maxFaceOnSmallImgForFaceDetection_.width/pFrame_->scaleForFaceDetection()
-                                                 ,maxFaceOnSmallImgForFaceDetection_.height/pFrame_->scaleForFaceDetection()));
+    cv::Mat faceImg=pFrame_->colorImg()(cv::Rect(maxFaceOnSmallImgForFaceDetection_.x/pFrame_->getScaleForFaceDetection()
+                                                 ,maxFaceOnSmallImgForFaceDetection_.y/pFrame_->getScaleForFaceDetection()
+                                                 ,maxFaceOnSmallImgForFaceDetection_.width/pFrame_->getScaleForFaceDetection()
+                                                 ,maxFaceOnSmallImgForFaceDetection_.height/pFrame_->getScaleForFaceDetection()));
     cv::imshow("faceImg",faceImg);
    /* time_t now=time(0);
     char filename[16];
@@ -213,15 +217,13 @@ void Face::analyzeHeadpose(){
    //std::cout<<headpose_<<std::endl;
 }
 
-int Face::headpose(){
-    return headpose_;
-}
+
 
 void Face::drawFaceRect(const cv::Scalar &color){
-    cv::rectangle(pFrame_->colorImg(),cv::Rect(maxFaceOnSmallImgForFaceDetection_.x/pFrame_->scaleForFaceDetection()
-                                               ,maxFaceOnSmallImgForFaceDetection_.y/pFrame_->scaleForFaceDetection()
-                                               ,maxFaceOnSmallImgForFaceDetection_.width/pFrame_->scaleForFaceDetection()
-                                               ,maxFaceOnSmallImgForFaceDetection_.height/pFrame_->scaleForFaceDetection())
+    cv::rectangle(pFrame_->colorImg(),cv::Rect(maxFaceOnSmallImgForFaceDetection_.x/pFrame_->getScaleForFaceDetection()
+                                               ,maxFaceOnSmallImgForFaceDetection_.y/pFrame_->getScaleForFaceDetection()
+                                               ,maxFaceOnSmallImgForFaceDetection_.width/pFrame_->getScaleForFaceDetection()
+                                               ,maxFaceOnSmallImgForFaceDetection_.height/pFrame_->getScaleForFaceDetection())
                                                ,color,2);
 }
 
@@ -266,4 +268,10 @@ void Face::detectFaces()
 }
 bool Face::bContainFace(){
     return bContainFrontFace_||bContainLeftFace_||bContainRightFace_;
+}
+void Face::resetLastStatus(){
+    bContainFrontFace_=false;
+    bContainLeftFace_=false;
+    bContainRightFace_=false;
+    faceDetectionRect_=cv::Rect(0,0,0,0);
 }

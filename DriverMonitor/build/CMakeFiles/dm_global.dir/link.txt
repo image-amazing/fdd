@@ -1,0 +1,2 @@
+/usr/bin/ar cr libdm_global.a  CMakeFiles/dm_global.dir/dm_global.cpp.o
+/usr/bin/ranlib libdm_global.a

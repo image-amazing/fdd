@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lyfe667/fdd/DriverMonitor/dm_global.cpp
+dm_global.h
+/home/lyfe667/fdd/DriverMonitor/dm_global.h
+
+/home/lyfe667/fdd/DriverMonitor/dm_global.h
+string
+-
+iostream
+-
+libconfig.h++
+-
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+

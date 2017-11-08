@@ -57,6 +57,47 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -111,6 +152,19 @@ DriverMonitor/fast:
 	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/build
 .PHONY : DriverMonitor/fast
 
+#=============================================================================
+# Target rules for targets named dm_global
+
+# Build rule for target.
+dm_global: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dm_global
+.PHONY : dm_global
+
+# fast build rule for target.
+dm_global/fast:
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/build
+.PHONY : dm_global/fast
+
 DriverMonitor.o: DriverMonitor.cpp.o
 .PHONY : DriverMonitor.o
 
@@ -135,6 +189,33 @@ DriverMonitor.cpp.s:
 	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.s
 .PHONY : DriverMonitor.cpp.s
 
+dm_global.o: dm_global.cpp.o
+.PHONY : dm_global.o
+
+# target to build an object file
+dm_global.cpp.o:
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/dm_global.cpp.o
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/dm_global.cpp.o
+.PHONY : dm_global.cpp.o
+
+dm_global.i: dm_global.cpp.i
+.PHONY : dm_global.i
+
+# target to preprocess a source file
+dm_global.cpp.i:
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/dm_global.cpp.i
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/dm_global.cpp.i
+.PHONY : dm_global.cpp.i
+
+dm_global.s: dm_global.cpp.s
+.PHONY : dm_global.s
+
+# target to generate assembly for a file
+dm_global.cpp.s:
+	$(MAKE) -f CMakeFiles/DriverMonitor.dir/build.make CMakeFiles/DriverMonitor.dir/dm_global.cpp.s
+	$(MAKE) -f CMakeFiles/dm_global.dir/build.make CMakeFiles/dm_global.dir/dm_global.cpp.s
+.PHONY : dm_global.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -142,11 +223,19 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... DriverMonitor"
+	@echo "... dm_global"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... DriverMonitor.o"
 	@echo "... DriverMonitor.i"
 	@echo "... DriverMonitor.s"
+	@echo "... dm_global.o"
+	@echo "... dm_global.i"
+	@echo "... dm_global.s"
 .PHONY : help
 
 
