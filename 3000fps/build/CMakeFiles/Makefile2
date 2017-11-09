@@ -56,8 +56,8 @@ CMAKE_BINARY_DIR = /home/lyfe667/fdd/3000fps/build
 # Target rules for target CMakeFiles/3000fps.dir
 
 # All Build rule for target.
-CMakeFiles/3000fps.dir/all: liblinear/blas/CMakeFiles/blas.dir/all
 CMakeFiles/3000fps.dir/all: liblinear/CMakeFiles/liblinear.dir/all
+CMakeFiles/3000fps.dir/all: liblinear/blas/CMakeFiles/blas.dir/all
 	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/depend
 	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles  1 2 3 4 5 6 7

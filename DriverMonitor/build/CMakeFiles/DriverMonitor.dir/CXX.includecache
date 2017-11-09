@@ -486,10 +486,6 @@ FatigueDetectionFrameSequenceProcessor.h
 assert.h
 -
 
-/home/lyfe667/fdd/DriverMonitor/dm_global.cpp
-dm_global.h
-/home/lyfe667/fdd/DriverMonitor/dm_global.h
-
 /home/lyfe667/fdd/DriverMonitor/dm_global.h
 string
 -

@@ -29,8 +29,8 @@ public:
     }
     //void Read(std::ifstream& fin);
    // void Write(std::ofstream& fout);
-    void Load(std::string path,std::string regName);
-    void Save(std::string path,std::string regName);
+    void Load(std::string path,std::string regPath);
+    void Save(std::string path,std::string regPath);
     struct feature_node ** DeriveBinaryFeat(const RandomForest& randf,
                                             const std::vector<cv::Mat_<uchar> >& images,
                                             const std::vector<cv::Mat_<double> >& current_shapes,
@@ -81,8 +81,8 @@ public:
                               int initial_num);
     void WriteGlobalParam(std::ofstream& fout);
     void ReadGlobalParam(std::ifstream& fin);
-    void WriteRegressor(std::ofstream& fout,std::string regName);
-    void ReadRegressor(std::ifstream& fin,std::string regName);
+    void WriteRegressor(std::ofstream& fout,std::string regPath);
+    void ReadRegressor(std::ifstream& fin,std::string regPath);
 
 };
 

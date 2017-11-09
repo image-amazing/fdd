@@ -437,25 +437,25 @@ Mat_<double>  LBFRegressor::Predict(const cv::Mat_<uchar>& image,
     return current_shapes[0];
 }
 
-void LBFRegressor::Save(string path,std::string regName){
+void LBFRegressor::Save(string path,std::string regPath){
     cout << endl<<"Saving model..." << endl;
     ofstream fout;
     fout.open(path);
     // write the Regressor to file
     WriteGlobalParam(fout);
-    WriteRegressor(fout,regName);
+    WriteRegressor(fout,regPath);
     fout.close();
     cout << "End" << endl;
 
     
 }
 
-void LBFRegressor::Load(string path,string regName){
+void LBFRegressor::Load(string path,string regPath){
     cout << "Loading model from "<< path  << endl;
     ifstream fin;
     fin.open(path);
     ReadGlobalParam(fin);
-    ReadRegressor(fin,regName);
+    ReadRegressor(fin,regPath);
     fin.close();
     cout << "End"<<endl;
 }
@@ -479,14 +479,14 @@ void  LBFRegressor::WriteGlobalParam(ofstream& fout){
     }
     fout << endl;
 }
-void  LBFRegressor::WriteRegressor(ofstream& fout,std::string regName){
+void  LBFRegressor::WriteRegressor(ofstream& fout,std::string regPath){
     for(int i = 0;i < _3000fps_global_params.landmark_num;i++){
         fout << mean_shape_(i,0)<<" "<< mean_shape_(i,1)<<" ";
     }
     fout<<endl;
     ofstream fout_reg;
     //fout_reg.open(modelHome + "Regressor.model",ios::binary);
-      fout_reg.open(regName,ios::binary);
+      fout_reg.open(regPath,ios::binary);
     for (int i=0; i < _3000fps_global_params.max_numstage; i++ ){
         RandomForest_[i].Write(fout);
         fout << Models_[i].size()<< endl;
@@ -514,14 +514,14 @@ void  LBFRegressor::ReadGlobalParam(ifstream& fin){
     }
 }
 
-void LBFRegressor::ReadRegressor(ifstream& fin,std::string regName){
+void LBFRegressor::ReadRegressor(ifstream& fin,std::string regPath){
     mean_shape_ = Mat::zeros(_3000fps_global_params.landmark_num,2,CV_64FC1);
     for(int i = 0;i < _3000fps_global_params.landmark_num;i++){
         fin >> mean_shape_(i,0) >> mean_shape_(i,1);
     }
     ifstream fin_reg;
    // fin_reg.open(modelHome + "Regressor.model",ios::binary);
-    fin_reg.open(regName,ios::binary);
+    fin_reg.open(regPath,ios::binary);
     for (int i=0; i < _3000fps_global_params.max_numstage; i++ ){
         RandomForest_[i].Read(fin);
         int num =0;

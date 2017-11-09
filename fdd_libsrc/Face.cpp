@@ -162,6 +162,7 @@ void Face::analyzeFrontFace(){
                                   ,featurePoints_
                                   ,regressedShapeWithoutScale_
                                   ,pFrame_->getScaleForFaceDetection());
+    std::cout<<"+2"<<std::endl;
     //save right eye feature points
     std::vector<cv::Point> rightEyePoints;
     rightEyePoints.push_back(featurePoints_[4]);
@@ -170,11 +171,14 @@ void Face::analyzeFrontFace(){
     rightEyePoints.push_back(featurePoints_[7]);
     rightEyePoints.push_back(featurePoints_[8]);
     rightEyePoints.push_back(featurePoints_[9]);
+      std::cout<<"+3"<<std::endl;
     //set right eye feature points
     rightEye_.featurePoints(rightEyePoints);
+       std::cout<<"+4"<<std::endl;
     //analyze right eye status
     rightEye_.analyzeStatus();
     rightEye_.drawMinAreaRect();
+
     //save left eye feature points
     std::vector<cv::Point> leftEyePoints;
     leftEyePoints.push_back(featurePoints_[10]);

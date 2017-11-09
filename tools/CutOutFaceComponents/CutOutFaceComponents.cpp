@@ -24,6 +24,7 @@ void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const st
         pfam->loadFCC(ab_modelPath+fccModelName);
         pfam->loadPFCC(ab_modelPath+pfccModelName);
         pfam->loadFeaturePointsRegressor(ab_modelPath+featurePointsRegressorModelName,ab_modelPath+regName);
+
         Face face(pFrame,pfam);
         ifstream fin(pathFile);
         assert(fin);
@@ -38,13 +39,15 @@ void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const st
             face.resetLastStatus();
             face.detectFaces();
             if(face.bContainFace()){
+                 cout<<"+++"<<endl;
                 face.analyzeFrontFace();
+                cout<<"---"<<endl;
+                cv::imshow("leftEye",face.leftEye().colorImg());
+                cv::imshow("rightEye",face.rightEye().colorImg());
+                cv::imshow("mouth",face.mouth().colorImg());
+                cv::imshow("colorImg",pFrame->colorImg());
+                cv::waitKey();
             }
-            cv::imshow("leftEye",face.leftEye().colorImg());
-            cv::imshow("rightEye",face.rightEye().colorImg());
-            cv::imshow("mouth",face.mouth().colorImg());
-            cv::imshow("colorImg",pFrame->colorImg());
-            cv::waitKey();
         }
 }
 

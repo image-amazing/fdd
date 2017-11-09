@@ -1,6 +1,7 @@
 project(CutOutFaceComponents)
 cmake_minimum_required(VERSION 2.8)
 add_compile_options(-std=c++11)
+add_definitions(-DCPU_ONLY)
 find_package(Caffe REQUIRED)
 include_directories(${Caffe_DIR}/install/include)
 include(${CMAKE_INSTALL_PREFIX}/share/3000fps.cmake)
