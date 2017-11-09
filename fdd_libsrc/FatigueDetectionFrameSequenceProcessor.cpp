@@ -320,6 +320,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
             std::cout<<"distraction detected!!!"<<std::endl;
         }
         face_.analyzeFrontFace();
+        face_.drawFaceComponentsRect();
         updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Front);
 		vm_.write(frame_.rawFrame());
         //save eyes evidence
@@ -436,16 +437,6 @@ inline void FatigueDetectionFrameSequenceProcessor::updateAveRawFPSInOneMinute()
 {
 	systemParam_.aveRawFPSInOneMinute_ = round(static_cast<float>(systemParam_.rawFrameCount_-systemParam_.rawFrameCountAtLastMinute_)/60.0f);
 }
-
-/*VideoManager &FatigueDetectionFrameSequenceProcessor::getVm(){
-    return vm_;
-}
-VideoManager &FatigueDetectionFrameSequenceProcessor::getEevm(){
-    return eevm_;
-}
-VideoManager &FatigueDetectionFrameSequenceProcessor::getMevm(){
-    return mevm_;
-}*/
 
 inline void FatigueDetectionFrameSequenceProcessor::resetParameters()
 {

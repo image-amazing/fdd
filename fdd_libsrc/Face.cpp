@@ -155,14 +155,13 @@ bool Face::detectFaces(FaceAnalysisModel::FaceType faceType){
 */
 }
 
-void Face::analyzeFrontFace(){
+void Face::generateFaceComponentsColorImage(){
     //regress feature points on front face
     pModel_->regressFeaturePoints(pFrame_->graySmallImgForFaceDetection()
                                   , maxFaceOnSmallImgForFaceDetection_
                                   ,featurePoints_
                                   ,regressedShapeWithoutScale_
                                   ,pFrame_->getScaleForFaceDetection());
-    std::cout<<"+2"<<std::endl;
     //save right eye feature points
     std::vector<cv::Point> rightEyePoints;
     rightEyePoints.push_back(featurePoints_[4]);
@@ -171,14 +170,10 @@ void Face::analyzeFrontFace(){
     rightEyePoints.push_back(featurePoints_[7]);
     rightEyePoints.push_back(featurePoints_[8]);
     rightEyePoints.push_back(featurePoints_[9]);
-      std::cout<<"+3"<<std::endl;
     //set right eye feature points
     rightEye_.featurePoints(rightEyePoints);
-       std::cout<<"+4"<<std::endl;
     //analyze right eye status
-    rightEye_.analyzeStatus();
-    rightEye_.drawMinAreaRect();
-
+    rightEye_.generateColorImg();
     //save left eye feature points
     std::vector<cv::Point> leftEyePoints;
     leftEyePoints.push_back(featurePoints_[10]);
@@ -190,8 +185,7 @@ void Face::analyzeFrontFace(){
     //set left eye feature points
     leftEye_.featurePoints(leftEyePoints);
     //analyze left eye status
-    leftEye_.analyzeStatus();
-    leftEye_.drawMinAreaRect();
+    leftEye_.generateColorImg();
     //save mouth feature points
     std::vector<cv::Point> mouthChinPoints;
     mouthChinPoints.push_back(featurePoints_[1]);
@@ -203,8 +197,24 @@ void Face::analyzeFrontFace(){
     //set mouth feature points
     mouth_.featurePoints(mouthChinPoints);
     //analyze mouth status
+    mouth_.generateColorImg();
+}
+
+void Face::analyzeFaceComponentsStatus(){
+    rightEye_.analyzeStatus();
+    leftEye_.analyzeStatus();
     mouth_.analyzeStatus();
+}
+
+void Face::drawFaceComponentsRect(){
+    rightEye_.drawMinAreaRect();
+    leftEye_.drawMinAreaRect();
     mouth_.drawMinAreaRect();
+}
+
+void Face::analyzeFrontFace(){
+    generateFaceComponentsColorImage();
+    analyzeFaceComponentsStatus();
 }
 //static int count=0;
 void Face::analyzeHeadpose(){

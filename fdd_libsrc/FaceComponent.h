@@ -40,5 +40,5 @@ public:
 	void drawMinAreaRect();
 private:
     //predict the status of the component
-	virtual FaceComponent::Status predictStatus() = 0;
+    virtual FaceComponent::Status predictStatus() = 0;
 };

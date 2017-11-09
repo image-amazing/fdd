@@ -2,12 +2,6 @@
 #define DM_GLOBAL_H
 
 #include<string>
-#include<iostream>
-#include<libconfig.h++>
-#include<unistd.h>
-#include<sys/types.h>
-#include<sys/stat.h>
-
 extern std::string projectHome;
 //model root folder
 extern std::string re_modelHome;
@@ -42,18 +36,8 @@ extern std::string headposeDNNMeanFile;
 extern std::string headposeLabelFile;
 
 void configGlobalVariables(const std::string &configFile);
+int removeContents(const std::string &path);
+void checkFolder(const std::string &folderName);
 
-//check if folder exists,if not ,make the folder
-inline void checkFolder(const std::string &folderName){
-    //determine if the folder exists
-    if(-1==access(folderName.c_str(),F_OK)){
-        //folder doesn't exists
-        if(-1==mkdir(folderName.c_str(),S_IRWXU)){
-            //fail to mkdir folder
-                std::cout<<"fail to mkdir "<<folderName.c_str()<<std::endl;
-                exit(-1);
-        }
-    }
-}
 
 #endif

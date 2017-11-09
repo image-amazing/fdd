@@ -72,7 +72,7 @@ void FaceComponent::generateColorImg()
 
 FaceComponent::Status FaceComponent::analyzeStatus()
 {
-	generateColorImg();
+    //generateColorImg();
 	status_ = predictStatus();
 	return status_;
 } 

@@ -39,9 +39,12 @@ public:
     bool bContainRightFace();
     bool bContainFace();
     cv::Rect maxFaceOnSmallImgForFaceDetection();
-       int headpose();
+     int headpose();
      cv::Rect flipRect(const cv::Rect &rect,const cv::Size &imgSize,Frame::Direction direction);
      bool detectFaces(FaceAnalysisModel::FaceType faceType);
+     void generateFaceComponentsColorImage();
+     void analyzeFaceComponentsStatus();
+     void drawFaceComponentsRect();
      void analyzeFrontFace();
      void analyzeHeadpose();
      void detectFaces();

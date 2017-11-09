@@ -1,4 +1,13 @@
 #include"dm_global.h"
+#include<iostream>
+#include<libconfig.h++>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<dirent.h>
+#include<stdio.h>
+#include<assert.h>
+#include<cstring>
 
   std::string projectHome;
 //model root folder
@@ -70,6 +79,40 @@ void configGlobalVariables(const std::string &configFile) {
     }
     catch (...) {
         std::cout << "fail to config from "<<configFile.c_str() <<std:: endl;
+    }
+}
+
+int removeContents(const std::string &path){
+    DIR *dir=opendir(path.c_str());
+    assert(NULL!=dir);
+    struct dirent *ptr=readdir(dir);
+    while(NULL!=ptr){
+        //std::cout<<ptr->d_name<<std::endl;
+        if(8==ptr->d_type){
+            if(-1==remove((path+"/"+ptr->d_name).c_str())){
+                return -1;
+            }
+        }else if(4==ptr->d_type){
+          if(-1==removeContents((path+"/"+ptr->d_name).c_str())|| -1==rmdir((path+"/"+ptr->d_name).c_str())){
+                return -1;
+          }
+        }
+        ptr=readdir(dir);
+    }
+    return 0;
+}
+
+
+//check if folder exists,if not ,make the folder
+void checkFolder(const std::string &folderName){
+    //determine if the folder exists
+    if(-1==access(folderName.c_str(),F_OK)){
+        //folder doesn't exists
+        if(-1==mkdir(folderName.c_str(),S_IRWXU)){
+            //fail to mkdir folder
+                std::cout<<"fail to mkdir "<<folderName.c_str()<<std::endl;
+                exit(-1);
+        }
     }
 }
 
