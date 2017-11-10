@@ -637,24 +637,6 @@ caffe/layers/softmax_layer.hpp
 /usr/local/include/dm_global.h
 string
 -
-iostream
--
-libconfig.h++
--
-unistd.h
--
-sys/types.h
--
-sys/stat.h
--
-
-/usr/local/include/libconfig.h++
-stdio.h
--
-exception
--
-string
--
 
 /usr/local/include/liblinear/linear.h
 iostream

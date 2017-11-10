@@ -37,7 +37,8 @@ int main(int argc,char *args[])
                                ,outputDataHome+mouthEvidenceFolder);
 
     //intialize camera
-    Camera camera(fps);
+    const int cameraID=0;
+    Camera camera(fps,cameraID);
 	camera.run();
 
 	return 0;

@@ -9,14 +9,6 @@ CameraManager::CameraManager()
 void CameraManager::openCamera(int cameraID)
 {
     capture.open(cameraID);
-	if (!capture.isOpened())
-	{
-		capture.open(0);
-		if (!capture.isOpened())
-		{
-			throw std::exception();
-		}
-	}
 }
 
 cv::Mat &CameraManager::readFrame()

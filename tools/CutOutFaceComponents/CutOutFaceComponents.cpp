@@ -45,7 +45,7 @@ void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const st
                 cv::imwrite(outputDir+"/"+leftEyeDir+"/L_"+imgName,face.leftEye().colorImg());
                 cv::imwrite(outputDir+"/"+rightEyeDir+"/R_"+imgName,face.rightEye().colorImg());
                 cv::imwrite(outputDir+"/"+mouthDir+"/M_"+imgName,face.mouth().colorImg());
-                cout<<pathPrefix+line<<"processed"<<endl;
+                cout<<pathPrefix+line<<"  processed"<<endl;
             }
         }
 }
