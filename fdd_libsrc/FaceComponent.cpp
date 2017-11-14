@@ -113,6 +113,7 @@ FaceComponent::Status FaceComponent::status()
 {
 	return status_;
 }
+
 cv::Mat FaceComponent::colorImg(){
    return colorImg_;
 }

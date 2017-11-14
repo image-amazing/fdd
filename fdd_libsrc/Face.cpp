@@ -244,7 +244,7 @@ void Face::drawFaceRect(const cv::Scalar &color){
 void Face::detectFaces()
 {
     pFrame_->equalizeGraySmallImgForFaceDetectionHist();
-    if(bContainFrontFace_||!bContainFace()){
+   if(bContainFrontFace_||!bContainFace()){
         //if front face detected or neither front face nor profile face detected,we detect front face
         bContainFrontFace_=detectFaces(FaceAnalysisModel::FaceType::Front);
         if(bContainFrontFace_){
