@@ -1,6 +1,8 @@
 #include"FatigueDetectionFrameSequenceProcessor.h"
 #include<limits.h>
 
+namespace fdd{
+
 FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pFaceAnalysisModel
                                                , const std::string &videoFolder
                                                , const std::string &eeFolder
@@ -223,7 +225,7 @@ void FatigueDetectionFrameSequenceProcessor::updateFPS()
 {
 	systemParam_.fps_ = systemParam_.faceFrameCount_ - systemParam_.faceFrameCountAtLastSecond_;
 }
-
+#ifdef WITH_SCREEN
 void FatigueDetectionFrameSequenceProcessor::printParamsToLeft(cv::Mat &colorImg)
 {//use relative cooridnate to fit variation of image size
 	cv::putText(colorImg, ("RIGHT "+rightEyeParam_.eyeStatusStr_).c_str(), cv::Point(40, 20), 0, 0.5, rightEyeParam_.eyeStatusColor_,2);
@@ -269,7 +271,7 @@ void FatigueDetectionFrameSequenceProcessor::printParamsToRight(cv::Mat &colorIm
     sprintf(faceAlignmentTime_buf, "FAT:%.3lf", pFaceAnalysisModel_->faceAlignmentTime());
     cv::putText(colorImg, faceAlignmentTime_buf, cv::Point(450, 80), 0, 0.5, cv::Scalar(255, 0, 0),2);
 }
-
+#endif
 void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 {
 	checkRawFrameCount();
@@ -385,10 +387,12 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 mevm_.open();
 			}
 		}
+#ifdef WITH_SCREEN
+        face_.drawFaceRect(Face::frontColor);
         printParamsToLeft(frame_.colorImg());
         printParamsToMiddle(frame_.colorImg());
         printParamsToRight(frame_.colorImg());
-        face_.drawFaceRect(Face::frontColor);
+#endif
     }else if(face_.bContainLeftFace()){
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Left))
     {
@@ -396,25 +400,31 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     }
     countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Left);
+#ifdef WITH_SCREEN
+     face_.drawFaceRect(Face::leftColor);
     printParamsToMiddle(frame_.colorImg());
     printParamsToRight(frame_.colorImg());
-    face_.drawFaceRect(Face::leftColor);
+#endif
     }else if(face_.bContainRightFace()){
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right)){
         std::cout<<"distraction detected!!! right"<<std::endl;
     }
     countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Right);
+#ifdef  WITH_SCREEN
+    face_.drawFaceRect(Face::rightColor);
     printParamsToMiddle(frame_.colorImg());
     printParamsToRight(frame_.colorImg());
-    face_.drawFaceRect(Face::rightColor);
+#endif
     }
 	if (systemParam_.lastSecond_ != systemParam_.nowTime_)
 	{
 		systemParam_.lastSecond_ = systemParam_.nowTime_;
 	}
+#ifdef  WITH_SCREEN
 	cv::imshow("colorImg", frame_.colorImg());
 	cv::waitKey(1);
+#endif
 }
 
 void FatigueDetectionFrameSequenceProcessor::beforeProcess(){
@@ -454,4 +464,5 @@ inline void FatigueDetectionFrameSequenceProcessor::checkRawFrameCount()
 	{
 		resetParameters();
 	}
+}
 }

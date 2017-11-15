@@ -1,6 +1,7 @@
 #pragma once
 #include"Frame.h"
 //#include"FaceAnalysisModel.h"
+namespace fdd{
 class FaceAnalysisModel;
 class FaceComponent {
 public:
@@ -42,3 +43,4 @@ private:
     //predict the status of the component
     virtual FaceComponent::Status predictStatus() = 0;
 };
+}

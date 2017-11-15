@@ -1,6 +1,8 @@
 #include"FaceAnalysisModel.h"
 #include"Face.h"
 #include<exception>
+using namespace LBF;
+namespace fdd{
 FaceAnalysisModel::FaceAnalysisModel()
 	:faceDetectionTime_(0),faceAlignmentTime_(0)
 {
@@ -211,4 +213,5 @@ double FaceAnalysisModel::faceDetectionTime()
 double FaceAnalysisModel::faceAlignmentTime()
 {
 	return faceAlignmentTime_;
+}
 }

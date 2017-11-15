@@ -1,5 +1,6 @@
 #pragma once
 #include<opencv2/opencv.hpp>
+namespace fdd{
 //manage camera resource
 class CameraManager {
 public:
@@ -38,3 +39,4 @@ private:
 	cv::Size frameSize_;
 	bool bAdd_;
 };
+}

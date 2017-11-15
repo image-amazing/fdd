@@ -1,6 +1,8 @@
 #include "ResourceManagers.h"
 #include<exception>
 
+namespace fdd{
+
 CameraManager::CameraManager()
 {
 	
@@ -119,4 +121,5 @@ void VideoManager::write(const cv::Mat &frame)
 const std::string &VideoManager::getVideoPath() const
 {
 	return videoPath_;
+}
 }

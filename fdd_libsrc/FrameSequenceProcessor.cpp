@@ -1,5 +1,7 @@
 #include"FrameSequenceProcessor.h"
 
+namespace fdd{
+
 void FrameSequenceProcessor::setFrameWidth(int frameWidth){
     frameWidth_=frameWidth;
 }
@@ -14,4 +16,6 @@ int FrameSequenceProcessor::getFrameWidth(){
 
 int FrameSequenceProcessor::getFrameHeight(){
     return frameHeight_;
+}
+
 }

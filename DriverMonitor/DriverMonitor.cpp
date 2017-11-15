@@ -5,6 +5,10 @@
 #include"FatigueDetectionFrameSequenceProcessor.h"
 #include<assert.h>
 
+using namespace fdd;
+using namespace LBF;
+using namespace dm;
+
 int main(int argc,char *args[])
 {
    assert(argc>1);

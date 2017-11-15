@@ -7,6 +7,10 @@
 #include<Face.h>
 #include<assert.h>
 using namespace std;
+using namespace dm;
+using namespace fdd;
+using namespace LBF;
+
 const string leftEyeDir="LeftEye/";
 const string rightEyeDir="RightEye/";
 const string mouthDir="Mouth/";

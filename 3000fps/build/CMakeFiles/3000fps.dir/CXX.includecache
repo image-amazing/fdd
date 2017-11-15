@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lyfe667/fdd/3000fps/Facedetect.cpp
-LBFRegressor.h
-/home/lyfe667/fdd/3000fps/LBFRegressor.h
-
 /home/lyfe667/fdd/3000fps/LBF.h
 opencv2/objdetect/objdetect.hpp
 /home/lyfe667/fdd/3000fps/opencv2/objdetect/objdetect.hpp
@@ -73,14 +69,6 @@ RandomForest.h
 /home/lyfe667/fdd/3000fps/RandomForest.h
 Tree.h
 /home/lyfe667/fdd/3000fps/Tree.h
-
-/home/lyfe667/fdd/3000fps/TestModel.cpp
-LBFRegressor.h
-/home/lyfe667/fdd/3000fps/LBFRegressor.h
-
-/home/lyfe667/fdd/3000fps/TrainModel.cpp
-LBFRegressor.h
-/home/lyfe667/fdd/3000fps/LBFRegressor.h
 
 /home/lyfe667/fdd/3000fps/Tree.cpp
 Tree.h

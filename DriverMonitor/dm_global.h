@@ -2,6 +2,7 @@
 #define DM_GLOBAL_H
 
 #include<string>
+namespace dm{
 extern std::string projectHome;
 //model root folder
 extern std::string re_modelHome;
@@ -38,6 +39,6 @@ extern std::string headposeLabelFile;
 void configGlobalVariables(const std::string &configFile);
 int removeContents(const std::string &path);
 void checkFolder(const std::string &folderName,bool bRetain=true);
-
+}
 
 #endif

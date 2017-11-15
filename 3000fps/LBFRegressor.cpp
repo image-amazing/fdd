@@ -9,7 +9,7 @@
 #include "LBFRegressor.h"
 using namespace std;
 using namespace cv;
-
+namespace LBF{
 struct feature_node ** LBFRegressor::DeriveBinaryFeat(
                                     const RandomForest& randf,
                                     const vector<Mat_<uchar> >& images,
@@ -534,3 +534,4 @@ void LBFRegressor::ReadRegressor(ifstream& fin,std::string regPath){
     fin_reg.close();
 }
 
+}

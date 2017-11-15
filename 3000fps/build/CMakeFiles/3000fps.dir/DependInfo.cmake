@@ -4,11 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lyfe667/fdd/3000fps/Facedetect.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/Facedetect.cpp.o"
   "/home/lyfe667/fdd/3000fps/LBFRegressor.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/LBFRegressor.cpp.o"
   "/home/lyfe667/fdd/3000fps/RandomForest.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/RandomForest.cpp.o"
-  "/home/lyfe667/fdd/3000fps/TestModel.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/TestModel.cpp.o"
-  "/home/lyfe667/fdd/3000fps/TrainModel.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/TrainModel.cpp.o"
   "/home/lyfe667/fdd/3000fps/Tree.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/Tree.cpp.o"
   "/home/lyfe667/fdd/3000fps/Utils.cpp" "/home/lyfe667/fdd/3000fps/build/CMakeFiles/3000fps.dir/Utils.cpp.o"
   )

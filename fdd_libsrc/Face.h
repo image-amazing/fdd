@@ -4,6 +4,7 @@
 #include "RightEye.h"
 #include "LeftEye.h"
 #include "Mouth.h"
+namespace fdd{
 class Face {
 public:
     static const cv::Scalar frontColor;
@@ -51,3 +52,4 @@ public:
      void drawFaceRect(const cv::Scalar &color);
      void resetLastStatus();
 };
+}

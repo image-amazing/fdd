@@ -1,6 +1,8 @@
 #include"Face.h"
 #include"FDDGlobal.h"
 
+namespace fdd{
+
 const cv::Scalar Face::frontColor=cv::Scalar(0,255,0);
 const cv::Scalar Face::leftColor=cv::Scalar(0,255,255);
 const cv::Scalar Face::rightColor=cv::Scalar(0,0,255);
@@ -222,7 +224,7 @@ void Face::analyzeHeadpose(){
                                                  ,maxFaceOnSmallImgForFaceDetection_.y/pFrame_->getScaleForFaceDetection()
                                                  ,maxFaceOnSmallImgForFaceDetection_.width/pFrame_->getScaleForFaceDetection()
                                                  ,maxFaceOnSmallImgForFaceDetection_.height/pFrame_->getScaleForFaceDetection()));
-    cv::imshow("faceImg",faceImg);
+    //cv::imshow("faceImg",faceImg);
    /* time_t now=time(0);
     char filename[16];
     sprintf(filename,"temp/%d%d.jpg",now,count++);
@@ -288,4 +290,5 @@ void Face::resetLastStatus(){
     bContainLeftFace_=false;
     bContainRightFace_=false;
     faceDetectionRect_=cv::Rect(0,0,0,0);
+}
 }

@@ -178,30 +178,6 @@ blas/fast:
 	$(MAKE) -f liblinear/blas/CMakeFiles/blas.dir/build.make liblinear/blas/CMakeFiles/blas.dir/build
 .PHONY : blas/fast
 
-Facedetect.o: Facedetect.cpp.o
-.PHONY : Facedetect.o
-
-# target to build an object file
-Facedetect.cpp.o:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/Facedetect.cpp.o
-.PHONY : Facedetect.cpp.o
-
-Facedetect.i: Facedetect.cpp.i
-.PHONY : Facedetect.i
-
-# target to preprocess a source file
-Facedetect.cpp.i:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/Facedetect.cpp.i
-.PHONY : Facedetect.cpp.i
-
-Facedetect.s: Facedetect.cpp.s
-.PHONY : Facedetect.s
-
-# target to generate assembly for a file
-Facedetect.cpp.s:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/Facedetect.cpp.s
-.PHONY : Facedetect.cpp.s
-
 LBFRegressor.o: LBFRegressor.cpp.o
 .PHONY : LBFRegressor.o
 
@@ -249,54 +225,6 @@ RandomForest.s: RandomForest.cpp.s
 RandomForest.cpp.s:
 	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/RandomForest.cpp.s
 .PHONY : RandomForest.cpp.s
-
-TestModel.o: TestModel.cpp.o
-.PHONY : TestModel.o
-
-# target to build an object file
-TestModel.cpp.o:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TestModel.cpp.o
-.PHONY : TestModel.cpp.o
-
-TestModel.i: TestModel.cpp.i
-.PHONY : TestModel.i
-
-# target to preprocess a source file
-TestModel.cpp.i:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TestModel.cpp.i
-.PHONY : TestModel.cpp.i
-
-TestModel.s: TestModel.cpp.s
-.PHONY : TestModel.s
-
-# target to generate assembly for a file
-TestModel.cpp.s:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TestModel.cpp.s
-.PHONY : TestModel.cpp.s
-
-TrainModel.o: TrainModel.cpp.o
-.PHONY : TrainModel.o
-
-# target to build an object file
-TrainModel.cpp.o:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TrainModel.cpp.o
-.PHONY : TrainModel.cpp.o
-
-TrainModel.i: TrainModel.cpp.i
-.PHONY : TrainModel.i
-
-# target to preprocess a source file
-TrainModel.cpp.i:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TrainModel.cpp.i
-.PHONY : TrainModel.cpp.i
-
-TrainModel.s: TrainModel.cpp.s
-.PHONY : TrainModel.s
-
-# target to generate assembly for a file
-TrainModel.cpp.s:
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TrainModel.cpp.s
-.PHONY : TrainModel.cpp.s
 
 Tree.o: Tree.cpp.o
 .PHONY : Tree.o
@@ -361,21 +289,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... liblinear"
 	@echo "... blas"
-	@echo "... Facedetect.o"
-	@echo "... Facedetect.i"
-	@echo "... Facedetect.s"
 	@echo "... LBFRegressor.o"
 	@echo "... LBFRegressor.i"
 	@echo "... LBFRegressor.s"
 	@echo "... RandomForest.o"
 	@echo "... RandomForest.i"
 	@echo "... RandomForest.s"
-	@echo "... TestModel.o"
-	@echo "... TestModel.i"
-	@echo "... TestModel.s"
-	@echo "... TrainModel.o"
-	@echo "... TrainModel.i"
-	@echo "... TrainModel.s"
 	@echo "... Tree.o"
 	@echo "... Tree.i"
 	@echo "... Tree.s"

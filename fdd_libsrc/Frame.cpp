@@ -1,5 +1,5 @@
 #include"Frame.h"
-
+namespace fdd{
 Frame::Frame()
 	:rawFrame_(cv::Mat()),colorImg_(cv::Mat()),grayImg_(cv::Mat())
 	,graySmallImgForFaceDetection_(cv::Mat()),scaleForFaceDetection_(0.2)
@@ -65,4 +65,5 @@ cv::Mat &Frame::graySmallImgForFaceDetection()
 void Frame::equalizeGraySmallImgForFaceDetectionHist()
 {
 	cv::equalizeHist(graySmallImgForFaceDetection_, graySmallImgForFaceDetection_);
+}
 }

@@ -1,6 +1,6 @@
 #include"FaceComponent.h"
 #include"FDDGlobal.h"
-
+namespace fdd{
 FaceComponent::FaceComponent()
 	:pFrame_(nullptr),pModel_(nullptr),colorImg_(cv::Mat()),colorImgScale_(1.0f)
 {
@@ -116,4 +116,5 @@ FaceComponent::Status FaceComponent::status()
 
 cv::Mat FaceComponent::colorImg(){
    return colorImg_;
+}
 }

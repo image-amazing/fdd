@@ -10,7 +10,7 @@
 #define __myopencv__Tree__
 
 #include "LBF.h"
-
+namespace LBF{
 class Node {
 public:
     //data
@@ -114,7 +114,7 @@ public:
     
 };
 
-
+}
 
 
 

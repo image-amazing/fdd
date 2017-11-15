@@ -1,6 +1,7 @@
 #pragma once
 #include"ResourceManagers.h"
 #include"FrameSequenceProcessor.h"
+namespace fdd{
 class Camera {
 private:
 	CameraManager cm_;
@@ -13,3 +14,4 @@ public:
     void setCameraID(int cameraID);
     int getCameraID();
 };
+}

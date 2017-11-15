@@ -10,7 +10,7 @@
 #define __myopencv__RandomForest__
 
 #include "Tree.h"
-
+namespace LBF{
 class RandomForest{
 public:
     std::vector<std::vector<Tree> > rfs_;
@@ -45,6 +45,6 @@ public:
     void Write(std::ofstream& fout);
 };
 
-
+}
 
 #endif /* defined(__myopencv__RandomForest__) */

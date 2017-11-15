@@ -1,4 +1,5 @@
 #include"FDDGlobal.h"
+namespace fdd{
 
 void checkBoundary(cv::Rect &checkedRect , const cv::Rect &boundingRect){
     //check checkedRect with boundingRect to prevent overstep the boundary
@@ -16,4 +17,5 @@ cv::Rect extendRect(const cv::Rect &originRect,double scale){
    extendedRect.width=originRect.width*scale;
    extendedRect.height=originRect.height*scale;
    return extendedRect;
+}
 }

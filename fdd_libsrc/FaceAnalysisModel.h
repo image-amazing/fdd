@@ -3,6 +3,7 @@
 #include"LBFRegressor.h"
 #include"FaceComponent.h"
 #include"CaffeClassifier.h"
+namespace fdd{
 class Face;
 class FaceAnalysisModel {
 private:
@@ -15,7 +16,7 @@ private:
 	cv::Ptr <cv::ml::SVM> mouthChinStatusSVM_;
 	cv::Ptr<CaffeClassifier> mouthChinStatusDNN_;
     cv::Ptr<CaffeClassifier> headposeDNN_;
-	LBFRegressor featurePointsRegressor_;
+    LBF::LBFRegressor featurePointsRegressor_;
 	double faceDetectionTime_;
 	double faceAlignmentTime_;
 public:
@@ -63,7 +64,7 @@ public:
     int predictHeadposeByDNN(cv::Mat faceImg,const cv::Size &normalizedSize=cv::Size(64,64));
     double faceDetectionTime();
 	double faceAlignmentTime();
-	BoundingBox convertRectToBoundingBox(const cv::Rect &rect);
+    LBF::BoundingBox convertRectToBoundingBox(const cv::Rect &rect);
 private:
         int predictStatusByDNN(cv::Mat cImg,const cv::Size &normalizedSize, cv::Ptr<CaffeClassifier> &pDnn) {
 		cv::resize(cImg, cImg, normalizedSize);
@@ -75,3 +76,4 @@ private:
         return maxIndex;
 	}
 };
+}

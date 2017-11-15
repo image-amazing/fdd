@@ -49,55 +49,9 @@ include CMakeFiles/3000fps.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/3000fps.dir/flags.make
 
-CMakeFiles/3000fps.dir/TestModel.cpp.o: CMakeFiles/3000fps.dir/flags.make
-CMakeFiles/3000fps.dir/TestModel.cpp.o: ../TestModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/TestModel.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/TestModel.cpp.o -c /home/lyfe667/fdd/3000fps/TestModel.cpp
-
-CMakeFiles/3000fps.dir/TestModel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3000fps.dir/TestModel.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/3000fps/TestModel.cpp > CMakeFiles/3000fps.dir/TestModel.cpp.i
-
-CMakeFiles/3000fps.dir/TestModel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3000fps.dir/TestModel.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/3000fps/TestModel.cpp -o CMakeFiles/3000fps.dir/TestModel.cpp.s
-
-CMakeFiles/3000fps.dir/TestModel.cpp.o.requires:
-.PHONY : CMakeFiles/3000fps.dir/TestModel.cpp.o.requires
-
-CMakeFiles/3000fps.dir/TestModel.cpp.o.provides: CMakeFiles/3000fps.dir/TestModel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TestModel.cpp.o.provides.build
-.PHONY : CMakeFiles/3000fps.dir/TestModel.cpp.o.provides
-
-CMakeFiles/3000fps.dir/TestModel.cpp.o.provides.build: CMakeFiles/3000fps.dir/TestModel.cpp.o
-
-CMakeFiles/3000fps.dir/Facedetect.cpp.o: CMakeFiles/3000fps.dir/flags.make
-CMakeFiles/3000fps.dir/Facedetect.cpp.o: ../Facedetect.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/Facedetect.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/Facedetect.cpp.o -c /home/lyfe667/fdd/3000fps/Facedetect.cpp
-
-CMakeFiles/3000fps.dir/Facedetect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3000fps.dir/Facedetect.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/3000fps/Facedetect.cpp > CMakeFiles/3000fps.dir/Facedetect.cpp.i
-
-CMakeFiles/3000fps.dir/Facedetect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3000fps.dir/Facedetect.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/3000fps/Facedetect.cpp -o CMakeFiles/3000fps.dir/Facedetect.cpp.s
-
-CMakeFiles/3000fps.dir/Facedetect.cpp.o.requires:
-.PHONY : CMakeFiles/3000fps.dir/Facedetect.cpp.o.requires
-
-CMakeFiles/3000fps.dir/Facedetect.cpp.o.provides: CMakeFiles/3000fps.dir/Facedetect.cpp.o.requires
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/Facedetect.cpp.o.provides.build
-.PHONY : CMakeFiles/3000fps.dir/Facedetect.cpp.o.provides
-
-CMakeFiles/3000fps.dir/Facedetect.cpp.o.provides.build: CMakeFiles/3000fps.dir/Facedetect.cpp.o
-
 CMakeFiles/3000fps.dir/LBFRegressor.cpp.o: CMakeFiles/3000fps.dir/flags.make
 CMakeFiles/3000fps.dir/LBFRegressor.cpp.o: ../LBFRegressor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/LBFRegressor.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/LBFRegressor.cpp.o -c /home/lyfe667/fdd/3000fps/LBFRegressor.cpp
 
@@ -120,7 +74,7 @@ CMakeFiles/3000fps.dir/LBFRegressor.cpp.o.provides.build: CMakeFiles/3000fps.dir
 
 CMakeFiles/3000fps.dir/RandomForest.cpp.o: CMakeFiles/3000fps.dir/flags.make
 CMakeFiles/3000fps.dir/RandomForest.cpp.o: ../RandomForest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/RandomForest.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/RandomForest.cpp.o -c /home/lyfe667/fdd/3000fps/RandomForest.cpp
 
@@ -141,32 +95,9 @@ CMakeFiles/3000fps.dir/RandomForest.cpp.o.provides: CMakeFiles/3000fps.dir/Rando
 
 CMakeFiles/3000fps.dir/RandomForest.cpp.o.provides.build: CMakeFiles/3000fps.dir/RandomForest.cpp.o
 
-CMakeFiles/3000fps.dir/TrainModel.cpp.o: CMakeFiles/3000fps.dir/flags.make
-CMakeFiles/3000fps.dir/TrainModel.cpp.o: ../TrainModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/TrainModel.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/TrainModel.cpp.o -c /home/lyfe667/fdd/3000fps/TrainModel.cpp
-
-CMakeFiles/3000fps.dir/TrainModel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3000fps.dir/TrainModel.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/3000fps/TrainModel.cpp > CMakeFiles/3000fps.dir/TrainModel.cpp.i
-
-CMakeFiles/3000fps.dir/TrainModel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3000fps.dir/TrainModel.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/3000fps/TrainModel.cpp -o CMakeFiles/3000fps.dir/TrainModel.cpp.s
-
-CMakeFiles/3000fps.dir/TrainModel.cpp.o.requires:
-.PHONY : CMakeFiles/3000fps.dir/TrainModel.cpp.o.requires
-
-CMakeFiles/3000fps.dir/TrainModel.cpp.o.provides: CMakeFiles/3000fps.dir/TrainModel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/3000fps.dir/build.make CMakeFiles/3000fps.dir/TrainModel.cpp.o.provides.build
-.PHONY : CMakeFiles/3000fps.dir/TrainModel.cpp.o.provides
-
-CMakeFiles/3000fps.dir/TrainModel.cpp.o.provides.build: CMakeFiles/3000fps.dir/TrainModel.cpp.o
-
 CMakeFiles/3000fps.dir/Tree.cpp.o: CMakeFiles/3000fps.dir/flags.make
 CMakeFiles/3000fps.dir/Tree.cpp.o: ../Tree.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/Tree.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/Tree.cpp.o -c /home/lyfe667/fdd/3000fps/Tree.cpp
 
@@ -189,7 +120,7 @@ CMakeFiles/3000fps.dir/Tree.cpp.o.provides.build: CMakeFiles/3000fps.dir/Tree.cp
 
 CMakeFiles/3000fps.dir/Utils.cpp.o: CMakeFiles/3000fps.dir/flags.make
 CMakeFiles/3000fps.dir/Utils.cpp.o: ../Utils.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/3000fps/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/3000fps.dir/Utils.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/3000fps.dir/Utils.cpp.o -c /home/lyfe667/fdd/3000fps/Utils.cpp
 
@@ -212,22 +143,16 @@ CMakeFiles/3000fps.dir/Utils.cpp.o.provides.build: CMakeFiles/3000fps.dir/Utils.
 
 # Object files for target 3000fps
 3000fps_OBJECTS = \
-"CMakeFiles/3000fps.dir/TestModel.cpp.o" \
-"CMakeFiles/3000fps.dir/Facedetect.cpp.o" \
 "CMakeFiles/3000fps.dir/LBFRegressor.cpp.o" \
 "CMakeFiles/3000fps.dir/RandomForest.cpp.o" \
-"CMakeFiles/3000fps.dir/TrainModel.cpp.o" \
 "CMakeFiles/3000fps.dir/Tree.cpp.o" \
 "CMakeFiles/3000fps.dir/Utils.cpp.o"
 
 # External object files for target 3000fps
 3000fps_EXTERNAL_OBJECTS =
 
-lib3000fps.a: CMakeFiles/3000fps.dir/TestModel.cpp.o
-lib3000fps.a: CMakeFiles/3000fps.dir/Facedetect.cpp.o
 lib3000fps.a: CMakeFiles/3000fps.dir/LBFRegressor.cpp.o
 lib3000fps.a: CMakeFiles/3000fps.dir/RandomForest.cpp.o
-lib3000fps.a: CMakeFiles/3000fps.dir/TrainModel.cpp.o
 lib3000fps.a: CMakeFiles/3000fps.dir/Tree.cpp.o
 lib3000fps.a: CMakeFiles/3000fps.dir/Utils.cpp.o
 lib3000fps.a: CMakeFiles/3000fps.dir/build.make
@@ -240,11 +165,8 @@ lib3000fps.a: CMakeFiles/3000fps.dir/link.txt
 CMakeFiles/3000fps.dir/build: lib3000fps.a
 .PHONY : CMakeFiles/3000fps.dir/build
 
-CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/TestModel.cpp.o.requires
-CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/Facedetect.cpp.o.requires
 CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/LBFRegressor.cpp.o.requires
 CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/RandomForest.cpp.o.requires
-CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/TrainModel.cpp.o.requires
 CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/Tree.cpp.o.requires
 CMakeFiles/3000fps.dir/requires: CMakeFiles/3000fps.dir/Utils.cpp.o.requires
 .PHONY : CMakeFiles/3000fps.dir/requires

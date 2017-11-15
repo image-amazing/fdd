@@ -1,5 +1,5 @@
 #include"Camera.h"
-
+namespace fdd{
 Camera::Camera(FrameSequenceProcessor &fps,int cameraID)
     :fsp_(fps),cameraID_(cameraID)
 {
@@ -30,6 +30,6 @@ void Camera::setCameraID(int cameraID){
 int Camera::getCameraID(){
     return cameraID_;
 }
-
+}
 
 

@@ -6,6 +6,7 @@
 #include "Face.h"
 #include "ResourceManagers.h"
 #include"FrameSequenceProcessor.h"
+namespace fdd{
 class FatigueDetectionFrameSequenceProcessor
         :public FrameSequenceProcessor {
 private:
@@ -140,10 +141,13 @@ private:
     bool judgeFatigueByEye(EyeParameters &eyeParams);
     bool judgeFatigueByMouth();
 	void updateFPS();
+#ifdef WITH_SCREEN
     void printParamsToLeft(cv::Mat &colorImg);
     void printParamsToMiddle(cv::Mat &colorImg);
     void printParamsToRight(cv::Mat &colorImg);
+#endif
 	void updateAveRawFPSInOneMinute();
 	void resetParameters();
 	void checkRawFrameCount();
 };
+}

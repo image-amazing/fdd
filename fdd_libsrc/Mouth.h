@@ -1,5 +1,6 @@
 #pragma once
 #include"FaceComponent.h"
+namespace fdd{
 class FaceAnalysisModel;
 class Mouth: public FaceComponent{
 public:
@@ -9,3 +10,4 @@ public:
 private:
 	FaceComponent::Status predictStatus() override;
 };
+}

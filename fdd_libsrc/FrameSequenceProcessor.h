@@ -3,6 +3,8 @@
 #include<opencv2/opencv.hpp>
 #include "Frame.h"
 
+namespace fdd{
+
 class FrameSequenceProcessor{
 protected:
     Frame frame_;
@@ -18,5 +20,5 @@ public:
     int getFrameWidth();
     int getFrameHeight();
 };
-
+}
 #endif // FRAMESEQUENCEPROCESSOR_H

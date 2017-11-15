@@ -9,6 +9,8 @@
 #include<assert.h>
 #include<cstring>
 
+namespace dm{
+
   std::string projectHome;
 //model root folder
   std::string re_modelHome;
@@ -121,4 +123,4 @@ void checkFolder(const std::string &folderName,bool bRetain){
 }
 
 
-
+}

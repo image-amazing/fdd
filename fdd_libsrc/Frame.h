@@ -1,6 +1,7 @@
 #pragma once
 #include<opencv2/opencv.hpp>
 //save frame
+namespace fdd{
 class Frame {
 private:
 	cv::Mat rawFrame_;
@@ -25,3 +26,4 @@ public:
 	cv::Mat &graySmallImgForFaceDetection();
 	void equalizeGraySmallImgForFaceDetectionHist();
 };
+}

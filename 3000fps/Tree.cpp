@@ -9,7 +9,7 @@
 #include "Tree.h"
 using namespace std;
 using namespace cv;
-
+namespace LBF{
 inline double calculate_var(const vector<double>& v_1 ){
     if (v_1.size() == 0)
         return 0;
@@ -325,4 +325,5 @@ void Tree::Read(std::ifstream& fin){
     }
 }
 
+}
 

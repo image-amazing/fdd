@@ -1,6 +1,8 @@
 #include"Mouth.h"
 #include"FaceAnalysisModel.h"
 
+namespace fdd{
+
 Mouth::Mouth()
 {
 
@@ -21,4 +23,5 @@ FaceComponent::Status Mouth::predictStatus()
 {
 	//return pModel_->predictMouthStatus(colorImg_);
 	return pModel_->predictMouthStatusByDNN(colorImg_);
+}
 }

@@ -3,9 +3,30 @@
 using namespace std;
 using namespace cv;
 
+namespace LBF{
 //3000fps global parameters
 
 Params _3000fps_global_params;
+
+// set the parameters when training models.
+void InitializeGlobalParam(){
+    _3000fps_global_params.bagging_overlap = 0.4;
+    _3000fps_global_params.max_numtrees = 10;
+    _3000fps_global_params.max_depth = 5;
+    _3000fps_global_params.landmark_num = 22;
+    _3000fps_global_params.initial_num = 5;
+
+    _3000fps_global_params.max_numstage = 7;
+    double m_max_radio_radius[10] = {0.4,0.3,0.2,0.15, 0.12, 0.10, 0.08, 0.06, 0.06,0.05};
+    double m_max_numfeats[10] = {500, 500, 500, 300, 300, 200, 200,200,100,100};
+    for (int i=0;i<10;i++){
+        _3000fps_global_params.max_radio_radius[i] = m_max_radio_radius[i];
+    }
+    for (int i=0;i<10;i++){
+        _3000fps_global_params.max_numfeats[i] = m_max_numfeats[i];
+    }
+    _3000fps_global_params.max_numthreshs = 500;
+}
 
 // read global 3000fps parameters from files
 void ReadGlobalParamFromFile(std::string path)
@@ -314,7 +335,7 @@ void LoadOpencvBbxData(string filepath,
         for( vector<Rect>::const_iterator r = faces.begin(); r != faces.end(); r++){
             Rect rect = *r;
             if (IsShapeInRect(ground_truth_shape,rect,scale)){
-                Point center;
+                //Point center;
                 BoundingBox boundingbox;
                 
                 boundingbox.start_x = r->x*scale;
@@ -462,4 +483,5 @@ void LoadDataAdjust(string filepath,
         bounding_boxs.push_back(bbx);
     }
     fin.close();
+}
 }

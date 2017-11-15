@@ -11,6 +11,7 @@
 
 #include "RandomForest.h"
 #include "liblinear/linear.h"
+namespace LBF{
 class LBFRegressor{
 public:
     std::vector<RandomForest> RandomForest_;
@@ -85,5 +86,6 @@ public:
     void ReadRegressor(std::ifstream& fin,std::string regPath);
 
 };
+}
 
 #endif

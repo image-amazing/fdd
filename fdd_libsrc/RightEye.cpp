@@ -1,5 +1,6 @@
 #include"RightEye.h"
 #include "FaceAnalysisModel.h"
+namespace fdd{
 RightEye::RightEye()
 {
 
@@ -20,4 +21,5 @@ FaceComponent::Status RightEye::predictStatus()
 {
 	//return pModel_->predictRightEyeStatus(colorImg_);
 	return pModel_->predictRightEyeStatusByDNN(colorImg_);
+}
 }

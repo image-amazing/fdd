@@ -30,7 +30,7 @@
 #include <fstream>
 #include <numeric>   
 #include <utility> 
-
+namespace LBF{
 struct Params{
     
     double bagging_overlap;
@@ -106,14 +106,16 @@ void adjustImage(cv::Mat_<uchar>& img,
                  cv::Mat_<double>& ground_truth_shape,
                  BoundingBox& bounding_box);
 
-void  TrainModel(std::vector<std::string> trainDataName
+/*void  TrainModel(std::vector<std::string> trainDataName
 		,std::string modelPath,std::string dataPath
 		,std::string cascadeName);
 double TestModel(std::vector<std::string> testDataName
 		,std::string modelPath,std::string dataPath
-		,std::string cascadeName);
-int FaceDetectionAndAlignment(const char* inputname,std::string modelPath);
+        ,std::string cascadeName);*/
+//int FaceDetectionAndAlignment(const char* inputname,std::string modelPath);
 void ReadGlobalParamFromFile(std::string path);
 double CalculateError(const cv::Mat_<double>& ground_truth_shape, const cv::Mat_<double>& predicted_shape);
+void InitializeGlobalParam();
 void ReadGlobalParamFromFile(std::string path);
+}
 #endif
