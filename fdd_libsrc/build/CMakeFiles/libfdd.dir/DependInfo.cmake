@@ -25,7 +25,6 @@ SET(CMAKE_TARGET_DEFINITIONS
   "USE_LEVELDB"
   "USE_LMDB"
   "USE_OPENCV"
-  "WITH_SCREEN"
   )
 
 # Targets to which this target links.

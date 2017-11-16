@@ -35,6 +35,7 @@ extern std::string headposeDNNModelFile;
 extern std::string headposeDNNWeightsFile;
 extern std::string headposeDNNMeanFile;
 extern std::string headposeLabelFile;
+extern std::string cameraID;
 
 void configGlobalVariables(const std::string &configFile);
 int removeContents(const std::string &path);

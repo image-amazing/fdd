@@ -4,5 +4,5 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  -fno-stack-protector -g -I/home/lyfe667/caffe/build/install/include -I/usr/local/include -I/usr/local/include/opencv -I/home/lyfe667/caffe/include    -std=c++11
 
-CXX_DEFINES = -DCPU_ONLY -DUSE_LEVELDB -DUSE_LMDB -DUSE_OPENCV -DWITH_SCREEN
+CXX_DEFINES = -DCPU_ONLY -DUSE_LEVELDB -DUSE_LMDB -DUSE_OPENCV
 

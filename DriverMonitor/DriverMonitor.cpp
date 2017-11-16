@@ -41,8 +41,8 @@ int main(int argc,char *args[])
                                ,outputDataHome+mouthEvidenceFolder);
 
     //intialize camera
-    const int cameraID=0;
-    Camera camera(fps,cameraID);
+    const int cameraId=atoi(cameraID.c_str());
+    Camera camera(fps,cameraId);
 	camera.run();
 
 	return 0;

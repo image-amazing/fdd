@@ -43,6 +43,7 @@ namespace dm{
   std::string headposeDNNWeightsFile;
   std::string headposeDNNMeanFile;
   std::string headposeLabelFile;
+  std::string cameraID;
 
 //config global parameters
 void configGlobalVariables(const std::string &configFile) {
@@ -77,7 +78,8 @@ void configGlobalVariables(const std::string &configFile) {
         headposeDNNModelFile=cfg.lookup("headposeDNNModelFile").c_str();
         headposeDNNWeightsFile=cfg.lookup("headposeDNNWeightsFile").c_str();
         headposeDNNMeanFile=cfg.lookup("headposeDNNMeanFile").c_str();
-        headposeLabelFile="headposeLabels.txt";
+        headposeLabelFile=cfg.lookup("headposeLabelFile").c_str();
+        cameraID=cfg.lookup("cameraID").c_str();
     }
     catch (...) {
         std::cout << "fail to config from "<<configFile.c_str() <<std:: endl;

@@ -1,7 +1,7 @@
 project(libfdd)
 cmake_minimum_required(VERSION 2.8)
 add_compile_options(-std=c++11)
-add_definitions(-DCPU_ONLY -DWITH_SCREEN)
+add_definitions(-DCPU_ONLY)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-stack-protector")
 set(CMAKE_BUILD_TYPE Debug)
 find_package(Caffe REQUIRED)
