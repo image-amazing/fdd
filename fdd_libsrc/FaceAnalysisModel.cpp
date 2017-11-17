@@ -214,4 +214,13 @@ double FaceAnalysisModel::faceAlignmentTime()
 {
 	return faceAlignmentTime_;
 }
+
+cv::Ptr<cv::ml::SVM> FaceAnalysisModel::loadSVM(const std::string &modelPath){
+#ifdef OPENCV_LT_320
+     return cv::ml::SVM::load<cv::ml::SVM>(modelPath);
+#else
+    return cv::ml::SVM::load(modelPath);
+#endif
+}
+
 }
