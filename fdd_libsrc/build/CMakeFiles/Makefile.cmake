@@ -17,6 +17,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/share/3000fps.cmake"
   "/usr/local/share/CaffeClassifier-noconfig.cmake"
   "/usr/local/share/CaffeClassifier.cmake"
+  "/usr/local/share/OpenCV/OpenCVConfig-version.cmake"
   "/usr/local/share/OpenCV/OpenCVConfig.cmake"
   "/usr/local/share/OpenCV/OpenCVModules-release.cmake"
   "/usr/local/share/OpenCV/OpenCVModules.cmake"

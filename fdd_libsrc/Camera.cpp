@@ -14,7 +14,6 @@ Camera::~Camera()
 void Camera::run()
 {
     cm_.openCamera(cameraID_);
-    fsp_.beforeProcess();
 	cv::Mat rawFrame;
 	while (true)
 	{

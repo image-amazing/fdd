@@ -13,9 +13,11 @@ int main(int argc,char *args[])
 {
    assert(argc>1);
 	configGlobalVariables(args[1]); 
+    checkFolder(outputDataHome);
     checkFolder(outputDataHome+videoFolder);
     checkFolder(outputDataHome+eyesEvidenceFolder);
     checkFolder(outputDataHome+mouthEvidenceFolder);
+    checkFolder(outputDataHome+logFolder);
 
     std::string ab_modelHome=projectHome+re_modelHome;
     ReadGlobalParamFromFile(ab_modelHome + featurePointsRegressorModelName);
@@ -38,7 +40,8 @@ int main(int argc,char *args[])
     FatigueDetectionFrameSequenceProcessor fps(pfam
                                , outputDataHome+videoFolder
                                ,outputDataHome+eyesEvidenceFolder
-                               ,outputDataHome+mouthEvidenceFolder);
+                               ,outputDataHome+mouthEvidenceFolder
+                               ,outputDataHome+logFolder+"fdfdp_log");
 
     //intialize camera
     const int cameraId=atoi(cameraID.c_str());

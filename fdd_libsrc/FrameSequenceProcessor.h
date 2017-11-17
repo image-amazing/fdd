@@ -11,6 +11,7 @@ protected:
     int frameWidth_;
     int frameHeight_;
 public:
+    virtual void initProcessor()=0;
     virtual void beforeProcess()=0;
     virtual void process(cv::Mat rawFrame)=0;
     virtual void afterProcess()=0;

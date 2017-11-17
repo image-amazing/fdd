@@ -1,25 +1,28 @@
 #include"FatigueDetectionFrameSequenceProcessor.h"
 #include<limits.h>
+#include<glog/logging.h>
 
 namespace fdd{
 
 FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pFaceAnalysisModel
                                                , const std::string &videoFolder
                                                , const std::string &eeFolder
-                                               , const std::string &meFolder)
+                                               , const std::string &meFolder
+                                               , const std::string &logPrefix)
     :pFaceAnalysisModel_(pFaceAnalysisModel)
     ,face_(cv::Ptr<Frame>(&frame_),pFaceAnalysisModel_)
     ,videoFolder_(videoFolder)
     ,eeFolder_(eeFolder)
     ,meFolder_(meFolder)
 {
-    face_.rightEye().colorImgScale(1.3);
-    face_.leftEye().colorImgScale(1.3);
+    initProcessor();
+    google::InitGoogleLogging("fdfsp");
+    google::SetLogDestination(google::GLOG_INFO,logPrefix.c_str());
 }
 
 FatigueDetectionFrameSequenceProcessor::~FatigueDetectionFrameSequenceProcessor()
 {
-	
+    google::ShutdownGoogleLogging();
 }
 
 inline void FatigueDetectionFrameSequenceProcessor::updateEyeParameters(EyeParameters &eyeParam,FaceComponent::Status eyeStatus)
@@ -120,6 +123,7 @@ void FatigueDetectionFrameSequenceProcessor::countYawnFrame(FaceComponent::Statu
                         //open mouth time exceeds 2s,yawn detected
 						yawnParam_.yawnFrameCount_ += yawnParam_.currentOpenMouthFrameCount_;
 						yawnParam_.yawnCount_++;
+                        LOG(INFO)<<"yawn";
 						std::cout << "yawn" << std::endl;
 					}
 					yawnParam_.currentOpenMouthFrameCount_ = 0;
@@ -272,6 +276,26 @@ void FatigueDetectionFrameSequenceProcessor::printParamsToRight(cv::Mat &colorIm
     cv::putText(colorImg, faceAlignmentTime_buf, cv::Point(450, 80), 0, 0.5, cv::Scalar(255, 0, 0),2);
 }
 #endif
+
+void FatigueDetectionFrameSequenceProcessor::initProcessor(){
+    face_.rightEye().colorImgScale(1.3);
+    face_.leftEye().colorImgScale(1.3);
+
+    vm_.setFourcc(CV_FOURCC('M','P','4','2'));
+    vm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
+    vm_.setBAdd(true);
+    eevm_.setFourcc(CV_FOURCC('M','P','4','2'));
+    eevm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
+    eevm_.setBAdd(true);
+    mevm_.setFourcc(CV_FOURCC('M','P','4','2'));
+    mevm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
+    mevm_.setBAdd(true);
+}
+
+void FatigueDetectionFrameSequenceProcessor::beforeProcess(){
+
+}
+
 void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 {
 	checkRawFrameCount();
@@ -310,7 +334,8 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         systemParam_.faceFrameCount_++;
         if(systemParam_.nowTime_!=systemParam_.lastSecond_
                 &&0==systemParam_.nowTime_%faceParam_.distractionDetectionInterval){
-                if(detectDistractionByFrameRate(0.7)){
+                if(detectDistractionByFrameRate(0.8)){
+                   LOG(INFO)<<"frequent distraction detected!!!";
                    std::cout<<"frequent distraction detected!!!"<<std::endl;
                 }
             }
@@ -319,6 +344,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     {
         if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Front))
         {
+            LOG(INFO)<<"distraction detected!!!";
             std::cout<<"distraction detected!!!"<<std::endl;
         }
         face_.analyzeFrontFace();
@@ -357,6 +383,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 bool bFatigueLeft = judgeFatigueByEye(leftEyeParam_);
                 if(judgeFatigueByEye(eyesParam_))
 				{
+                    LOG(INFO)<<"sleepy!!!";
                     std::cout << "************************" <<std:: endl;
                     std::cout << "sleepy!!!" << std::endl;
                     std::cout << "************************" << std::endl;
@@ -374,6 +401,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 mevm_.release();
                 if (judgeFatigueByMouth())
 				{
+                    LOG(INFO)<< "frequent yawn!!!";
                     std::cout << "************************" << std::endl;
                     std::cout << "frequent yawn!!!" << std::endl;
                     std::cout << "************************" << std::endl;
@@ -396,6 +424,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     }else if(face_.bContainLeftFace()){
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Left))
     {
+        LOG(INFO)<<"distraction detected!!!  left";
         std::cout<<"distraction detected!!!  left"<<std::endl;
     }
     countYawnFrame(FaceComponent::Status::close);
@@ -407,6 +436,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 #endif
     }else if(face_.bContainRightFace()){
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right)){
+        LOG(INFO)<<"distraction detected!!! right";
         std::cout<<"distraction detected!!! right"<<std::endl;
     }
     countYawnFrame(FaceComponent::Status::close);
@@ -425,18 +455,6 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 	cv::imshow("colorImg", frame_.colorImg());
 	cv::waitKey(1);
 #endif
-}
-
-void FatigueDetectionFrameSequenceProcessor::beforeProcess(){
-    vm_.setFourcc(CV_FOURCC('M','P','4','2'));
-    vm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
-    vm_.setBAdd(true);
-    eevm_.setFourcc(CV_FOURCC('M','P','4','2'));
-    eevm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
-    eevm_.setBAdd(true);
-    mevm_.setFourcc(CV_FOURCC('M','P','4','2'));
-    mevm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
-    mevm_.setBAdd(true);
 }
 
 void FatigueDetectionFrameSequenceProcessor::afterProcess(){

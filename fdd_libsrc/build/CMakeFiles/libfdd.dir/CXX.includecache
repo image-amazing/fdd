@@ -541,6 +541,8 @@ FatigueDetectionFrameSequenceProcessor.h
 /home/lyfe667/fdd/fdd_libsrc/FatigueDetectionFrameSequenceProcessor.h
 limits.h
 -
+glog/logging.h
+-
 
 /home/lyfe667/fdd/fdd_libsrc/FatigueDetectionFrameSequenceProcessor.h
 string

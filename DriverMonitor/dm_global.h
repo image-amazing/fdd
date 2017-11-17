@@ -21,6 +21,7 @@ extern std::string outputDataHome;
 extern std::string videoFolder;
 extern std::string eyesEvidenceFolder;
 extern std::string mouthEvidenceFolder;
+extern std::string logFolder;
 extern std::string rightEyeDNNModelFile;
 extern std::string rightEyeDNNWeightsFile;
 extern std::string rightEyeDNNMeanFile;

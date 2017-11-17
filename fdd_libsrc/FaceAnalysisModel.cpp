@@ -23,8 +23,8 @@ FaceAnalysisModel::FaceAnalysisModel(const std::string &fccPath,const std::strin
 {
 	fcc_.load(fccPath);
     pfcc_.load(pfccPath);
-    rightEyeStatusSVM_ = cv::ml::SVM::load(rightEyeStatusSVMPath);
-    mouthChinStatusSVM_ = cv::ml::SVM::load(mouthChinStatusSVMPath);
+    rightEyeStatusSVM_ = loadSVM(rightEyeStatusSVMPath);
+    mouthChinStatusSVM_ = loadSVM(mouthChinStatusSVMPath);
     featurePointsRegressor_.Load(featurePointsRegressorPath,regPath);
 	rightEyeStatusDNN_.reset(new CaffeClassifier(rightEyeDNNModelPath,rightEyeDNNWeightsPath,rightEyeDNNMeanPath,rightEyeDNNLabelPath));
 	leftEyeStatusDNN_.reset(new CaffeClassifier(leftEyeDNNModelPath, leftEyeDNNWeightsPath, leftEyeDNNMeanPath, leftEyeDNNLabelPath));
@@ -48,7 +48,7 @@ void FaceAnalysisModel::loadPFCC(const std::string &pfccPath){
 
 void FaceAnalysisModel::loadRightEyeStatusSVM(const std::string &rightEyeStatusSVMPath)
 {
-    rightEyeStatusSVM_ = cv::ml::SVM::load(rightEyeStatusSVMPath);
+    rightEyeStatusSVM_ = loadSVM(rightEyeStatusSVMPath);
 }
 
 void FaceAnalysisModel::loadRightEyeStatusDNN(const std::string &rightEyeDNNModelPath ,const std::string &rightEyeDNNWeightsPath
@@ -57,7 +57,7 @@ void FaceAnalysisModel::loadRightEyeStatusDNN(const std::string &rightEyeDNNMode
 }
 
 void FaceAnalysisModel::loadLeftEyeStatusSVM(const std::string &leftEyeStatusSVMPath){
-    leftEyeStatusSVM_=cv::ml::SVM::load(leftEyeStatusSVMPath);
+    leftEyeStatusSVM_=loadSVM(leftEyeStatusSVMPath);
 }
 
 void FaceAnalysisModel::loadLeftEyeStatusDNN(const std::string &leftEyeDNNModelPath,const std::string &leftEyeDNNWeightsPath
@@ -67,7 +67,7 @@ void FaceAnalysisModel::loadLeftEyeStatusDNN(const std::string &leftEyeDNNModelP
 
 void FaceAnalysisModel::loadMouthChinStatusSVM(const std::string &mouthChinStatusSVMPath)
 {
-    mouthChinStatusSVM_ = cv::ml::SVM::load(mouthChinStatusSVMPath);
+    mouthChinStatusSVM_ = loadSVM(mouthChinStatusSVMPath);
 }
 
 void FaceAnalysisModel::loadMouthChinStatusDNN(const std::string &mouthChinDNNModelPath,const std::string &mouthChinDNNWeightsPath

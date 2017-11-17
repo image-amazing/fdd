@@ -111,7 +111,6 @@ private:
 	YawnParameters yawnParam_;
 	SystemParameters systemParam_;
     FaceParameters faceParam_;
-
      cv::Ptr<FaceAnalysisModel> pFaceAnalysisModel_;
 	Face face_;
     //evvm:eye evidence video manager,mevm_:mouth evidence video manager
@@ -123,14 +122,13 @@ public:
     FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pfam
                            , const std::string &videoFolder
                            , const std::string &eeFolder
-                           , const std::string &meFolder);
+                           , const std::string &meFolder
+                           , const std::string &logPrefix="./fdfsp_log");
     ~FatigueDetectionFrameSequenceProcessor();
+    void initProcessor() override;
     void beforeProcess() override;
     void process(cv::Mat rawFrame) override;
     void afterProcess() override;
-  /*VideoManager & getVm();
-    VideoManager & getEevm();
-    VideoManager & getMevm();*/
 private:
 	void updateEyeParameters(EyeParameters &eyeParam,FaceComponent::Status eyeStatus);
 	void updateMouthParameters(MouthParameters &mouthParam,FaceComponent::Status mouthStatus);
