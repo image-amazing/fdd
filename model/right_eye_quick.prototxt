@@ -1,4 +1,4 @@
-name: "eye_quick_test"
+name: "right_eye_quick_test"
 layer {
   name: "data"
   type: "Input"
