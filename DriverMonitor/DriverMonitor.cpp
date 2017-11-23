@@ -35,7 +35,9 @@ int main(int argc,char *args[])
                                   , ab_modelHome + mouthChinDNNMeanFile, ab_modelHome + faceComponentLabelFile);
     pfam->loadHeadposeDNN(ab_modelHome+headposeDNNModelFile,ab_modelHome+headposeDNNWeightsFile
                           , ab_modelHome+headposeDNNMeanFile,ab_modelHome+headposeLabelFile);
-
+    std::cout<<"right eye weights file: "<<ab_modelHome+rightEyeDNNWeightsFile<<std::endl;
+    std::cout<<"left eye weights file: "<<ab_modelHome+leftEyeDNNWeightsFile<<std::endl;
+    std::cout<<"mouth weights file: "<<ab_modelHome+mouthChinDNNWeightsFile<<std::endl;
     //initialize FrameSequenceProcessor
     FatigueDetectionFrameSequenceProcessor fps(pfam
                                , outputDataHome+videoFolder
