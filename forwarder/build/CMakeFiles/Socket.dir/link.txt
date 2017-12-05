@@ -1,0 +1,2 @@
+/usr/bin/ar cr libSocket.a  CMakeFiles/Socket.dir/Socket.cpp.o CMakeFiles/Socket.dir/Exception.cpp.o
+/usr/bin/ranlib libSocket.a

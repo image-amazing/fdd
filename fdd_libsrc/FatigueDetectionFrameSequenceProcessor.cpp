@@ -330,7 +330,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 	frame_ = rawFrame;
     face_.detectFaces();
     if(face_.bContainFace()){
-        face_.analyzeHeadpose();
+        //face_.analyzeHeadpose();
         systemParam_.faceFrameCount_++;
         if(systemParam_.nowTime_!=systemParam_.lastSecond_
                 &&0==systemParam_.nowTime_%faceParam_.distractionDetectionInterval){

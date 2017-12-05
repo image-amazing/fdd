@@ -1,0 +1,7 @@
+project(forwarder)
+cmake_minimum_required(VERSION 2.8)
+add_compile_options(-std=c++11)
+aux_source_directory(. SRC_LIST)
+#add_executable(${PROJECT_NAME} ${SRC_LIST})
+add_library(MessageQueue MessageQueue.cpp)
+add_library(TCPSocket TCPSocket.cpp Socket.cpp Exception.cpp)

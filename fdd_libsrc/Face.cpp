@@ -230,7 +230,7 @@ void Face::analyzeHeadpose(){
     sprintf(filename,"temp/%d%d.jpg",now,count++);
     cv::imwrite(filename,faceImg);*/
     headpose_=pModel_->predictHeadposeByDNN(faceImg,cv::Size(64,64));
-   //std::cout<<headpose_<<std::endl;
+  // std::cout<<headpose_<<std::endl;
 }
 
 
