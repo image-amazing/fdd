@@ -112,24 +112,24 @@ MessageQueue/fast:
 .PHONY : MessageQueue/fast
 
 #=============================================================================
-# Target rules for targets named Socket
+# Target rules for targets named TCPSocket
 
 # Build rule for target.
-Socket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Socket
-.PHONY : Socket
+TCPSocket: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TCPSocket
+.PHONY : TCPSocket
 
 # fast build rule for target.
-Socket/fast:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/build
-.PHONY : Socket/fast
+TCPSocket/fast:
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/build
+.PHONY : TCPSocket/fast
 
 Exception.o: Exception.cpp.o
 .PHONY : Exception.o
 
 # target to build an object file
 Exception.cpp.o:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/Exception.cpp.o
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.o
 .PHONY : Exception.cpp.o
 
 Exception.i: Exception.cpp.i
@@ -137,7 +137,7 @@ Exception.i: Exception.cpp.i
 
 # target to preprocess a source file
 Exception.cpp.i:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/Exception.cpp.i
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.i
 .PHONY : Exception.cpp.i
 
 Exception.s: Exception.cpp.s
@@ -145,7 +145,7 @@ Exception.s: Exception.cpp.s
 
 # target to generate assembly for a file
 Exception.cpp.s:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/Exception.cpp.s
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.s
 .PHONY : Exception.cpp.s
 
 MessageQueue.o: MessageQueue.cpp.o
@@ -177,7 +177,7 @@ Socket.o: Socket.cpp.o
 
 # target to build an object file
 Socket.cpp.o:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/Socket.cpp.o
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Socket.cpp.o
 .PHONY : Socket.cpp.o
 
 Socket.i: Socket.cpp.i
@@ -185,7 +185,7 @@ Socket.i: Socket.cpp.i
 
 # target to preprocess a source file
 Socket.cpp.i:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/Socket.cpp.i
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Socket.cpp.i
 .PHONY : Socket.cpp.i
 
 Socket.s: Socket.cpp.s
@@ -193,8 +193,32 @@ Socket.s: Socket.cpp.s
 
 # target to generate assembly for a file
 Socket.cpp.s:
-	$(MAKE) -f CMakeFiles/Socket.dir/build.make CMakeFiles/Socket.dir/Socket.cpp.s
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Socket.cpp.s
 .PHONY : Socket.cpp.s
+
+TCPSocket.o: TCPSocket.cpp.o
+.PHONY : TCPSocket.o
+
+# target to build an object file
+TCPSocket.cpp.o:
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.o
+.PHONY : TCPSocket.cpp.o
+
+TCPSocket.i: TCPSocket.cpp.i
+.PHONY : TCPSocket.i
+
+# target to preprocess a source file
+TCPSocket.cpp.i:
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.i
+.PHONY : TCPSocket.cpp.i
+
+TCPSocket.s: TCPSocket.cpp.s
+.PHONY : TCPSocket.s
+
+# target to generate assembly for a file
+TCPSocket.cpp.s:
+	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.s
+.PHONY : TCPSocket.cpp.s
 
 # Help Target
 help:
@@ -203,7 +227,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... MessageQueue"
-	@echo "... Socket"
+	@echo "... TCPSocket"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Exception.o"
@@ -215,6 +239,9 @@ help:
 	@echo "... Socket.o"
 	@echo "... Socket.i"
 	@echo "... Socket.s"
+	@echo "... TCPSocket.o"
+	@echo "... TCPSocket.i"
+	@echo "... TCPSocket.s"
 .PHONY : help
 
 

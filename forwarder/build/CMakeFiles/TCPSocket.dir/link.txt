@@ -1,0 +1,2 @@
+/usr/bin/ar cr libTCPSocket.a  CMakeFiles/TCPSocket.dir/TCPSocket.cpp.o CMakeFiles/TCPSocket.dir/Socket.cpp.o CMakeFiles/TCPSocket.dir/Exception.cpp.o
+/usr/bin/ranlib libTCPSocket.a

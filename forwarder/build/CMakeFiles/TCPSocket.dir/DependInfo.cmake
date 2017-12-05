@@ -4,8 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lyfe667/fdd/forwarder/Exception.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/Socket.dir/Exception.cpp.o"
-  "/home/lyfe667/fdd/forwarder/Socket.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/Socket.dir/Socket.cpp.o"
+  "/home/lyfe667/fdd/forwarder/Exception.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/TCPSocket.dir/Exception.cpp.o"
+  "/home/lyfe667/fdd/forwarder/Socket.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/TCPSocket.dir/Socket.cpp.o"
+  "/home/lyfe667/fdd/forwarder/TCPSocket.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/TCPSocket.dir/TCPSocket.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

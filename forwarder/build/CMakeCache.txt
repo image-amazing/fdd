@@ -174,7 +174,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 MessageQueue_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
-Socket_LIB_DEPENDS:STATIC=
+TCPSocket_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 forwarder_BINARY_DIR:STATIC=/home/lyfe667/fdd/forwarder/build
