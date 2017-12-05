@@ -89,7 +89,7 @@ void SocketAddress::setPort(unsigned short port){
 }
 
 const unsigned short SocketAddress::getPort() const{
-    return sa_.sin_port;
+    return ntohs(sa_.sin_port);
 }
 
 void SocketAddress::setAddr(const std::string &addr){
