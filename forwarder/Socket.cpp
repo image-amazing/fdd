@@ -108,7 +108,11 @@ Socket::Socket(int type,int family,int protocol)
 }
 
 Socket::~Socket(){
+    try{
     close(sockfd_);
+    }catch(...){
+
+    }
 }
 
 void Socket::bind(unsigned short port,const std::string &addr){

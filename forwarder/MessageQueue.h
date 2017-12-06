@@ -4,19 +4,26 @@
 #include<cstring>
 #include"Exception.h"
 
-template<typename DataType>
-class Message<DataType>{
+#define RAW_MSG_SIZE 1024
+
+template<typename DataType,int N=1>
+class Message<DataType,N>{
 private:
     long int msgType_;
-    char msgData_[sizeof(DataType)];
+    char msgData_[sizeof(DataType)*N];
 public:
     Message(){
 
     }
+    Message(const DataType *pStart,int length,int msgType=0)
+        :msgType_(msgType)
+    {
+        copyFrom(pStart,length);
+    }
     Message(DataType &data,long int msgType=0)
         :msgType_(msgType)
     {
-        memcpy(static_cast<void *>(msgData_),static_cast<void *>(&data),sizeof(DataType));
+        setData(data);
     }
     ~Message(){
 
@@ -28,19 +35,28 @@ public:
     void setData(DataType &data){
         memcpy(static_cast<void *>(msgData_),static_cast<void *>(&data),sizeof(DataType));
     }
+    void copyFrom(const DataType *pStart,int length){
+        CHECK<MessageException>(length>=0&&length<=getDataSize(),"length exception");
+        CHECK<MessageException>(nullptr!=pStart,"pStart == nullptr");
+        memcpy(static_cast<void *>(msgData_),static_cast<void *>pStart,length);
+    }
     long int getType(){
         return msgType_;
     }
-    DataType getData(){
-        return *(static_cast<DataType *>(msgData_));
+
+    DataType *getData(){
+        return static_cast<DataType *>(msgData_);
     }
+    const DataType *getData()const{
+        return static_cast<const DataType *>(msgData_);
+    }
+
     int getDataSize(){
-        return sizeof(DataType);
+        return sizeof(DataType)*N;
     }
 };
 
-template<typename DataType>
-class MessageQueue<DataType>{
+class MessageQueue{
 private:
     key_t msgKey_;
     int msgID_;
@@ -51,11 +67,16 @@ public:
         msgID_=msgget(msgKey_ , msgflg);
         CHECK<MessageQueueException>(-1!=msgID_,"msgget exception");
     }
+    ~MessageQueue(){
+
+    }
+    template<typename DataType>
     int push(DataType &data,long int msgType=0,int msgflg=0){
           Message<DataType> msg(data,msgType);
          return msgsnd(msgID_,static_cast<void *>(&msg),msg.getDataSize(),msgflg);
     }
-    int pop(Message<DataType> &msg,long int msgType=0,int msgflg=0){
+    template<int MAX_MSG_SIZE=1024>
+    int pop(Message<char,MAX_MSG_SIZE> &msg,long int msgType=0,int msgflg=0){
         return msgrcv(msgID_,static_cast<void *>(&msg),msg.getDataSize(),msgType,msgflg);
     }
     int getStatus(struct msgid_ds *status){
