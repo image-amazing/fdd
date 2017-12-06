@@ -1,4 +1,0 @@
-/usr/local/lib/libdm_global.a
-/usr/local/share/dm_global.cmake
-/usr/local/share/dm_global-noconfig.cmake
-/usr/local/include/dm_global.h

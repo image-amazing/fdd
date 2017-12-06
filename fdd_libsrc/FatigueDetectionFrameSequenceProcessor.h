@@ -94,7 +94,9 @@ private:
         FaceAnalysisModel::FaceType lastFaceDirection_=FaceAnalysisModel::FaceType::Front;
         time_t startDistractionTime_=0;
         unsigned int interuptDistractionFrameCount_=0;
-        const int distractionDetectionInterval=5;
+        const int distractionDetectionInterval_=5;
+        const int distractionLastedThreshold_=3;
+        const float distractionFrameRateThreshold_=0.6;
         void reset(){
             directionStr_="Front";
             color_=cv::Scalar(0,255,0);

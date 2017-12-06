@@ -2,6 +2,7 @@
 #define MESSAGEQUEUE_H
 #include<sys/msg.h>
 #include<cstring>
+#include"Exception.h"
 
 template<typename DataType>
 class Message<DataType>{
@@ -48,6 +49,7 @@ public:
         :msgKey_(key),msgID_(-1)
     {
         msgID_=msgget(msgKey_ , msgflg);
+        CHECK<MessageQueueException>(-1!=msgID_,"msgget exception");
     }
     int push(DataType &data,long int msgType=0,int msgflg=0){
           Message<DataType> msg(data,msgType);

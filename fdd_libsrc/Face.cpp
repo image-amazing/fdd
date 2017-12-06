@@ -106,7 +106,7 @@ inline cv::Rect Face::flipRect(const cv::Rect &rect,const cv::Size &imgSize,Fram
     return flippedRect;
 }
 
-bool Face::detectFaces(FaceAnalysisModel::FaceType faceType){
+bool Face::detectFace(FaceAnalysisModel::FaceType faceType){
     cv::Mat grayImg=pFrame_->graySmallImgForFaceDetection();
     if (0==faceDetectionRect_.area()||FaceAnalysisModel::FaceType::Right==faceType)
     {//If there is no face detected in last frame,reset detection rect to the whole rect of the frame
@@ -243,45 +243,58 @@ void Face::drawFaceRect(const cv::Scalar &color){
                                                ,color,2);
 }
 
+void Face::detectFaces2(){
+    pFrame_->equalizeGraySmallImgForFaceDetectionHist();
+    resetLastStatus();
+    bContainFrontFace_=detectFace(FaceAnalysisModel::FaceType::Front);
+    if(!bContainFrontFace_){
+        bContainRightFace_=detectFace(FaceAnalysisModel::FaceType::Right);
+        if(!bContainRightFace_){
+            bContainLeftFace_=detectFace(FaceAnalysisModel::FaceType::Left);
+        }
+    }
+}
+
 void Face::detectFaces()
 {
     pFrame_->equalizeGraySmallImgForFaceDetectionHist();
    if(bContainFrontFace_||!bContainFace()){
         //if front face detected or neither front face nor profile face detected,we detect front face
-        bContainFrontFace_=detectFaces(FaceAnalysisModel::FaceType::Front);
+        bContainFrontFace_=detectFace(FaceAnalysisModel::FaceType::Front);
         if(bContainFrontFace_){
            //analyzeFrontFace();
         }
         else
         {
             //no front face detected,detect profile face
-            bContainLeftFace_=detectFaces(FaceAnalysisModel::FaceType::Left);
+            bContainLeftFace_=detectFace(FaceAnalysisModel::FaceType::Left);
             if(!bContainLeftFace_){
-               bContainRightFace_=detectFaces(FaceAnalysisModel::FaceType::Right);
+               bContainRightFace_=detectFace(FaceAnalysisModel::FaceType::Right);
             }
         }
     }else if(bContainLeftFace_){
-            bContainLeftFace_=detectFaces(FaceAnalysisModel::FaceType::Left);
+            bContainLeftFace_=detectFace(FaceAnalysisModel::FaceType::Left);
             if(!bContainLeftFace_){
-                bContainFrontFace_=detectFaces(FaceAnalysisModel::FaceType::Front);
+                bContainFrontFace_=detectFace(FaceAnalysisModel::FaceType::Front);
                 if(bContainFrontFace_){
                     //analyzeFrontFace();
                 }else{
-                    bContainRightFace_=detectFaces(FaceAnalysisModel::FaceType::Right);
+                    bContainRightFace_=detectFace(FaceAnalysisModel::FaceType::Right);
                 }
             }
     }else if(bContainRightFace_){
-        bContainRightFace_=detectFaces(FaceAnalysisModel::FaceType::Right);
+        bContainRightFace_=detectFace(FaceAnalysisModel::FaceType::Right);
         if(!bContainRightFace_){
-            bContainFrontFace_=detectFaces(FaceAnalysisModel::FaceType::Front);
+            bContainFrontFace_=detectFace(FaceAnalysisModel::FaceType::Front);
             if(bContainFrontFace_){
                 //analyzeFrontFace();
             }else{
-                bContainLeftFace_=detectFaces(FaceAnalysisModel::FaceType::Left);
+                bContainLeftFace_=detectFace(FaceAnalysisModel::FaceType::Left);
             }
         }
     }
 }
+
 bool Face::bContainFace(){
     return bContainFrontFace_||bContainLeftFace_||bContainRightFace_;
 }

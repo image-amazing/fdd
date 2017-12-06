@@ -165,6 +165,7 @@ bool FatigueDetectionFrameSequenceProcessor::detectDistractionByTimeInterval(Fac
             time_t currentDistractionTime=time(0);
             if(currentDistractionTime-faceParam_.startDistractionTime_>interval){
                    //std::cout<<"distraction detected  "<<faceDirection<<std::endl;
+                    faceParam_.startDistractionTime_=time(0);
                     return true;
             }
         }
@@ -328,13 +329,13 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         }
 	}
 	frame_ = rawFrame;
-    face_.detectFaces();
+    face_.detectFaces2();
     if(face_.bContainFace()){
         //face_.analyzeHeadpose();
         systemParam_.faceFrameCount_++;
         if(systemParam_.nowTime_!=systemParam_.lastSecond_
-                &&0==systemParam_.nowTime_%faceParam_.distractionDetectionInterval){
-                if(detectDistractionByFrameRate(0.8)){
+                &&0==systemParam_.nowTime_%faceParam_.distractionDetectionInterval_){
+                if(detectDistractionByFrameRate(faceParam_.distractionFrameRateThreshold_)){
                    LOG(INFO)<<"frequent distraction detected!!!";
                    std::cout<<"frequent distraction detected!!!"<<std::endl;
                 }
@@ -342,7 +343,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     }
     if (face_.bContainFrontFace())
     {
-        if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Front))
+        if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Front,faceParam_.distractionLastedThreshold_))
         {
             LOG(INFO)<<"distraction detected!!!";
             std::cout<<"distraction detected!!!"<<std::endl;
@@ -422,7 +423,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         printParamsToRight(frame_.colorImg());
 #endif
     }else if(face_.bContainLeftFace()){
-    if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Left))
+    if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Left,faceParam_.distractionLastedThreshold_))
     {
         LOG(INFO)<<"distraction detected!!!  left";
         std::cout<<"distraction detected!!!  left"<<std::endl;
@@ -435,7 +436,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     printParamsToRight(frame_.colorImg());
 #endif
     }else if(face_.bContainRightFace()){
-    if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right)){
+    if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right,faceParam_.distractionLastedThreshold_)){
         LOG(INFO)<<"distraction detected!!! right";
         std::cout<<"distraction detected!!! right"<<std::endl;
     }

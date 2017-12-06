@@ -27,4 +27,11 @@ public:
     const char * what() const noexcept override;
 };
 
+class MessageQueueException:public Exception{
+public:
+    MessageQueueException(const std::string &exceptionInfo);
+public:
+    const char * what() const noexcept override;
+};
+
 #endif // EXCEPTION_H

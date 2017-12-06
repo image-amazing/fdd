@@ -42,13 +42,14 @@ public:
     cv::Rect maxFaceOnSmallImgForFaceDetection();
      int headpose();
      cv::Rect flipRect(const cv::Rect &rect,const cv::Size &imgSize,Frame::Direction direction);
-     bool detectFaces(FaceAnalysisModel::FaceType faceType);
+     bool detectFace(FaceAnalysisModel::FaceType faceType);
      void generateFaceComponentsColorImage();
      void analyzeFaceComponentsStatus();
      void drawFaceComponentsRect();
      void analyzeFrontFace();
      void analyzeHeadpose();
      void detectFaces();
+     void detectFaces2();
      void drawFaceRect(const cv::Scalar &color);
      void resetLastStatus();
 };

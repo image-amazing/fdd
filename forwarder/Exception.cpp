@@ -21,5 +21,33 @@ SocketException::SocketException(const std::string &exceptionInfo)
 }
 
 const char * SocketException::what() const noexcept{
-    return ("socket exception: "+exceptionInfo_).c_str();
+    return ("SocketException: "+exceptionInfo_).c_str();
 }
+
+
+MessageQueueException::MessageQueueException(const std::string &exceptionInfo)
+    :exceptionInfo_(exceptionInfo)
+{
+
+}
+
+const char * MessageQueueException::what()const noexcept{
+    return ("MessageQueueException: "+exceptionInfo_).c_str();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
