@@ -9,7 +9,7 @@ add_executable(DriverMonitor ${DRIVERMONITOR_CPPS})
 include(${CMAKE_INSTALL_PREFIX}/share/libfdd.cmake)
 include(${CMAKE_INSTALL_PREFIX}/share/3000fps.cmake)
 include(${CMAKE_INSTALL_PREFIX}/share/CaffeClassifier.cmake)
-target_link_libraries(DriverMonitor libfdd)
+target_link_libraries(DriverMonitor libfdd config++)
 #add dm_global library
 add_library(dm_global dm_global.cpp)
 target_link_libraries(dm_global config++)

@@ -1,0 +1,2 @@
+/usr/bin/ar cr libForwarder.a  CMakeFiles/Forwarder.dir/Forwarder.cpp.o
+/usr/bin/ranlib libForwarder.a

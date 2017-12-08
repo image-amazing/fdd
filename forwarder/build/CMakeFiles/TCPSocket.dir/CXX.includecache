@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/lyfe667/fdd/forwarder/Exception.cpp
+Exception.h
+/home/lyfe667/fdd/forwarder/Exception.h
+
 /home/lyfe667/fdd/forwarder/Exception.h
 exception
 -
@@ -31,4 +35,12 @@ string
 -
 Exception.h
 /home/lyfe667/fdd/forwarder/Exception.h
+
+/home/lyfe667/fdd/forwarder/TCPSocket.cpp
+TCPSocket.h
+/home/lyfe667/fdd/forwarder/TCPSocket.h
+
+/home/lyfe667/fdd/forwarder/TCPSocket.h
+Socket.h
+/home/lyfe667/fdd/forwarder/Socket.h
 

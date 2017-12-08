@@ -41,7 +41,7 @@ int TCPSocket::send(const void *buf,size_t len,int flags){
 }
 
 int TCPSocket::send(const SocketBuffer &sockBuf,int flags){
-    int num=::send(sockfd_,static_cast<void *>(sockBuf),sockBuf.getSize(),flags);
+    int num=::send(sockfd_,sockBuf.getBuffer(),sockBuf.getSize(),flags);
     CHECK<SocketException>(-1!=num,"fail to send");
     return num;
 }
@@ -53,7 +53,7 @@ int TCPSocket::receive(void *buf,size_t max_len,int flags){
 }
 
 void TCPSocket::receive(SocketBuffer &sockBuf,int flags){
-    int num=::recv(sockfd_,static_cast<void *>(sockBuf),sockBuf.getMaxSize(),flags);
+    int num=::recv(sockfd_,sockBuf.getBuffer(),sockBuf.getMaxSize(),flags);
     sockBuf.setSize(num);
     CHECK<SocketException>(-1!=num,"fail to recv");
 }

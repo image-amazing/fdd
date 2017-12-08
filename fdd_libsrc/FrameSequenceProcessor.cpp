@@ -18,4 +18,10 @@ int FrameSequenceProcessor::getFrameHeight(){
     return frameHeight_;
 }
 
+void FrameSequenceProcessor::setFrame(cv::Mat &rawFrame){
+    frame_=rawFrame;
+    frameWidth_=rawFrame.size().width;
+    frameHeight_=rawFrame.size().height;
+}
+
 }

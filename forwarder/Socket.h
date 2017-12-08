@@ -22,8 +22,8 @@ public:
     const int getMaxSize()const;
     const int getSize()const;
     void setSize(int size);
-    operator void *();
-     operator void *() const;
+    void * getBuffer();
+    void * getBuffer() const;
 };
 
 class SocketAddress{

@@ -36,11 +36,11 @@ void SocketBuffer::setSize(int size){
     size_=size;
 }
 
-SocketBuffer::operator void *(){
+ void *SocketBuffer::getBuffer(){
     return pBuf_;
 }
 
- SocketBuffer::operator void *() const{
+ void *SocketBuffer::getBuffer() const{
     return pBuf_;
 }
 

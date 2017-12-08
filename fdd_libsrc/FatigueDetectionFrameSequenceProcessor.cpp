@@ -15,7 +15,7 @@ FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(c
     ,eeFolder_(eeFolder)
     ,meFolder_(meFolder)
 {
-    initProcessor();
+    //initProcessor();
     google::InitGoogleLogging("fdfsp");
     google::SetLogDestination(google::GLOG_INFO,logPrefix.c_str());
 }
@@ -251,7 +251,6 @@ void FatigueDetectionFrameSequenceProcessor::printParamsToLeft(cv::Mat &colorImg
 	char yawnCount_buf[32];
 	sprintf(yawnCount_buf, "YAWN COUNT:%d", yawnParam_.yawnCount_);
     cv::putText(colorImg, yawnCount_buf, cv::Point(40, 200), 0, 0.5, cv::Scalar(0, 255, 255),2);
-
 }
 
 void FatigueDetectionFrameSequenceProcessor::printParamsToMiddle(cv::Mat &colorImg){

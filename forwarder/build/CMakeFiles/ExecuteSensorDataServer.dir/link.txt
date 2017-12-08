@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/ExecuteSensorDataServer.dir/ExecuteSensorDataServer.cpp.o  -o ExecuteSensorDataServer -rdynamic libSensorDataServer.a libTCPSocket.a 

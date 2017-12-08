@@ -5,6 +5,7 @@
 
 class TCPSocket: public Socket{
 public:
+    //default constructor
     TCPSocket(int family=AF_INET,int protocol=0);
     ~TCPSocket();
 public:

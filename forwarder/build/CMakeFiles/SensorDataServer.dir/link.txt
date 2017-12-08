@@ -1,0 +1,2 @@
+/usr/bin/ar cr libSensorDataServer.a  CMakeFiles/SensorDataServer.dir/SensorDataServer.cpp.o
+/usr/bin/ranlib libSensorDataServer.a

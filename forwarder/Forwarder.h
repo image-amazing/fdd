@@ -8,7 +8,7 @@ private:
     MessageQueue msgQue_;
     TCPSocket sock_;
 public:
-    Forwarder(key_t key,SocketAddress &destAddr);
+    Forwarder(key_t key,const SocketAddress &destAddr);
     ~Forwarder();
 public:
     void forward();

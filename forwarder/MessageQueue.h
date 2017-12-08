@@ -7,7 +7,7 @@
 #define RAW_MSG_SIZE 1024
 
 template<typename DataType,int N=1>
-class Message<DataType,N>{
+class Message{
 private:
     long int msgType_;
     char msgData_[sizeof(DataType)*N];
@@ -38,7 +38,7 @@ public:
     void copyFrom(const DataType *pStart,int length){
         CHECK<MessageException>(length>=0&&length<=getDataSize(),"length exception");
         CHECK<MessageException>(nullptr!=pStart,"pStart == nullptr");
-        memcpy(static_cast<void *>(msgData_),static_cast<void *>pStart,length);
+        memcpy(static_cast<void *>(msgData_),static_cast<void *>(pStart),length);
     }
     long int getType(){
         return msgType_;
@@ -79,10 +79,10 @@ public:
     int pop(Message<char,MAX_MSG_SIZE> &msg,long int msgType=0,int msgflg=0){
         return msgrcv(msgID_,static_cast<void *>(&msg),msg.getDataSize(),msgType,msgflg);
     }
-    int getStatus(struct msgid_ds *status){
+    int getStatus(struct msqid_ds *status){
         return msgctl(msgID_,IPC_STAT,status);
     }
-    int setStatus(struct msgid_ds *status){
+    int setStatus(struct msqid_ds *status){
         return msgctl(msgID_,IPC_SET,status);
     }
     int deleteQueue(){

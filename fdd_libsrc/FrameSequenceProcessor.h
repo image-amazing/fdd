@@ -20,6 +20,7 @@ public:
     void setFrameHeight(int frameHeight);
     int getFrameWidth();
     int getFrameHeight();
+    void setFrame(cv::Mat &rawFrame);
 };
 }
 #endif // FRAMESEQUENCEPROCESSOR_H

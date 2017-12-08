@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/ExecuteForwarder.dir/ExecuteForwarder.cpp.o  -o ExecuteForwarder -rdynamic libForwarder.a libTCPSocket.a libMessageQueue.a 
