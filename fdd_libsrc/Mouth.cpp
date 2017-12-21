@@ -21,7 +21,9 @@ Mouth::~Mouth()
 
 FaceComponent::Status Mouth::predictStatus()
 {
-	//return pModel_->predictMouthStatus(colorImg_);
-	return pModel_->predictMouthStatusByDNN(colorImg_);
+    cv::Mat grayImg;
+    cv::cvtColor(colorImg_,grayImg,CV_BGR2GRAY);
+    cv::equalizeHist(grayImg,grayImg);
+    return pModel_->predictMouthStatusByDNN(grayImg);
 }
 }

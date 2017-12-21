@@ -66,9 +66,9 @@ public:
 	double faceAlignmentTime();
     LBF::BoundingBox convertRectToBoundingBox(const cv::Rect &rect);
 private:
-        int predictStatusByDNN(cv::Mat cImg,const cv::Size &normalizedSize, cv::Ptr<CaffeClassifier> &pDnn) {
-		cv::resize(cImg, cImg, normalizedSize);
-		vector<float> probabilities = pDnn->Predict(cImg);
+        int predictStatusByDNN(cv::Mat image,const cv::Size &normalizedSize, cv::Ptr<CaffeClassifier> &pDnn) {
+        cv::resize(image, image, normalizedSize);
+        vector<float> probabilities = pDnn->Predict(image);
 		int maxIndex = 0;
 		for (int i = 0;i < probabilities.size();i++) {
 			maxIndex = probabilities[i] > probabilities[maxIndex] ? i : maxIndex;

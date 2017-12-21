@@ -82,6 +82,7 @@ void FaceAnalysisModel::loadHeadposeDNN(const std::string &headposeDNNModelPath,
 
 void FaceAnalysisModel::loadFeaturePointsRegressor(const std::string &featurePointsRegressorPath,const std::string &regPath)
 {
+    //ReadGlobalParamFromFile(featurePointsRegressorPath);
     featurePointsRegressor_.Load(featurePointsRegressorPath,regPath);
 }
 

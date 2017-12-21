@@ -19,7 +19,9 @@ LeftEye::~LeftEye()
 
 FaceComponent::Status LeftEye::predictStatus()
 {
-	//return pModel_->predictRightEyeStatus(colorImg_);
-	return pModel_->predictLeftEyeStatusByDNN(colorImg_);
+    cv::Mat grayImg;
+    cv::cvtColor(colorImg_,grayImg,CV_BGR2GRAY);
+    cv::equalizeHist(grayImg,grayImg);
+    return pModel_->predictLeftEyeStatusByDNN(grayImg);
 }
 }

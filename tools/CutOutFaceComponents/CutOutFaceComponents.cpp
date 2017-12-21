@@ -6,6 +6,8 @@
 #include<FaceAnalysisModel.h>
 #include<Face.h>
 #include<assert.h>
+#include<time.h>
+#include<stdlib.h>
 using namespace std;
 using namespace dm;
 using namespace fdd;
@@ -14,8 +16,6 @@ using namespace LBF;
 const string leftEyeDir="LeftEye/";
 const string rightEyeDir="RightEye/";
 const string mouthDir="Mouth/";
-const string pathPrefix="/home/lyfe667/eyemouth_datasets/";
-const string pathFilesFile="imgPathFiles.list";
 
 void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const string &outputDir){
        checkFolder(outputDir+"/"+leftEyeDir);
@@ -35,11 +35,8 @@ void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const st
         ifstream fin(pathFile);
         assert(fin);
         string line;
-        while(true){
-            fin>>line;
-            if(fin.eof()){
-                break;
-            }
+        unsigned int imgCount=0;
+        while(getline(fin,line)){
             cv::Mat cImg=cv::imread(pathPrefix+line);
             if(cImg.data==NULL){
                 cout<<pathPrefix+line<<" skipped"<<endl;
@@ -55,32 +52,37 @@ void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const st
                 face.generateFaceComponentsColorImage();
                 face.drawFaceComponentsRect();
                 face.drawFaceRect(Face::frontColor);
-                cv::imwrite(outputDir+"/"+leftEyeDir+"/L_"+imgName,face.leftEye().colorImg());
-                cv::imwrite(outputDir+"/"+rightEyeDir+"/R_"+imgName,face.rightEye().colorImg());
-                cv::imwrite(outputDir+"/"+mouthDir+"/M_"+imgName,face.mouth().colorImg());
+                time_t nowTime=time(0);
+                 char strLabel[32];
+                 sprintf(strLabel,"%08u_%u_",imgCount,static_cast<unsigned int>(nowTime));
+                cv::imwrite(outputDir+"/"+leftEyeDir+"/L_"+strLabel+imgName,face.leftEye().colorImg());
+                cv::imwrite(outputDir+"/"+rightEyeDir+"/R_"+strLabel+imgName,face.rightEye().colorImg());
+                cv::imwrite(outputDir+"/"+mouthDir+"/M_"+strLabel+imgName,face.mouth().colorImg());
                 cv::imshow("colorImg",pFrame->colorImg());
                 cv::waitKey(1);
                 cout<<pathPrefix+line<<"  processed"<<endl;
             }
+            imgCount++;
         }
+       fin.close();
 }
 
 int main(int argc,char *args[]){
-   assert(argc>1);
-   configGlobalVariables(args[1]);
-    ReadGlobalParamFromFile(projectHome+re_modelHome+featurePointsRegressorModelName);
-    ifstream fin(pathPrefix+pathFilesFile);
+   assert(4==argc);
+   string configFile=args[1];
+   string pathPrefix=args[2];
+   string pathFilesFile=args[3];
+   configGlobalVariables(configFile);
+   ReadGlobalParamFromFile(projectHome+re_modelHome+featurePointsRegressorModelName);
+    ifstream fin(pathFilesFile);
     assert(fin);
     string pathFileName;
-    while(true){
-        fin>>pathFileName;
-        if(fin.eof()){
-            break;
-        }
+    while(getline(fin,pathFileName)){
         string dirPrefix=pathFileName.substr(0,pathFileName.find('.'));
         string outputDir=pathPrefix+dirPrefix+"_cut/";
         checkFolder(outputDir);
         cutOutEyesAndMouth(pathPrefix,pathPrefix+pathFileName,outputDir);
     }
+    fin.close();
     return 0;
 }
