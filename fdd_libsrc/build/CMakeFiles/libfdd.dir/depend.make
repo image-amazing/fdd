@@ -478,6 +478,7 @@ CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: /home/lyfe667/caffe/build/install
 CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/mkl_alternate.hpp
 CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/nccl.hpp
 CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
+CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: ../FDDGlobal.h
 CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: ../Face.h
 CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: ../FaceAnalysisModel.cpp
 CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o: ../FaceAnalysisModel.h
@@ -789,6 +790,7 @@ CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: /home/lyfe66
 CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/mkl_alternate.hpp
 CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/nccl.hpp
 CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
+CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: ../FDDGlobal.h
 CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: ../Face.h
 CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: ../FaceAnalysisModel.h
 CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o: ../FaceComponent.h
@@ -1229,6 +1231,7 @@ CMakeFiles/libfdd.dir/LeftEye.cpp.o: /home/lyfe667/caffe/build/install/include/c
 CMakeFiles/libfdd.dir/LeftEye.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/mkl_alternate.hpp
 CMakeFiles/libfdd.dir/LeftEye.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/nccl.hpp
 CMakeFiles/libfdd.dir/LeftEye.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
+CMakeFiles/libfdd.dir/LeftEye.cpp.o: ../FDDGlobal.h
 CMakeFiles/libfdd.dir/LeftEye.cpp.o: ../FaceAnalysisModel.h
 CMakeFiles/libfdd.dir/LeftEye.cpp.o: ../FaceComponent.h
 CMakeFiles/libfdd.dir/LeftEye.cpp.o: ../Frame.h
@@ -1408,6 +1411,7 @@ CMakeFiles/libfdd.dir/Mouth.cpp.o: /home/lyfe667/caffe/build/install/include/caf
 CMakeFiles/libfdd.dir/Mouth.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/mkl_alternate.hpp
 CMakeFiles/libfdd.dir/Mouth.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/nccl.hpp
 CMakeFiles/libfdd.dir/Mouth.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
+CMakeFiles/libfdd.dir/Mouth.cpp.o: ../FDDGlobal.h
 CMakeFiles/libfdd.dir/Mouth.cpp.o: ../FaceAnalysisModel.h
 CMakeFiles/libfdd.dir/Mouth.cpp.o: ../FaceComponent.h
 CMakeFiles/libfdd.dir/Mouth.cpp.o: ../Frame.h
@@ -1714,6 +1718,7 @@ CMakeFiles/libfdd.dir/RightEye.cpp.o: /home/lyfe667/caffe/build/install/include/
 CMakeFiles/libfdd.dir/RightEye.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/mkl_alternate.hpp
 CMakeFiles/libfdd.dir/RightEye.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/nccl.hpp
 CMakeFiles/libfdd.dir/RightEye.cpp.o: /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
+CMakeFiles/libfdd.dir/RightEye.cpp.o: ../FDDGlobal.h
 CMakeFiles/libfdd.dir/RightEye.cpp.o: ../FaceAnalysisModel.h
 CMakeFiles/libfdd.dir/RightEye.cpp.o: ../FaceComponent.h
 CMakeFiles/libfdd.dir/RightEye.cpp.o: ../Frame.h

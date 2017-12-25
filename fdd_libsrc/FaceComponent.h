@@ -1,6 +1,7 @@
 #pragma once
 #include"Frame.h"
-//#include"FaceAnalysisModel.h"
+#include"FDDGlobal.h"
+
 namespace fdd{
 class FaceAnalysisModel;
 class FaceComponent {
@@ -21,6 +22,7 @@ protected:
 	Status status_;
     //vertexes of  bounding box of the component
 	cv::Point2f vertices_[4];
+    cv::Point leftTopPoint_;
 public:
 	FaceComponent();
     FaceComponent(const cv::Ptr<Frame> &pFrame,const cv::Ptr<FaceAnalysisModel> &pModel,double colorImgScale=1.0);
@@ -38,7 +40,8 @@ public:
     //get the vertices of the bounding box
 	cv::Point2f * vertices();
     //draw the bounding box
-	void drawMinAreaRect();
+    void drawMinAreaRect(const cv::Scalar &color=normalColor);
+    void putText(const std::string &text,const cv::Scalar &color=normalColor);
 private:
     //predict the status of the component
     virtual FaceComponent::Status predictStatus() = 0;

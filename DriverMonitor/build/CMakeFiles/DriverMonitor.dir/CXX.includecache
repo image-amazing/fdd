@@ -520,6 +520,10 @@ ResourceManagers.h
 FrameSequenceProcessor.h
 /usr/local/include/FrameSequenceProcessor.h
 
+/usr/local/include/FDDGlobal.h
+opencv2/opencv.hpp
+/usr/local/include/opencv2/opencv.hpp
+
 /usr/local/include/Face.h
 Frame.h
 /usr/local/include/Frame.h
@@ -545,6 +549,8 @@ CaffeClassifier.h
 /usr/local/include/FaceComponent.h
 Frame.h
 /usr/local/include/Frame.h
+FDDGlobal.h
+/usr/local/include/FDDGlobal.h
 
 /usr/local/include/FatigueDetectionFrameSequenceProcessor.h
 string

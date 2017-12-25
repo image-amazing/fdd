@@ -243,6 +243,11 @@ void Face::drawFaceRect(const cv::Scalar &color){
                                                ,color,2);
 }
 
+void Face::putText(const std::string &text,const cv::Scalar &color){
+    cv::putText(pFrame_->colorImg(),text.c_str(),cv::Point(maxFaceOnSmallImgForFaceDetection_.x/pFrame_->getScaleForFaceDetection()+maxFaceOnSmallImgForFaceDetection_.width/pFrame_->getScaleForFaceDetection()*0.3
+                                                           ,maxFaceOnSmallImgForFaceDetection_.y/pFrame_->getScaleForFaceDetection()-3),0,1,color,2);
+}
+
 void Face::detectFaces2(){
     pFrame_->equalizeGraySmallImgForFaceDetectionHist();
     resetLastStatus();

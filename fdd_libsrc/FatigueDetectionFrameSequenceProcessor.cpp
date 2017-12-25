@@ -348,7 +348,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
             std::cout<<"distraction detected!!!"<<std::endl;
         }
         face_.analyzeFrontFace();
-        face_.drawFaceComponentsRect();
+        //face_.drawFaceComponentsRect();
         updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Front);
 		vm_.write(frame_.rawFrame());
         //save eyes evidence
@@ -358,8 +358,28 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 
         //update right eye parameters
         updateEyeParameters(rightEyeParam_,face_.rightEye().status());
+#ifdef WITH_SCREEN
+        //draw right eye rectangle
+        if(FaceComponent::Status::close==face_.rightEye().status()){
+            face_.rightEye().drawMinAreaRect(abnormalColor);
+            face_.rightEye().putText("close",abnormalColor);
+        }else{
+            face_.rightEye().drawMinAreaRect(normalColor);
+            face_.rightEye().putText("open",normalColor);
+        }
+#endif
         //update left eye parameters
         updateEyeParameters(leftEyeParam_,face_.leftEye().status());
+#ifdef  WITH_SCREEN
+        //draw left eye rectangle
+        if(FaceComponent::Status::close==face_.leftEye().status()){
+                face_.leftEye().drawMinAreaRect(abnormalColor);
+                face_.leftEye().putText("close",abnormalColor);
+        }else{
+               face_.leftEye().drawMinAreaRect(normalColor);
+               face_.leftEye().putText("open",normalColor);
+        }
+#endif
         //update two eyes parameters
         if (face_.rightEye().status()==FaceComponent::Status::close&&face_.leftEye().status()==FaceComponent::Status::close) {
 			systemParam_.fatigueFrameCount_++;
@@ -367,7 +387,18 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         }else{
             updateEyeParameters(eyesParam_,FaceComponent::Status::open);
         }
+        //update mouth parameters
 		updateMouthParameters(mouthParam_,face_.mouth().status());
+#ifdef WITH_SCREEN
+        //draw mouth rectangle
+        if(FaceComponent::Status::close==face_.mouth().status()){
+            face_.mouth().drawMinAreaRect(normalColor);
+            face_.mouth().putText("close",normalColor);
+        }else{
+            face_.mouth().drawMinAreaRect(abnormalColor);
+            face_.mouth().putText("open",abnormalColor);
+        }
+#endif
 		if (face_.mouth().status()==FaceComponent::Status::open) {
 			systemParam_.fatigueFrameCount_++;
 		}
@@ -417,6 +448,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 		}
 #ifdef WITH_SCREEN
         face_.drawFaceRect(Face::frontColor);
+        face_.putText("front",Face::frontColor);
         printParamsToLeft(frame_.colorImg());
         printParamsToMiddle(frame_.colorImg());
         printParamsToRight(frame_.colorImg());
@@ -431,6 +463,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Left);
 #ifdef WITH_SCREEN
      face_.drawFaceRect(Face::leftColor);
+     face_.putText("left",Face::leftColor);
     printParamsToMiddle(frame_.colorImg());
     printParamsToRight(frame_.colorImg());
 #endif
@@ -443,6 +476,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Right);
 #ifdef  WITH_SCREEN
     face_.drawFaceRect(Face::rightColor);
+    face_.putText("right",Face::rightColor);
     printParamsToMiddle(frame_.colorImg());
     printParamsToRight(frame_.colorImg());
 #endif

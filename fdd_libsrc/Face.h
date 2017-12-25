@@ -51,6 +51,7 @@ public:
      void detectFaces();
      void detectFaces2();
      void drawFaceRect(const cv::Scalar &color);
+     void putText(const std::string &text,const cv::Scalar &color);
      void resetLastStatus();
 };
 }

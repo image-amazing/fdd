@@ -57,9 +57,9 @@ void FaceComponent::generateColorImg()
 	//cv::imshow("cRotatedImg", cRotatedImg);
 	cv::Mat rotatedMatf;
 	rotatedMat.convertTo(rotatedMatf, CV_64FC1);
-	cv::Point leftTopPoint = rotatedVertices[0].y < rotatedVertices[1].y ? rotatedVertices[0] : rotatedVertices[1];
-	rect.x = rotatedMatf.at<double>(0, 0)*leftTopPoint.x + rotatedMatf.at<double>(0, 1)*leftTopPoint.y + rotatedMatf.at<double>(0, 2);
-	rect.y = rotatedMatf.at<double>(1, 0)*leftTopPoint.x + rotatedMatf.at<double>(1, 1)*leftTopPoint.y + rotatedMatf.at<double>(1, 2);
+    leftTopPoint_ = rotatedVertices[0].y < rotatedVertices[1].y ? rotatedVertices[0] : rotatedVertices[1];
+    rect.x = rotatedMatf.at<double>(0, 0)* leftTopPoint_.x + rotatedMatf.at<double>(0, 1)* leftTopPoint_.y + rotatedMatf.at<double>(0, 2);
+    rect.y = rotatedMatf.at<double>(1, 0)* leftTopPoint_.x + rotatedMatf.at<double>(1, 1)* leftTopPoint_.y + rotatedMatf.at<double>(1, 2);
     //check boundary to prevent boundary overstepping
     checkBoundary(rect,cv::Rect(0,0,cRotatedImg.size().width,cRotatedImg.size().height));
     /*rect.x = rect.x < 0 ? 0 : rect.x;
@@ -81,11 +81,17 @@ cv::Point2f * FaceComponent::vertices() {
 	return vertices_;
 }
 
-void FaceComponent::drawMinAreaRect() {
+void FaceComponent::drawMinAreaRect(const cv::Scalar &color) {
 	for (int i = 0; i < 4; i++)
 	{
-		line(pFrame_->colorImg(), vertices_[i], vertices_[(i + 1) % 4], cv::Scalar(255));
+        line(pFrame_->colorImg(), vertices_[i], vertices_[(i + 1) % 4], color);
 	}
+}
+
+void  FaceComponent::putText(const std::string &text,const cv::Scalar &color){
+    cv::Point leftTopPoint=leftTopPoint_;
+    leftTopPoint.y-=3;
+    cv::putText(pFrame_->colorImg(),text.c_str(),leftTopPoint,0,0.6,color,1);
 }
 
 void FaceComponent::pFrame(const cv::Ptr<Frame> &pFrame)
