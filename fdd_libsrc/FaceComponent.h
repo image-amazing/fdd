@@ -7,6 +7,8 @@ class FaceAnalysisModel;
 class FaceComponent {
 public:
 	 enum Status {open,close};
+   const static cv::Scalar normalColor;
+   const static cv::Scalar abnormalColor;
 protected:
     //raw frame
 	Frame *pFrame_;

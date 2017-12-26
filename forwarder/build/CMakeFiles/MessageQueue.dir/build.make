@@ -72,14 +72,39 @@ CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o.provides: CMakeFiles/MessageQueue
 
 CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o.provides.build: CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o
 
+CMakeFiles/MessageQueue.dir/Exception.cpp.o: CMakeFiles/MessageQueue.dir/flags.make
+CMakeFiles/MessageQueue.dir/Exception.cpp.o: ../Exception.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/MessageQueue.dir/Exception.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MessageQueue.dir/Exception.cpp.o -c /home/lyfe667/fdd/forwarder/Exception.cpp
+
+CMakeFiles/MessageQueue.dir/Exception.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MessageQueue.dir/Exception.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lyfe667/fdd/forwarder/Exception.cpp > CMakeFiles/MessageQueue.dir/Exception.cpp.i
+
+CMakeFiles/MessageQueue.dir/Exception.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MessageQueue.dir/Exception.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lyfe667/fdd/forwarder/Exception.cpp -o CMakeFiles/MessageQueue.dir/Exception.cpp.s
+
+CMakeFiles/MessageQueue.dir/Exception.cpp.o.requires:
+.PHONY : CMakeFiles/MessageQueue.dir/Exception.cpp.o.requires
+
+CMakeFiles/MessageQueue.dir/Exception.cpp.o.provides: CMakeFiles/MessageQueue.dir/Exception.cpp.o.requires
+	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.o.provides.build
+.PHONY : CMakeFiles/MessageQueue.dir/Exception.cpp.o.provides
+
+CMakeFiles/MessageQueue.dir/Exception.cpp.o.provides.build: CMakeFiles/MessageQueue.dir/Exception.cpp.o
+
 # Object files for target MessageQueue
 MessageQueue_OBJECTS = \
-"CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o"
+"CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o" \
+"CMakeFiles/MessageQueue.dir/Exception.cpp.o"
 
 # External object files for target MessageQueue
 MessageQueue_EXTERNAL_OBJECTS =
 
 libMessageQueue.a: CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o
+libMessageQueue.a: CMakeFiles/MessageQueue.dir/Exception.cpp.o
 libMessageQueue.a: CMakeFiles/MessageQueue.dir/build.make
 libMessageQueue.a: CMakeFiles/MessageQueue.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libMessageQueue.a"
@@ -91,6 +116,7 @@ CMakeFiles/MessageQueue.dir/build: libMessageQueue.a
 .PHONY : CMakeFiles/MessageQueue.dir/build
 
 CMakeFiles/MessageQueue.dir/requires: CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o.requires
+CMakeFiles/MessageQueue.dir/requires: CMakeFiles/MessageQueue.dir/Exception.cpp.o.requires
 .PHONY : CMakeFiles/MessageQueue.dir/requires
 
 CMakeFiles/MessageQueue.dir/clean:

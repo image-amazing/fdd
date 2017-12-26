@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/lyfe667/fdd/forwarder/Exception.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/MessageQueue.dir/Exception.cpp.o"
   "/home/lyfe667/fdd/forwarder/MessageQueue.cpp" "/home/lyfe667/fdd/forwarder/build/CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
@@ -14,6 +15,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "/usr/local/include"
+  "/usr/local/include/opencv"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

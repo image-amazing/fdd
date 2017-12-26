@@ -30,6 +30,7 @@ namespace dm{
   std::string eyesEvidenceFolder;
   std::string mouthEvidenceFolder;
   std::string logFolder;
+  std::string resultFolder;
   std::string rightEyeDNNModelFile;
   std::string rightEyeDNNWeightsFile;
   std::string rightEyeDNNMeanFile;
@@ -67,6 +68,7 @@ void configGlobalVariables(const std::string &configFile) {
         eyesEvidenceFolder=cfg.lookup("eyesEvidenceFolder").c_str();
         mouthEvidenceFolder=cfg.lookup("mouthEvidenceFolder").c_str();
         logFolder=cfg.lookup("logFolder").c_str();
+        resultFolder=cfg.lookup("resultFolder").c_str();
         rightEyeDNNModelFile = cfg.lookup("rightEyeDNNModelFile").c_str();
         rightEyeDNNWeightsFile = cfg.lookup("rightEyeDNNWeightsFile").c_str();
         rightEyeDNNMeanFile = cfg.lookup("rightEyeDNNMeanFile").c_str();

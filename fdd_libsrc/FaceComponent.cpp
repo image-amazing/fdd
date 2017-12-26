@@ -1,6 +1,10 @@
 #include"FaceComponent.h"
 #include"FDDGlobal.h"
 namespace fdd{
+
+const cv::Scalar FaceComponent::normalColor=cv::Scalar(0,255,0);
+const cv::Scalar FaceComponent::abnormalColor=cv::Scalar(0,0,255);
+
 FaceComponent::FaceComponent()
 	:pFrame_(nullptr),pModel_(nullptr),colorImg_(cv::Mat()),colorImgScale_(1.0f)
 {

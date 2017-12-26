@@ -112,6 +112,19 @@ ExecuteForwarder/fast:
 .PHONY : ExecuteForwarder/fast
 
 #=============================================================================
+# Target rules for targets named ExecuteResultProcessor
+
+# Build rule for target.
+ExecuteResultProcessor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExecuteResultProcessor
+.PHONY : ExecuteResultProcessor
+
+# fast build rule for target.
+ExecuteResultProcessor/fast:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/build
+.PHONY : ExecuteResultProcessor/fast
+
+#=============================================================================
 # Target rules for targets named ExecuteSensorDataServer
 
 # Build rule for target.
@@ -176,11 +189,25 @@ TCPSocket/fast:
 	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/build
 .PHONY : TCPSocket/fast
 
+#=============================================================================
+# Target rules for targets named TestResultProcessor
+
+# Build rule for target.
+TestResultProcessor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TestResultProcessor
+.PHONY : TestResultProcessor
+
+# fast build rule for target.
+TestResultProcessor/fast:
+	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/build
+.PHONY : TestResultProcessor/fast
+
 Exception.o: Exception.cpp.o
 .PHONY : Exception.o
 
 # target to build an object file
 Exception.cpp.o:
+	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.o
 	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.o
 .PHONY : Exception.cpp.o
 
@@ -189,6 +216,7 @@ Exception.i: Exception.cpp.i
 
 # target to preprocess a source file
 Exception.cpp.i:
+	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.i
 	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.i
 .PHONY : Exception.cpp.i
 
@@ -197,6 +225,7 @@ Exception.s: Exception.cpp.s
 
 # target to generate assembly for a file
 Exception.cpp.s:
+	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.s
 	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.s
 .PHONY : Exception.cpp.s
 
@@ -223,6 +252,30 @@ ExecuteForwarder.s: ExecuteForwarder.cpp.s
 ExecuteForwarder.cpp.s:
 	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/ExecuteForwarder.cpp.s
 .PHONY : ExecuteForwarder.cpp.s
+
+ExecuteResultProcessor.o: ExecuteResultProcessor.cpp.o
+.PHONY : ExecuteResultProcessor.o
+
+# target to build an object file
+ExecuteResultProcessor.cpp.o:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ExecuteResultProcessor.cpp.o
+.PHONY : ExecuteResultProcessor.cpp.o
+
+ExecuteResultProcessor.i: ExecuteResultProcessor.cpp.i
+.PHONY : ExecuteResultProcessor.i
+
+# target to preprocess a source file
+ExecuteResultProcessor.cpp.i:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ExecuteResultProcessor.cpp.i
+.PHONY : ExecuteResultProcessor.cpp.i
+
+ExecuteResultProcessor.s: ExecuteResultProcessor.cpp.s
+.PHONY : ExecuteResultProcessor.s
+
+# target to generate assembly for a file
+ExecuteResultProcessor.cpp.s:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ExecuteResultProcessor.cpp.s
+.PHONY : ExecuteResultProcessor.cpp.s
 
 ExecuteSensorDataServer.o: ExecuteSensorDataServer.cpp.o
 .PHONY : ExecuteSensorDataServer.o
@@ -296,6 +349,30 @@ MessageQueue.cpp.s:
 	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/MessageQueue.cpp.s
 .PHONY : MessageQueue.cpp.s
 
+ResultProcessor.o: ResultProcessor.cpp.o
+.PHONY : ResultProcessor.o
+
+# target to build an object file
+ResultProcessor.cpp.o:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ResultProcessor.cpp.o
+.PHONY : ResultProcessor.cpp.o
+
+ResultProcessor.i: ResultProcessor.cpp.i
+.PHONY : ResultProcessor.i
+
+# target to preprocess a source file
+ResultProcessor.cpp.i:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ResultProcessor.cpp.i
+.PHONY : ResultProcessor.cpp.i
+
+ResultProcessor.s: ResultProcessor.cpp.s
+.PHONY : ResultProcessor.s
+
+# target to generate assembly for a file
+ResultProcessor.cpp.s:
+	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ResultProcessor.cpp.s
+.PHONY : ResultProcessor.cpp.s
+
 SensorDataServer.o: SensorDataServer.cpp.o
 .PHONY : SensorDataServer.o
 
@@ -368,6 +445,30 @@ TCPSocket.cpp.s:
 	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.s
 .PHONY : TCPSocket.cpp.s
 
+TestResultProcessor.o: TestResultProcessor.cpp.o
+.PHONY : TestResultProcessor.o
+
+# target to build an object file
+TestResultProcessor.cpp.o:
+	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/TestResultProcessor.cpp.o
+.PHONY : TestResultProcessor.cpp.o
+
+TestResultProcessor.i: TestResultProcessor.cpp.i
+.PHONY : TestResultProcessor.i
+
+# target to preprocess a source file
+TestResultProcessor.cpp.i:
+	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/TestResultProcessor.cpp.i
+.PHONY : TestResultProcessor.cpp.i
+
+TestResultProcessor.s: TestResultProcessor.cpp.s
+.PHONY : TestResultProcessor.s
+
+# target to generate assembly for a file
+TestResultProcessor.cpp.s:
+	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/TestResultProcessor.cpp.s
+.PHONY : TestResultProcessor.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -375,11 +476,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... ExecuteForwarder"
+	@echo "... ExecuteResultProcessor"
 	@echo "... ExecuteSensorDataServer"
 	@echo "... Forwarder"
 	@echo "... MessageQueue"
 	@echo "... SensorDataServer"
 	@echo "... TCPSocket"
+	@echo "... TestResultProcessor"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Exception.o"
@@ -388,6 +491,9 @@ help:
 	@echo "... ExecuteForwarder.o"
 	@echo "... ExecuteForwarder.i"
 	@echo "... ExecuteForwarder.s"
+	@echo "... ExecuteResultProcessor.o"
+	@echo "... ExecuteResultProcessor.i"
+	@echo "... ExecuteResultProcessor.s"
 	@echo "... ExecuteSensorDataServer.o"
 	@echo "... ExecuteSensorDataServer.i"
 	@echo "... ExecuteSensorDataServer.s"
@@ -397,6 +503,9 @@ help:
 	@echo "... MessageQueue.o"
 	@echo "... MessageQueue.i"
 	@echo "... MessageQueue.s"
+	@echo "... ResultProcessor.o"
+	@echo "... ResultProcessor.i"
+	@echo "... ResultProcessor.s"
 	@echo "... SensorDataServer.o"
 	@echo "... SensorDataServer.i"
 	@echo "... SensorDataServer.s"
@@ -406,6 +515,9 @@ help:
 	@echo "... TCPSocket.o"
 	@echo "... TCPSocket.i"
 	@echo "... TCPSocket.s"
+	@echo "... TestResultProcessor.o"
+	@echo "... TestResultProcessor.i"
+	@echo "... TestResultProcessor.s"
 .PHONY : help
 
 

@@ -18,6 +18,7 @@ int main(int argc,char *args[])
     checkFolder(outputDataHome+eyesEvidenceFolder);
     checkFolder(outputDataHome+mouthEvidenceFolder);
     checkFolder(outputDataHome+logFolder);
+    checkFolder(outputDataHome+resultFolder);
 
     std::string ab_modelHome=projectHome+re_modelHome;
     ReadGlobalParamFromFile(ab_modelHome + featurePointsRegressorModelName);
@@ -43,7 +44,8 @@ int main(int argc,char *args[])
                                , outputDataHome+videoFolder
                                ,outputDataHome+eyesEvidenceFolder
                                ,outputDataHome+mouthEvidenceFolder
-                               ,outputDataHome+logFolder+"fdfdp_log");
+                               ,outputDataHome+logFolder
+                                ,outputDataHome+resultFolder);
 
     //intialize camera
     const int cameraId=atoi(cameraID.c_str());

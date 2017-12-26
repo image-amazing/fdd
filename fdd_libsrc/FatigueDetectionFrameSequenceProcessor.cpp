@@ -1,6 +1,10 @@
 #include"FatigueDetectionFrameSequenceProcessor.h"
 #include<limits.h>
 #include<glog/logging.h>
+#include<time.h>
+#include<sstream>
+#include<fstream>
+#include<exception>
 
 namespace fdd{
 
@@ -8,16 +12,19 @@ FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(c
                                                , const std::string &videoFolder
                                                , const std::string &eeFolder
                                                , const std::string &meFolder
-                                               , const std::string &logPrefix)
+                                               , const std::string &logFolder
+                                               , const  std::string &resultFolder)
     :pFaceAnalysisModel_(pFaceAnalysisModel)
     ,face_(cv::Ptr<Frame>(&frame_),pFaceAnalysisModel_)
     ,videoFolder_(videoFolder)
     ,eeFolder_(eeFolder)
     ,meFolder_(meFolder)
+    ,logFolder_(logFolder)
+    ,resultFolder_(resultFolder)
 {
     //initProcessor();
     google::InitGoogleLogging("fdfsp");
-    google::SetLogDestination(google::GLOG_INFO,logPrefix.c_str());
+    google::SetLogDestination(google::GLOG_INFO,(logFolder_+"fdfsp").c_str());
 }
 
 FatigueDetectionFrameSequenceProcessor::~FatigueDetectionFrameSequenceProcessor()
@@ -125,6 +132,7 @@ void FatigueDetectionFrameSequenceProcessor::countYawnFrame(FaceComponent::Statu
 						yawnParam_.yawnCount_++;
                         LOG(INFO)<<"yawn";
 						std::cout << "yawn" << std::endl;
+                        outputResult(DriverStatus::yawn);
 					}
 					yawnParam_.currentOpenMouthFrameCount_ = 0;
 					yawnParam_.interuptCloseMouthFrameCount_ = 0;
@@ -230,6 +238,25 @@ void FatigueDetectionFrameSequenceProcessor::updateFPS()
 {
 	systemParam_.fps_ = systemParam_.faceFrameCount_ - systemParam_.faceFrameCountAtLastSecond_;
 }
+
+inline std::string FatigueDetectionFrameSequenceProcessor::outputResult(DriverStatus status){
+    std::string strTime=getNowTimeStr();
+    std::ostringstream sout;
+     sout<<verticalID_<<"_"<<strTime<<"_FATIGUE.txt";
+     std::string resultFileName=sout.str();
+     std::ofstream fout((resultFolder_+"/"+resultFileName).c_str());
+     if(!fout.is_open()){
+         std::cout<<"fail to open"<<resultFolder_+"/"<<resultFileName<<std::endl;
+         throw std::exception();
+     }
+     fout<<verticalID_<<std::endl;
+     fout<<strTime<<std::endl;
+     fout<<driverID_<<std::endl;
+     fout<<status<<std::endl;
+     fout.close();
+     return resultFileName;
+}
+
 #ifdef WITH_SCREEN
 void FatigueDetectionFrameSequenceProcessor::printParamsToLeft(cv::Mat &colorImg)
 {//use relative cooridnate to fit variation of image size
@@ -318,8 +345,9 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 //if abnormal frame count less than 10,remove the file
                 remove(vm_.getVideoPath().c_str());
 			}
-			char videoPath[32];
-            sprintf(videoPath, "%s%ld%d.avi", videoFolder_.c_str(), systemParam_.nowTime_, systemParam_.rawFrameCount_);
+            char videoPath[PATH_LENGTH];
+            sprintf(videoPath, "%s/%d_%s_FATIGUE.avi",videoFolder_.c_str(), driverID_,getTimeStr(systemParam_.nowTime_).c_str());
+            //std::cout<<videoPath<<std::endl;
 			vm_.setVideoPath(videoPath);
 			vm_.setFPS(systemParam_.aveRawFPSInOneMinute_);
 			vm_.open();
@@ -337,6 +365,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 if(detectDistractionByFrameRate(faceParam_.distractionFrameRateThreshold_)){
                    LOG(INFO)<<"frequent distraction detected!!!";
                    std::cout<<"frequent distraction detected!!!"<<std::endl;
+                   outputResult(DriverStatus::distraction);
                 }
             }
     }
@@ -346,6 +375,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         {
             LOG(INFO)<<"distraction detected!!!";
             std::cout<<"distraction detected!!!"<<std::endl;
+            outputResult(DriverStatus::distraction);
         }
         face_.analyzeFrontFace();
         //face_.drawFaceComponentsRect();
@@ -361,11 +391,11 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 #ifdef WITH_SCREEN
         //draw right eye rectangle
         if(FaceComponent::Status::close==face_.rightEye().status()){
-            face_.rightEye().drawMinAreaRect(abnormalColor);
-            face_.rightEye().putText("close",abnormalColor);
+            face_.rightEye().drawMinAreaRect(FaceComponent::abnormalColor);
+            face_.rightEye().putText("close",FaceComponent::abnormalColor);
         }else{
-            face_.rightEye().drawMinAreaRect(normalColor);
-            face_.rightEye().putText("open",normalColor);
+            face_.rightEye().drawMinAreaRect(FaceComponent::normalColor);
+            face_.rightEye().putText("open",FaceComponent::normalColor);
         }
 #endif
         //update left eye parameters
@@ -373,11 +403,11 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 #ifdef  WITH_SCREEN
         //draw left eye rectangle
         if(FaceComponent::Status::close==face_.leftEye().status()){
-                face_.leftEye().drawMinAreaRect(abnormalColor);
-                face_.leftEye().putText("close",abnormalColor);
+                face_.leftEye().drawMinAreaRect(FaceComponent::abnormalColor);
+                face_.leftEye().putText("close",FaceComponent::abnormalColor);
         }else{
-               face_.leftEye().drawMinAreaRect(normalColor);
-               face_.leftEye().putText("open",normalColor);
+               face_.leftEye().drawMinAreaRect(FaceComponent::normalColor);
+               face_.leftEye().putText("open",FaceComponent::normalColor);
         }
 #endif
         //update two eyes parameters
@@ -392,11 +422,11 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 #ifdef WITH_SCREEN
         //draw mouth rectangle
         if(FaceComponent::Status::close==face_.mouth().status()){
-            face_.mouth().drawMinAreaRect(normalColor);
-            face_.mouth().putText("close",normalColor);
+            face_.mouth().drawMinAreaRect(FaceComponent::normalColor);
+            face_.mouth().putText("close",FaceComponent::normalColor);
         }else{
-            face_.mouth().drawMinAreaRect(abnormalColor);
-            face_.mouth().putText("open",abnormalColor);
+            face_.mouth().drawMinAreaRect(FaceComponent::abnormalColor);
+            face_.mouth().putText("open",FaceComponent::abnormalColor);
         }
 #endif
 		if (face_.mouth().status()==FaceComponent::Status::open) {
@@ -418,11 +448,13 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                     std::cout << "************************" <<std:: endl;
                     std::cout << "sleepy!!!" << std::endl;
                     std::cout << "************************" << std::endl;
+                    outputResult(DriverStatus::sleepy);
                 }else{
                     remove(eevm_.getVideoPath().c_str());
                 }
-                char eePath[32];
-                sprintf(eePath, "%s%ld%d.avi",eeFolder_.c_str() , systemParam_.nowTime_, systemParam_.rawFrameCount_);
+                char eePath[PATH_LENGTH];
+                //sprintf(eePath, "%s%ld%d.avi",eeFolder_.c_str() , systemParam_.nowTime_, systemParam_.rawFrameCount_);
+                sprintf(eePath, "%s/%d_%s_FATIGUE.avi",eeFolder_.c_str() , driverID_,getNowTimeStr().c_str());
                 eevm_.setVideoPath(eePath);
                 eevm_.setFPS(systemParam_.aveRawFPSInOneMinute_);
                 eevm_.open();
@@ -436,11 +468,12 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                     std::cout << "************************" << std::endl;
                     std::cout << "frequent yawn!!!" << std::endl;
                     std::cout << "************************" << std::endl;
+                    outputResult(DriverStatus::frequentYawn);
                 }else{
                     remove(mevm_.getVideoPath().c_str());
                 }
-                char mePath[32];
-                sprintf(mePath, "%s%ld%d.avi",meFolder_.c_str() , systemParam_.nowTime_, systemParam_.rawFrameCount_);
+                char mePath[PATH_LENGTH];
+                sprintf(mePath, "%s/%d_%s_FATIGUE.avi",meFolder_.c_str() , driverID_ ,getNowTimeStr().c_str());
                 mevm_.setVideoPath(mePath);
                 mevm_.setFPS(systemParam_.aveRawFPSInOneMinute_);
                 mevm_.open();
@@ -458,6 +491,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     {
         LOG(INFO)<<"distraction detected!!!  left";
         std::cout<<"distraction detected!!!  left"<<std::endl;
+        outputResult(DriverStatus::distraction);
     }
     countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Left);
@@ -471,6 +505,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right,faceParam_.distractionLastedThreshold_)){
         LOG(INFO)<<"distraction detected!!! right";
         std::cout<<"distraction detected!!! right"<<std::endl;
+        outputResult(DriverStatus::distraction);
     }
     countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Right);

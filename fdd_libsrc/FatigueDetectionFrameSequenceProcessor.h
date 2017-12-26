@@ -9,6 +9,9 @@
 namespace fdd{
 class FatigueDetectionFrameSequenceProcessor
         :public FrameSequenceProcessor {
+public:
+    enum DriverStatus{ normal ,distraction,yawn
+                      ,frequentYawn ,sleepy };
 private:
 	struct EyeParameters {
 		std::string eyeStatusStr_ = "EYE STATUS:";
@@ -120,12 +123,17 @@ private:
 	std::string videoFolder_ = "";
     std::string eeFolder_="";
     std::string meFolder_="";
+    std::string logFolder_="";
+    std::string resultFolder_="";
+    int verticalID_=1;
+    int driverID_=1;
 public:
     FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pfam
                            , const std::string &videoFolder
                            , const std::string &eeFolder
                            , const std::string &meFolder
-                           , const std::string &logPrefix="./fdfsp_log");
+                           , const std::string &logFolder
+                            , const std::string &resultFolder);
     ~FatigueDetectionFrameSequenceProcessor();
     void initProcessor() override;
     void beforeProcess() override;
@@ -141,6 +149,7 @@ private:
     bool judgeFatigueByEye(EyeParameters &eyeParams);
     bool judgeFatigueByMouth();
 	void updateFPS();
+    std::string outputResult(DriverStatus status);
 #ifdef WITH_SCREEN
     void printParamsToLeft(cv::Mat &colorImg);
     void printParamsToMiddle(cv::Mat &colorImg);

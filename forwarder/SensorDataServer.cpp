@@ -1,4 +1,5 @@
 #include"SensorDataServer.h"
+#include<iostream>
 
 SensorDataServer::SensorDataServer(const SocketAddress &sockAddr)
     :sock_(sockAddr.getFamily()),sockAddr_(sockAddr)
@@ -15,13 +16,13 @@ SensorDataServer::~SensorDataServer(){
     }
 }
 
-SensorDataServer::serve(){
+void SensorDataServer::serve(){
     while(true){
         TCPSocket connSock;
         SocketAddress clientAddr;
         sock_.accept(connSock,clientAddr);
-        SocketBuffer sockBuf;
+        SocketBuffer sockBuf(1024);
         connSock.receive(sockBuf);
-        cout<<static_cast<char *>(sockBuf.getBuffer())<<endl;
+        std::cout<<static_cast<char *>(sockBuf.getBuffer())<<std::endl;
     }
 }

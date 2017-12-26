@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o"
+  "CMakeFiles/MessageQueue.dir/Exception.cpp.o"
   "libMessageQueue.pdb"
   "libMessageQueue.a"
 )

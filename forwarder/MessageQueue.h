@@ -45,10 +45,10 @@ public:
     }
 
     DataType *getData(){
-        return static_cast<DataType *>(msgData_);
+        return reinterpret_cast<DataType *>(msgData_);
     }
     const DataType *getData()const{
-        return static_cast<const DataType *>(msgData_);
+        return reinterpret_cast<const DataType *>(msgData_);
     }
 
     int getDataSize(){
@@ -75,10 +75,17 @@ public:
           Message<DataType> msg(data,msgType);
          return msgsnd(msgID_,static_cast<void *>(&msg),msg.getDataSize(),msgflg);
     }
+
     template<int MAX_MSG_SIZE=1024>
     int pop(Message<char,MAX_MSG_SIZE> &msg,long int msgType=0,int msgflg=0){
         return msgrcv(msgID_,static_cast<void *>(&msg),msg.getDataSize(),msgType,msgflg);
     }
+
+   template<typename MSG_TYPE,int N=1>
+    int pop(Message<MSG_TYPE,N> &msg,long int msgType=0,int msgflg=0){
+        return msgrcv(msgID_,static_cast<void *>(&msg),msg.getDataSize(),msgType,msgflg);
+    }
+
     int getStatus(struct msqid_ds *status){
         return msgctl(msgID_,IPC_STAT,status);
     }
