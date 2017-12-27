@@ -1,10 +1,10 @@
 #include"Socket.h"
 #include<string.h>
-
+namespace forwarder{
 SocketBuffer::SocketBuffer(int maxSize)
     :maxSize_(maxSize),size_(0),pBuf_(nullptr)
 {
-    CHECK<Exception>(maxSize>0,"SocketBuffer size must be greater than 0");
+    Check<Exception>(maxSize>0,"SocketBuffer size must be greater than 0");
     pBuf_=static_cast<void *>(new char[maxSize_]);
 }
 
@@ -17,9 +17,9 @@ SocketBuffer::~SocketBuffer(){
 }
 
 void SocketBuffer::copyFrom(void *pStart,int length){
-    CHECK<Exception>(nullptr!=pBuf_,"SocketBuffer pBuf_ can't be nullptr");
-    CHECK<Exception>(nullptr!=pStart,"SocketBuffer copyFrom pStart can't be nullptr");
-    CHECK<Exception>(length<=maxSize_&&length>=0,"SocketBuffer copyFrom len exception");
+    Check<Exception>(nullptr!=pBuf_,"SocketBuffer pBuf_ can't be nullptr");
+    Check<Exception>(nullptr!=pStart,"SocketBuffer copyFrom pStart can't be nullptr");
+    Check<Exception>(length<=maxSize_&&length>=0,"SocketBuffer copyFrom len exception");
     memcpy(pBuf_,pStart,length);
     size_=length;
 }
@@ -31,6 +31,7 @@ const int SocketBuffer::getMaxSize()const{
 const int SocketBuffer::getSize()const{
   return size_;
 }
+
 
 void SocketBuffer::setSize(int size){
     size_=size;
@@ -104,7 +105,7 @@ Socket::Socket(int type,int family,int protocol)
     :type_(type),family_(family),protocol_(protocol)
 {
     sockfd_=::socket(family_,type_,protocol_);
-    CHECK<SocketException>(sockfd_!=-1,"fail to create!");
+    Check<SocketException>(sockfd_!=-1,"fail to create!");
 }
 
 Socket::~Socket(){
@@ -122,7 +123,7 @@ void Socket::bind(unsigned short port,const std::string &addr){
 
 void Socket::bind(const SocketAddress &sockAddr){
     sockaddr_in sa=static_cast<sockaddr_in>(sockAddr);
-    CHECK<SocketException>(-1!=::bind(sockfd_,(struct sockaddr *)&sa,sizeof(sa)),"fail to bind!");
+    Check<SocketException>(-1!=::bind(sockfd_,(struct sockaddr *)&sa,sizeof(sa)),"fail to bind!");
 }
 
 void Socket::setSockfd(int sockfd){
@@ -156,7 +157,7 @@ void Socket::setProtocol(int protocol){
 int Socket::getProtocol(){
     return protocol_;
 }
-
+}
 
 
 

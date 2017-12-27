@@ -3,8 +3,11 @@
 #include<exception>
 #include<string>
 
+namespace  forwarder{
+
+
 template<typename ExceptionType>
-inline void CHECK(bool expression,const std::string &exceptionInfo){
+inline void Check(bool expression,const std::string &exceptionInfo){
     if(!expression){
             throw ExceptionType(exceptionInfo);
     }
@@ -41,4 +44,5 @@ public:
     const char * what() const noexcept override;
 };
 
+}
 #endif // EXCEPTION_H

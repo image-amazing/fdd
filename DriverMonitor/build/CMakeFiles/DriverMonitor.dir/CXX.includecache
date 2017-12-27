@@ -485,6 +485,10 @@ FatigueDetectionFrameSequenceProcessor.h
 /home/lyfe667/fdd/DriverMonitor/FatigueDetectionFrameSequenceProcessor.h
 assert.h
 -
+stdio.h
+-
+sstream
+-
 
 /home/lyfe667/fdd/DriverMonitor/dm_global.h
 string
@@ -519,6 +523,12 @@ ResourceManagers.h
 /usr/local/include/ResourceManagers.h
 FrameSequenceProcessor.h
 /usr/local/include/FrameSequenceProcessor.h
+
+/usr/local/include/Exception.h
+exception
+-
+string
+-
 
 /usr/local/include/FDDGlobal.h
 opencv2/opencv.hpp
@@ -567,6 +577,8 @@ ResourceManagers.h
 /usr/local/include/ResourceManagers.h
 FrameSequenceProcessor.h
 /usr/local/include/FrameSequenceProcessor.h
+MessageQueue.h
+-
 
 /usr/local/include/Frame.h
 opencv2/opencv.hpp
@@ -631,6 +643,14 @@ liblinear/linear.h
 /usr/local/include/LeftEye.h
 FaceComponent.h
 /usr/local/include/FaceComponent.h
+
+/usr/local/include/MessageQueue.h
+sys/msg.h
+-
+cstring
+-
+Exception.h
+/usr/local/include/Exception.h
 
 /usr/local/include/Mouth.h
 FaceComponent.h

@@ -1,5 +1,6 @@
 #include"Exception.h"
 
+namespace forwarder{
 Exception::Exception(const std::string &exceptionInfo)
     :exceptionInfo_(exceptionInfo)
 {
@@ -44,7 +45,7 @@ const char * MessageQueueException::what()const noexcept{
     return ("MessageQueueException: "+exceptionInfo_).c_str();
 }
 
-
+}
 
 
 

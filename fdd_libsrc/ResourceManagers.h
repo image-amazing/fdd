@@ -28,6 +28,7 @@ public:
 	void setFrameSize(const cv::Size &frameSize0);
 	void setBAdd(bool bAdd);
 	const std::string &getVideoPath() const;
+    const std::string getVideoName() const;
 	void open();
 	void release();
     void write(const cv::Mat &frame);

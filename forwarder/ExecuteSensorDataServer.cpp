@@ -1,5 +1,7 @@
 #include"SensorDataServer.h"
 
+using namespace forwarder;
+
 const unsigned short servicePort=2018;
 const std::string serviceIP="127.0.0.1";
 

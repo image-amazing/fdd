@@ -3,6 +3,8 @@
 #include"MessageQueue.h"
 #include"TCPSocket.h"
 
+namespace forwarder{
+
 class Forwarder{
 private:
     MessageQueue msgQue_;
@@ -14,4 +16,5 @@ public:
     void forward();
 };
 
+}
 #endif // FORWARDER_H

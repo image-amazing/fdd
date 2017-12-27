@@ -41,6 +41,7 @@ CMakeFiles/CutOutFaceComponents.dir/CutOutFaceComponents.cpp.o
  /home/lyfe667/caffe/build/install/include/caffe/util/upgrade_proto.hpp
  /home/lyfe667/fdd/tools/CutOutFaceComponents/CutOutFaceComponents.cpp
  /usr/local/include/CaffeClassifier.h
+ /usr/local/include/FDDGlobal.h
  /usr/local/include/Face.h
  /usr/local/include/FaceAnalysisModel.h
  /usr/local/include/FaceComponent.h

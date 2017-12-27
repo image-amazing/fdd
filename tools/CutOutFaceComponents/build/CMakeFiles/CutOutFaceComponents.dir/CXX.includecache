@@ -518,6 +518,12 @@ vector
 caffe_layers_registry.hpp
 /usr/local/include/caffe_layers_registry.hpp
 
+/usr/local/include/FDDGlobal.h
+opencv2/opencv.hpp
+/usr/local/include/opencv2/opencv.hpp
+time.h
+-
+
 /usr/local/include/Face.h
 Frame.h
 /usr/local/include/Frame.h
@@ -543,6 +549,8 @@ CaffeClassifier.h
 /usr/local/include/FaceComponent.h
 Frame.h
 /usr/local/include/Frame.h
+FDDGlobal.h
+/usr/local/include/FDDGlobal.h
 
 /usr/local/include/Frame.h
 opencv2/opencv.hpp

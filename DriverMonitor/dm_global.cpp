@@ -11,79 +11,47 @@
 
 namespace dm{
 
-  std::string projectHome;
-//model root folder
-  std::string re_modelHome;
-//front face detection model
-  std::string fccModelName;
-//profile face detection model
-  std::string pfccModelName;
-  std::string rightEyeStatusSVMModelName;
-  std::string mouthChinStatusSVMModelName;
-  std::string featurePointsRegressorModelName;
-  std::string regName;
-  std::string mediaHome;
-  std::string rightEyeFatigueAudio;
-  std::string mouthFatigueAudio;
-  std::string outputDataHome;
-  std::string videoFolder;
-  std::string eyesEvidenceFolder;
-  std::string mouthEvidenceFolder;
-  std::string logFolder;
-  std::string resultFolder;
-  std::string rightEyeDNNModelFile;
-  std::string rightEyeDNNWeightsFile;
-  std::string rightEyeDNNMeanFile;
-  std::string mouthChinDNNModelFile;
-  std::string mouthChinDNNWeightsFile;
-  std::string mouthChinDNNMeanFile;
-  std::string leftEyeDNNModelFile;
-  std::string leftEyeDNNWeightsFile;
-  std::string leftEyeDNNMeanFile;
-  std::string faceComponentLabelFile;
-  std::string headposeDNNModelFile;
-  std::string headposeDNNWeightsFile;
-  std::string headposeDNNMeanFile;
-  std::string headposeLabelFile;
-  std::string cameraID;
-
 //config global parameters
-void configGlobalVariables(const std::string &configFile) {
+DriverMonitorConfigure configGlobalVariables(const std::string &configFile) {
     try {
+        DriverMonitorConfigure dmc;
         libconfig::Config cfg;
         cfg.readFile(configFile.c_str());
-        projectHome=cfg.lookup("projectHome").c_str();
-        re_modelHome = cfg.lookup("re_modelHome").c_str();
-        fccModelName = cfg.lookup("fccModelName").c_str();
-        pfccModelName=cfg.lookup("pfccModelName").c_str();
-        rightEyeStatusSVMModelName = cfg.lookup("rightEyeStatusSVMModelName").c_str();
-        mouthChinStatusSVMModelName = cfg.lookup("mouthChinStatusSVMModelName").c_str();
-        featurePointsRegressorModelName = cfg.lookup("featurePointsRegressorModelName").c_str();
-        regName=cfg.lookup("regName").c_str();
-        mediaHome = cfg.lookup("mediaHome").c_str();
-        rightEyeFatigueAudio = cfg.lookup("rightEyeFatigueAudio").c_str();
-        mouthFatigueAudio = cfg.lookup("mouthFatigueAudio").c_str();
-        outputDataHome=cfg.lookup("outputDataHome").c_str();
-        videoFolder = cfg.lookup("videoFolder").c_str();
-        eyesEvidenceFolder=cfg.lookup("eyesEvidenceFolder").c_str();
-        mouthEvidenceFolder=cfg.lookup("mouthEvidenceFolder").c_str();
-        logFolder=cfg.lookup("logFolder").c_str();
-        resultFolder=cfg.lookup("resultFolder").c_str();
-        rightEyeDNNModelFile = cfg.lookup("rightEyeDNNModelFile").c_str();
-        rightEyeDNNWeightsFile = cfg.lookup("rightEyeDNNWeightsFile").c_str();
-        rightEyeDNNMeanFile = cfg.lookup("rightEyeDNNMeanFile").c_str();
-        mouthChinDNNModelFile = cfg.lookup("mouthChinDNNModelFile").c_str();
-        mouthChinDNNWeightsFile = cfg.lookup("mouthChinDNNWeightsFile").c_str();
-        mouthChinDNNMeanFile = cfg.lookup("mouthChinDNNMeanFile").c_str();
-        leftEyeDNNModelFile = cfg.lookup("leftEyeDNNModelFile").c_str();
-        leftEyeDNNWeightsFile = cfg.lookup("leftEyeDNNWeightsFile").c_str();
-        leftEyeDNNMeanFile = cfg.lookup("leftEyeDNNMeanFile").c_str();
-        faceComponentLabelFile = cfg.lookup("faceComponentLabelFile").c_str();
-        headposeDNNModelFile=cfg.lookup("headposeDNNModelFile").c_str();
-        headposeDNNWeightsFile=cfg.lookup("headposeDNNWeightsFile").c_str();
-        headposeDNNMeanFile=cfg.lookup("headposeDNNMeanFile").c_str();
-        headposeLabelFile=cfg.lookup("headposeLabelFile").c_str();
-        cameraID=cfg.lookup("cameraID").c_str();
+        dmc.projectHome=cfg.lookup("projectHome").c_str();
+         dmc.re_modelHome = cfg.lookup("re_modelHome").c_str();
+         dmc.fccModelName = cfg.lookup("fccModelName").c_str();
+         dmc.pfccModelName=cfg.lookup("pfccModelName").c_str();
+         dmc.rightEyeStatusSVMModelName = cfg.lookup("rightEyeStatusSVMModelName").c_str();
+        dmc.mouthChinStatusSVMModelName = cfg.lookup("mouthChinStatusSVMModelName").c_str();
+         dmc.featurePointsRegressorModelName = cfg.lookup("featurePointsRegressorModelName").c_str();
+         dmc.regName=cfg.lookup("regName").c_str();
+         dmc.mediaHome = cfg.lookup("mediaHome").c_str();
+         dmc.rightEyeFatigueAudio = cfg.lookup("rightEyeFatigueAudio").c_str();
+         dmc.mouthFatigueAudio = cfg.lookup("mouthFatigueAudio").c_str();
+         dmc.outputDataHome=cfg.lookup("outputDataHome").c_str();
+         dmc.videoFolder = cfg.lookup("videoFolder").c_str();
+          dmc.eyeEvidenceFolder=cfg.lookup("eyeEvidenceFolder").c_str();
+         dmc.mouthEvidenceFolder=cfg.lookup("mouthEvidenceFolder").c_str();
+         dmc.logFolder=cfg.lookup("logFolder").c_str();
+         dmc.resultFolder=cfg.lookup("resultFolder").c_str();
+         dmc.rightEyeDNNModelFile = cfg.lookup("rightEyeDNNModelFile").c_str();
+         dmc.rightEyeDNNWeightsFile = cfg.lookup("rightEyeDNNWeightsFile").c_str();
+         dmc.rightEyeDNNMeanFile = cfg.lookup("rightEyeDNNMeanFile").c_str();
+         dmc.mouthChinDNNModelFile = cfg.lookup("mouthChinDNNModelFile").c_str();
+         dmc.mouthChinDNNWeightsFile = cfg.lookup("mouthChinDNNWeightsFile").c_str();
+         dmc.mouthChinDNNMeanFile = cfg.lookup("mouthChinDNNMeanFile").c_str();
+         dmc.leftEyeDNNModelFile = cfg.lookup("leftEyeDNNModelFile").c_str();
+         dmc.leftEyeDNNWeightsFile = cfg.lookup("leftEyeDNNWeightsFile").c_str();
+        dmc.leftEyeDNNMeanFile = cfg.lookup("leftEyeDNNMeanFile").c_str();
+         dmc.faceComponentLabelFile = cfg.lookup("faceComponentLabelFile").c_str();
+         dmc.headposeDNNModelFile=cfg.lookup("headposeDNNModelFile").c_str();
+         dmc.headposeDNNWeightsFile=cfg.lookup("headposeDNNWeightsFile").c_str();
+         dmc.headposeDNNMeanFile=cfg.lookup("headposeDNNMeanFile").c_str();
+         dmc.headposeLabelFile=cfg.lookup("headposeLabelFile").c_str();
+         dmc.cameraID=cfg.lookup("cameraID").c_str();
+         dmc.resultMessageQueueKey=cfg.lookup("resultMessageQueueKey").c_str();
+         dmc.resultMessageProcessorPath=cfg.lookup("resultMessageProcessorPath").c_str();
+         return dmc;
     }
     catch (...) {
         std::cout << "fail to config from "<<configFile.c_str() <<std:: endl;

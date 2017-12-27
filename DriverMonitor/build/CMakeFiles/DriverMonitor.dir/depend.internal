@@ -43,6 +43,7 @@ CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o
  /home/lyfe667/fdd/DriverMonitor/dm_global.h
  /usr/local/include/CaffeClassifier.h
  /usr/local/include/Camera.h
+ /usr/local/include/Exception.h
  /usr/local/include/FDDGlobal.h
  /usr/local/include/Face.h
  /usr/local/include/FaceAnalysisModel.h
@@ -53,6 +54,7 @@ CMakeFiles/DriverMonitor.dir/DriverMonitor.cpp.o
  /usr/local/include/LBF.h
  /usr/local/include/LBFRegressor.h
  /usr/local/include/LeftEye.h
+ /usr/local/include/MessageQueue.h
  /usr/local/include/Mouth.h
  /usr/local/include/RandomForest.h
  /usr/local/include/ResourceManagers.h

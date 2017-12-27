@@ -56,9 +56,9 @@ CMAKE_BINARY_DIR = /home/lyfe667/fdd/forwarder/build
 # Target rules for target CMakeFiles/ExecuteForwarder.dir
 
 # All Build rule for target.
+CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/TCPSocket.dir/all
 CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/MessageQueue.dir/all
 CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/Forwarder.dir/all
-CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/TCPSocket.dir/all
 	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/depend
 	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  1
@@ -128,8 +128,8 @@ clean: CMakeFiles/ExecuteResultProcessor.dir/clean
 # Target rules for target CMakeFiles/ExecuteSensorDataServer.dir
 
 # All Build rule for target.
-CMakeFiles/ExecuteSensorDataServer.dir/all: CMakeFiles/SensorDataServer.dir/all
 CMakeFiles/ExecuteSensorDataServer.dir/all: CMakeFiles/TCPSocket.dir/all
+CMakeFiles/ExecuteSensorDataServer.dir/all: CMakeFiles/SensorDataServer.dir/all
 	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/depend
 	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  4
@@ -164,8 +164,8 @@ clean: CMakeFiles/ExecuteSensorDataServer.dir/clean
 # Target rules for target CMakeFiles/Forwarder.dir
 
 # All Build rule for target.
-CMakeFiles/Forwarder.dir/all: CMakeFiles/MessageQueue.dir/all
 CMakeFiles/Forwarder.dir/all: CMakeFiles/TCPSocket.dir/all
+CMakeFiles/Forwarder.dir/all: CMakeFiles/MessageQueue.dir/all
 	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/depend
 	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  5

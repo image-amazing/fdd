@@ -1,5 +1,7 @@
 #include"Forwarder.h"
 
+using namespace forwarder;
+
 const int msgKey=2017;
 const unsigned short destPort=2018;
 const std::string destIP="127.0.0.1";

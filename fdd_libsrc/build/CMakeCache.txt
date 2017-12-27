@@ -180,7 +180,7 @@ OpenCV_DIR:PATH=/usr/local/share/OpenCV
 libfdd_BINARY_DIR:STATIC=/home/lyfe667/fdd/fdd_libsrc/build
 
 //Dependencies for the target
-libfdd_LIB_DEPENDS:STATIC=general;3000fps;general;CaffeClassifier;
+libfdd_LIB_DEPENDS:STATIC=general;3000fps;general;CaffeClassifier;general;MessageQueue;
 
 //Value Computed by CMake
 libfdd_SOURCE_DIR:STATIC=/home/lyfe667/fdd/fdd_libsrc

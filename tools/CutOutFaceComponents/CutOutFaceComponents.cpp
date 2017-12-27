@@ -17,6 +17,8 @@ const string leftEyeDir="LeftEye/";
 const string rightEyeDir="RightEye/";
 const string mouthDir="Mouth/";
 
+  DriverMonitorConfigure dmc;
+
 void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const string &outputDir){
        checkFolder(outputDir+"/"+leftEyeDir);
        checkFolder(outputDir+"/"+rightEyeDir);
@@ -24,10 +26,10 @@ void cutOutEyesAndMouth(const string &pathPrefix,const string &pathFile,const st
        cv::Ptr<Frame> pFrame(new Frame());
        pFrame->setScaleForFaceDetection(0.2);
        cv::Ptr<FaceAnalysisModel> pfam(new FaceAnalysisModel());
-        string ab_modelPath=projectHome+re_modelHome;
-        pfam->loadFCC(ab_modelPath+fccModelName);
-        pfam->loadPFCC(ab_modelPath+pfccModelName);
-        pfam->loadFeaturePointsRegressor(ab_modelPath+featurePointsRegressorModelName,ab_modelPath+regName);
+        string ab_modelPath=dmc.projectHome+dmc.re_modelHome;
+        pfam->loadFCC(ab_modelPath+dmc.fccModelName);
+        pfam->loadPFCC(ab_modelPath+dmc.pfccModelName);
+        pfam->loadFeaturePointsRegressor(ab_modelPath+dmc.featurePointsRegressorModelName,ab_modelPath+dmc.regName);
 
         Face face(pFrame,pfam);
         face.leftEye().colorImgScale(1.3);
@@ -72,8 +74,8 @@ int main(int argc,char *args[]){
    string configFile=args[1];
    string pathPrefix=args[2];
    string pathFilesFile=args[3];
-   configGlobalVariables(configFile);
-   ReadGlobalParamFromFile(projectHome+re_modelHome+featurePointsRegressorModelName);
+   dmc=configGlobalVariables(configFile);
+   ReadGlobalParamFromFile(dmc.projectHome+dmc.re_modelHome+dmc.featurePointsRegressorModelName);
     ifstream fin(pathFilesFile);
     assert(fin);
     string pathFileName;

@@ -1,6 +1,8 @@
 #include"Forwarder.h"
 #include<iostream>
 
+namespace forwarder{
+
 Forwarder::Forwarder(key_t key,const SocketAddress &destAddr)
     :msgQue_(key),sock_()
 {
@@ -24,4 +26,6 @@ void Forwarder::forward(){
         sock_.send(sockBuf);
         std::cout<<"msgType: "<<(*(long int*)&msg);
     }
+}
+
 }

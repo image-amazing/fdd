@@ -122,4 +122,8 @@ const std::string &VideoManager::getVideoPath() const
 {
 	return videoPath_;
 }
+
+const std::string VideoManager::getVideoName() const{
+    return videoPath_.substr(videoPath_.find_last_of('/')+1,videoPath_.length()-videoPath_.find_last_of('/')-1);
+}
 }

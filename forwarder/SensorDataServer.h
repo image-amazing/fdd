@@ -2,6 +2,8 @@
 #define SENSORDATASERVER_H
 #include"TCPSocket.h"
 
+namespace forwarder{
+
 class SensorDataServer{
 private:
        TCPSocket sock_;
@@ -13,4 +15,5 @@ public:
        void serve();
 };
 
+}
 #endif // SENSORDATASERVER_H

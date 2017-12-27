@@ -3,6 +3,8 @@
 
 #include"Socket.h"
 
+namespace forwarder{
+
 class TCPSocket: public Socket{
 public:
     //default constructor
@@ -20,4 +22,5 @@ public:
     void close();
 };
 
+}
 #endif // TCPSOCKET_H

@@ -2,6 +2,7 @@
 #include<iostream>
 #include<sstream>
 
+namespace forwarder{
 
 ResultProcessor::ResultProcessor(key_t msgKey)
     :msgQue_(msgKey),fddDataHome_("./"),eeFolder_("eyeEvidence")
@@ -79,4 +80,5 @@ void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
     }
 }
 
+}
 

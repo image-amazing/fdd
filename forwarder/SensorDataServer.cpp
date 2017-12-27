@@ -1,6 +1,7 @@
 #include"SensorDataServer.h"
 #include<iostream>
 
+namespace forwarder{
 SensorDataServer::SensorDataServer(const SocketAddress &sockAddr)
     :sock_(sockAddr.getFamily()),sockAddr_(sockAddr)
 {
@@ -25,4 +26,5 @@ void SensorDataServer::serve(){
         connSock.receive(sockBuf);
         std::cout<<static_cast<char *>(sockBuf.getBuffer())<<std::endl;
     }
+}
 }

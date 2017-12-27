@@ -5,7 +5,7 @@
 #include"Exception.h"
 
 #define RAW_MSG_SIZE 1024
-
+namespace forwarder{
 template<typename DataType,int N=1>
 class Message{
 private:
@@ -36,8 +36,8 @@ public:
         memcpy(static_cast<void *>(msgData_),static_cast<void *>(&data),sizeof(DataType));
     }
     void copyFrom(const DataType *pStart,int length){
-        CHECK<MessageException>(length>=0&&length<=getDataSize(),"length exception");
-        CHECK<MessageException>(nullptr!=pStart,"pStart == nullptr");
+        Check<MessageException>(length>=0&&length<=getDataSize(),"length exception");
+        Check<MessageException>(nullptr!=pStart,"pStart == nullptr");
         memcpy(static_cast<void *>(msgData_),static_cast<void *>(pStart),length);
     }
     long int getType(){
@@ -65,7 +65,7 @@ public:
         :msgKey_(key),msgID_(-1)
     {
         msgID_=msgget(msgKey_ , msgflg);
-        CHECK<MessageQueueException>(-1!=msgID_,"msgget exception");
+        Check<MessageQueueException>(-1!=msgID_,"msgget exception");
     }
     ~MessageQueue(){
 
@@ -96,5 +96,5 @@ public:
         return msgctl(msgID_,IPC_RMID,0);
     }
 };
-
+}
 #endif // MESSAGEQUEUE_H

@@ -3,6 +3,7 @@
 #include<FDDGlobal.h>
 #include"MessageQueue.h"
 
+namespace forwarder{
 class ResultProcessor{
 private:
     MessageQueue msgQue_;
@@ -35,5 +36,5 @@ public:
 private:
     void process(const fdd::FatigueMessage &fmsg,int msgType);
 };
-
+}
 #endif // RESULTPROCESSOR_H

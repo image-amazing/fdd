@@ -8,19 +8,9 @@
 
 namespace fdd{
 
-FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pFaceAnalysisModel
-                                               , const std::string &videoFolder
-                                               , const std::string &eeFolder
-                                               , const std::string &meFolder
-                                               , const std::string &logFolder
-                                               , const  std::string &resultFolder)
-    :pFaceAnalysisModel_(pFaceAnalysisModel)
-    ,face_(cv::Ptr<Frame>(&frame_),pFaceAnalysisModel_)
-    ,videoFolder_(videoFolder)
-    ,eeFolder_(eeFolder)
-    ,meFolder_(meFolder)
-    ,logFolder_(logFolder)
-    ,resultFolder_(resultFolder)
+FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pFaceAnalysisModel,key_t msgKey)
+    :pFaceAnalysisModel_(pFaceAnalysisModel) ,face_(cv::Ptr<Frame>(&frame_),pFaceAnalysisModel_)
+    ,videoFolder_("./"),eeFolder_("./"),meFolder_("./"),logFolder_("./"),resultFolder_("./"),msgQue_(msgKey)
 {
     //initProcessor();
     google::InitGoogleLogging("fdfsp");
@@ -29,6 +19,7 @@ FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(c
 
 FatigueDetectionFrameSequenceProcessor::~FatigueDetectionFrameSequenceProcessor()
 {
+    msgQue_.deleteQueue();
     google::ShutdownGoogleLogging();
 }
 
@@ -365,7 +356,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 if(detectDistractionByFrameRate(faceParam_.distractionFrameRateThreshold_)){
                    LOG(INFO)<<"frequent distraction detected!!!";
                    std::cout<<"frequent distraction detected!!!"<<std::endl;
-                   outputResult(DriverStatus::distraction);
+                   std::string resultFileName=outputResult(DriverStatus::distraction);
+                    FatigueMessage fmsg;
+                    fmsg.setResultFileName(resultFileName);
+                    msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::distraction));
                 }
             }
     }
@@ -375,7 +369,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         {
             LOG(INFO)<<"distraction detected!!!";
             std::cout<<"distraction detected!!!"<<std::endl;
-            outputResult(DriverStatus::distraction);
+            std::string resultFileName=outputResult(DriverStatus::distraction);
+            FatigueMessage fmsg;
+            fmsg.setResultFileName(resultFileName);
+            msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::distraction));
         }
         face_.analyzeFrontFace();
         //face_.drawFaceComponentsRect();
@@ -448,7 +445,11 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                     std::cout << "************************" <<std:: endl;
                     std::cout << "sleepy!!!" << std::endl;
                     std::cout << "************************" << std::endl;
-                    outputResult(DriverStatus::sleepy);
+                   std::string resultFileName = outputResult(DriverStatus::sleepy);
+                    FatigueMessage fmsg;
+                    fmsg.setResultFileName(resultFileName);
+                    fmsg.setEvidenceName(eevm_.getVideoName());
+                    msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::sleepy));
                 }else{
                     remove(eevm_.getVideoPath().c_str());
                 }
@@ -468,7 +469,11 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                     std::cout << "************************" << std::endl;
                     std::cout << "frequent yawn!!!" << std::endl;
                     std::cout << "************************" << std::endl;
-                    outputResult(DriverStatus::frequentYawn);
+                    std::string resultFileName = outputResult(DriverStatus::frequentYawn);
+                    FatigueMessage fmsg;
+                    fmsg.setResultFileName(resultFileName);
+                    fmsg.setEvidenceName(mevm_.getVideoName());
+                    msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::frequentYawn));
                 }else{
                     remove(mevm_.getVideoPath().c_str());
                 }
@@ -491,7 +496,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     {
         LOG(INFO)<<"distraction detected!!!  left";
         std::cout<<"distraction detected!!!  left"<<std::endl;
-        outputResult(DriverStatus::distraction);
+        std::string resultFileName= outputResult(DriverStatus::distraction);
+        FatigueMessage fmsg;
+         fmsg.setResultFileName(resultFileName);
+         msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::distraction));
     }
     countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Left);
@@ -505,7 +513,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right,faceParam_.distractionLastedThreshold_)){
         LOG(INFO)<<"distraction detected!!! right";
         std::cout<<"distraction detected!!! right"<<std::endl;
-        outputResult(DriverStatus::distraction);
+        std::string resultFileName = outputResult(DriverStatus::distraction);
+        FatigueMessage fmsg;
+        fmsg.setResultFileName(resultFileName);
+        msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::distraction));
     }
     countYawnFrame(FaceComponent::Status::close);
     updateFaceParameters(faceParam_,FaceAnalysisModel::FaceType::Right);

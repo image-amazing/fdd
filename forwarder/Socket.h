@@ -8,6 +8,7 @@
 #include<string>
 #include"Exception.h"
 
+namespace forwarder{
 class SocketBuffer{
 private:
     int maxSize_;
@@ -70,4 +71,5 @@ public:
     int getProtocol();
 };
 
+}
 #endif // SOCKET_H

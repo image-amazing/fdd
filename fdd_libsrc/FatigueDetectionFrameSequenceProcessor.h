@@ -6,6 +6,7 @@
 #include "Face.h"
 #include "ResourceManagers.h"
 #include"FrameSequenceProcessor.h"
+#include<MessageQueue.h>
 namespace fdd{
 class FatigueDetectionFrameSequenceProcessor
         :public FrameSequenceProcessor {
@@ -127,18 +128,36 @@ private:
     std::string resultFolder_="";
     int verticalID_=1;
     int driverID_=1;
+    forwarder::MessageQueue msgQue_;
 public:
-    FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pfam
-                           , const std::string &videoFolder
-                           , const std::string &eeFolder
-                           , const std::string &meFolder
-                           , const std::string &logFolder
-                            , const std::string &resultFolder);
+    FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pfam,key_t msgKey);
     ~FatigueDetectionFrameSequenceProcessor();
     void initProcessor() override;
     void beforeProcess() override;
     void process(cv::Mat rawFrame) override;
     void afterProcess() override;
+public:
+    void set_videoFolder(const std::string &videoFolder){
+        videoFolder_=videoFolder;
+    }
+    void set_eyeEvidenceFolder(const std::string &eeFolder){
+        eeFolder_=eeFolder;
+    }
+    void set_mouthEvidenceFolder(const std::string &meFolder){
+        meFolder_=meFolder;
+    }
+    void set_logFolder(const std::string &logFolder){
+        logFolder_=logFolder;
+    }
+    void set_resultFolder(const std::string &resultFolder){
+        resultFolder_=resultFolder;
+    }
+    void set_verticalID(int verticalID){
+        verticalID_=verticalID;
+    }
+    void set_driverID(int driverID){
+        driverID_=driverID;
+    }
 private:
 	void updateEyeParameters(EyeParameters &eyeParam,FaceComponent::Status eyeStatus);
 	void updateMouthParameters(MouthParameters &mouthParam,FaceComponent::Status mouthStatus);

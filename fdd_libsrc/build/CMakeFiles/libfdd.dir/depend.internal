@@ -804,8 +804,10 @@ CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
  /home/lyfe667/fdd/fdd_libsrc/ResourceManagers.h
  /home/lyfe667/fdd/fdd_libsrc/RightEye.h
  /usr/local/include/CaffeClassifier.h
+ /usr/local/include/Exception.h
  /usr/local/include/LBF.h
  /usr/local/include/LBFRegressor.h
+ /usr/local/include/MessageQueue.h
  /usr/local/include/RandomForest.h
  /usr/local/include/Tree.h
  /usr/local/include/caffe_layers_registry.hpp

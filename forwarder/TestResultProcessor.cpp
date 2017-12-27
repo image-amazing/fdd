@@ -2,6 +2,7 @@
 #include<FDDGlobal.h>
 
 using namespace fdd;
+using namespace forwarder;
 
 int main(){
     MessageQueue msgQue(1234);
