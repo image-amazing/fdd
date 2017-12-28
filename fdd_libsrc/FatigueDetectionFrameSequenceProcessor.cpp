@@ -12,13 +12,14 @@ FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(c
     :pFaceAnalysisModel_(pFaceAnalysisModel) ,face_(cv::Ptr<Frame>(&frame_),pFaceAnalysisModel_)
     ,videoFolder_("./"),eeFolder_("./"),meFolder_("./"),logFolder_("./"),resultFolder_("./"),msgQue_(msgKey)
 {
-    //initProcessor();
-    google::InitGoogleLogging("fdfsp");
-    google::SetLogDestination(google::GLOG_INFO,(logFolder_+"fdfsp").c_str());
+
 }
 
 FatigueDetectionFrameSequenceProcessor::~FatigueDetectionFrameSequenceProcessor()
 {
+    vm_.release();
+    eevm_.release();
+    mevm_.release();
     msgQue_.deleteQueue();
     google::ShutdownGoogleLogging();
 }
@@ -123,7 +124,10 @@ void FatigueDetectionFrameSequenceProcessor::countYawnFrame(FaceComponent::Statu
 						yawnParam_.yawnCount_++;
                         LOG(INFO)<<"yawn";
 						std::cout << "yawn" << std::endl;
-                        outputResult(DriverStatus::yawn);
+                        std::string resultFileName= outputResult(DriverStatus::yawn);
+                        FatigueMessage fmsg;
+                        fmsg.setResultFileName(resultFileName);
+                        msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::yawn));
 					}
 					yawnParam_.currentOpenMouthFrameCount_ = 0;
 					yawnParam_.interuptCloseMouthFrameCount_ = 0;
@@ -296,18 +300,31 @@ void FatigueDetectionFrameSequenceProcessor::printParamsToRight(cv::Mat &colorIm
 #endif
 
 void FatigueDetectionFrameSequenceProcessor::initProcessor(){
+
+    google::InitGoogleLogging("fdfsp");
+    google::SetLogDestination(google::GLOG_INFO,(logFolder_+"fdfsp").c_str());
+
     face_.rightEye().colorImgScale(1.3);
     face_.leftEye().colorImgScale(1.3);
+
+    systemParam_.aveRawFPSInOneMinute_=8;
 
     vm_.setFourcc(CV_FOURCC('M','P','4','2'));
     vm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
     vm_.setBAdd(true);
+    char path[PATH_LENGTH];
+    sprintf(path, "%s/%d_%s_FATIGUE.avi",videoFolder_.c_str(), driverID_,getTimeStr(systemParam_.nowTime_).c_str());
+    openVideo(vm_,path,systemParam_.aveRawFPSInOneMinute_);
     eevm_.setFourcc(CV_FOURCC('M','P','4','2'));
     eevm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
     eevm_.setBAdd(true);
+    sprintf(path, "%s/%d_%s_FATIGUE.avi",eeFolder_.c_str(), driverID_,getTimeStr(systemParam_.nowTime_).c_str());
+    openVideo(eevm_,path,systemParam_.aveRawFPSInOneMinute_);
     mevm_.setFourcc(CV_FOURCC('M','P','4','2'));
     mevm_.setFrameSize(cv::Size(getFrameWidth(),getFrameHeight()));
     mevm_.setBAdd(true);
+    sprintf(path, "%s/%d_%s_FATIGUE.avi",meFolder_.c_str(), driverID_,getTimeStr(systemParam_.nowTime_).c_str());
+    openVideo(mevm_,path,systemParam_.aveRawFPSInOneMinute_);
 }
 
 void FatigueDetectionFrameSequenceProcessor::beforeProcess(){
@@ -339,9 +356,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
             char videoPath[PATH_LENGTH];
             sprintf(videoPath, "%s/%d_%s_FATIGUE.avi",videoFolder_.c_str(), driverID_,getTimeStr(systemParam_.nowTime_).c_str());
             //std::cout<<videoPath<<std::endl;
-			vm_.setVideoPath(videoPath);
+            /*vm_.setVideoPath(videoPath);
 			vm_.setFPS(systemParam_.aveRawFPSInOneMinute_);
-			vm_.open();
+            vm_.open();*/
+            openVideo(vm_,videoPath,systemParam_.aveRawFPSInOneMinute_);
             //reset abnormal frame count
 			systemParam_.fatigueFrameCount_ = 0;
         }
@@ -456,9 +474,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 char eePath[PATH_LENGTH];
                 //sprintf(eePath, "%s%ld%d.avi",eeFolder_.c_str() , systemParam_.nowTime_, systemParam_.rawFrameCount_);
                 sprintf(eePath, "%s/%d_%s_FATIGUE.avi",eeFolder_.c_str() , driverID_,getNowTimeStr().c_str());
-                eevm_.setVideoPath(eePath);
+               /* eevm_.setVideoPath(eePath);
                 eevm_.setFPS(systemParam_.aveRawFPSInOneMinute_);
-                eevm_.open();
+                eevm_.open();*/
+                openVideo(eevm_,eePath,systemParam_.aveRawFPSInOneMinute_);
 			}
 			if (0==systemParam_.nowTime_%mouthParam_.mouthJudgingInterval)
 			{
@@ -479,9 +498,10 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 }
                 char mePath[PATH_LENGTH];
                 sprintf(mePath, "%s/%d_%s_FATIGUE.avi",meFolder_.c_str() , driverID_ ,getNowTimeStr().c_str());
-                mevm_.setVideoPath(mePath);
+                /*mevm_.setVideoPath(mePath);
                 mevm_.setFPS(systemParam_.aveRawFPSInOneMinute_);
-                mevm_.open();
+                mevm_.open();*/
+                openVideo(mevm_,mePath,systemParam_.aveRawFPSInOneMinute_);
 			}
 		}
 #ifdef WITH_SCREEN

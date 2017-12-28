@@ -72,7 +72,7 @@ private:
 		time_t lastSecond_=0;
 		unsigned int rawFrameCount_=0;
 		unsigned int rawFrameCountAtLastMinute_=0;
-		unsigned int aveRawFPSInOneMinute_ = 0;
+        unsigned int aveRawFPSInOneMinute_ = 8;
 		unsigned int faceFrameCount_=0;
 		unsigned int faceFrameCountAtLastSecond_=0;
 		unsigned int fps_=0;
@@ -82,7 +82,7 @@ private:
             lastSecond_=0;
             rawFrameCount_=0;
             rawFrameCountAtLastMinute_=0;
-            aveRawFPSInOneMinute_=0;
+            aveRawFPSInOneMinute_=8;
             faceFrameCount_=0;
             faceFrameCountAtLastSecond_=0;
             fps_=0;
@@ -169,6 +169,13 @@ private:
     bool judgeFatigueByMouth();
 	void updateFPS();
     std::string outputResult(DriverStatus status);
+
+    void openVideo(VideoManager &vm,const std::string &videoPath,unsigned int fps){
+        vm.setVideoPath(videoPath);
+        vm.setFPS(fps);
+        vm.open();
+    }
+
 #ifdef WITH_SCREEN
     void printParamsToLeft(cv::Mat &colorImg);
     void printParamsToMiddle(cv::Mat &colorImg);
