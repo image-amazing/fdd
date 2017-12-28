@@ -232,6 +232,9 @@ bool FatigueDetectionFrameSequenceProcessor::detectDistractionByFrameRate(float 
 void FatigueDetectionFrameSequenceProcessor::updateFPS()
 {
 	systemParam_.fps_ = systemParam_.faceFrameCount_ - systemParam_.faceFrameCountAtLastSecond_;
+    if(0==systemParam_.fps_){
+        systemParam_.fps_=8;
+    }
 }
 
 inline std::string FatigueDetectionFrameSequenceProcessor::outputResult(DriverStatus status){
@@ -564,6 +567,9 @@ void FatigueDetectionFrameSequenceProcessor::afterProcess(){
 inline void FatigueDetectionFrameSequenceProcessor::updateAveRawFPSInOneMinute()
 {
 	systemParam_.aveRawFPSInOneMinute_ = round(static_cast<float>(systemParam_.rawFrameCount_-systemParam_.rawFrameCountAtLastMinute_)/60.0f);
+    if(0==systemParam_.aveRawFPSInOneMinute_){
+        systemParam_.aveRawFPSInOneMinute_=8;
+    }
 }
 
 inline void FatigueDetectionFrameSequenceProcessor::resetParameters()
