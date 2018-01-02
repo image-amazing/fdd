@@ -25,9 +25,6 @@ DriverMonitorConfigure configGlobalVariables(const std::string &configFile) {
         dmc.mouthChinStatusSVMModelName = cfg.lookup("mouthChinStatusSVMModelName").c_str();
          dmc.featurePointsRegressorModelName = cfg.lookup("featurePointsRegressorModelName").c_str();
          dmc.regName=cfg.lookup("regName").c_str();
-         dmc.mediaHome = cfg.lookup("mediaHome").c_str();
-         dmc.rightEyeFatigueAudio = cfg.lookup("rightEyeFatigueAudio").c_str();
-         dmc.mouthFatigueAudio = cfg.lookup("mouthFatigueAudio").c_str();
          dmc.outputDataHome=cfg.lookup("outputDataHome").c_str();
          dmc.videoFolder = cfg.lookup("videoFolder").c_str();
           dmc.eyeEvidenceFolder=cfg.lookup("eyeEvidenceFolder").c_str();

@@ -4,5 +4,5 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -I/usr/local/include -I/usr/local/include/opencv    -std=c++11
 
-CXX_DEFINES = 
+CXX_DEFINES = -DWITH_SOUND
 

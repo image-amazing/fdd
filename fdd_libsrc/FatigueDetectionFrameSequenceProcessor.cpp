@@ -258,8 +258,8 @@ inline std::string FatigueDetectionFrameSequenceProcessor::outputResult(DriverSt
 #ifdef WITH_SCREEN
 void FatigueDetectionFrameSequenceProcessor::printParamsToLeft(cv::Mat &colorImg)
 {//use relative cooridnate to fit variation of image size
-	cv::putText(colorImg, ("RIGHT "+rightEyeParam_.eyeStatusStr_).c_str(), cv::Point(40, 20), 0, 0.5, rightEyeParam_.eyeStatusColor_,2);
-	cv::putText(colorImg, ("LEFT "+leftEyeParam_.eyeStatusStr_).c_str(), cv::Point(40, 40),0,0.5,leftEyeParam_.eyeStatusColor_,2);
+    cv::putText(colorImg, ("RIGHT "+rightEyeParam_.eyeStatusStr_).c_str(), cv::Point(40, 20), 0, 0.5, rightEyeParam_.eyeStatusColor_,2);
+    cv::putText(colorImg, ("LEFT "+leftEyeParam_.eyeStatusStr_).c_str(), cv::Point(40, 40),0,0.5,leftEyeParam_.eyeStatusColor_,2);
     cv::putText(colorImg,("TWO "+eyesParam_.eyeStatusStr_).c_str(),cv::Point(40,60),0,0.5,eyesParam_.eyeStatusColor_,2);
     cv::putText(colorImg, mouthParam_.mouthStatusStr_.c_str(), cv::Point(40, 80), 0, 0.5, mouthParam_.mouthStatusColor_,2);
     cv::putText(colorImg, "--------------", cv::Point(40, 100), 0, 0.5, cv::Scalar(255, 255, 255),2);

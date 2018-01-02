@@ -54,7 +54,7 @@ private:
 		unsigned int yawnCount_ = 0;
 		float yawnFrameRate_ = 0;
 		cv::Scalar yawnFrameRateColor_ = cv::Scalar(0,255,0);
-		const int  yawnContinueTimeThreshold_ = 2;
+        const int  yawnContinueTimeThreshold_ = 3;
 		const float yawnFrameRateThreshold_ = 0.2;
         void reset(){
             startOpenMouthTime_=0;

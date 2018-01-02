@@ -12,6 +12,11 @@ private:
     std::string meFolder_;
     std::string resultFolder_;
     std::string tarFolder_;
+    std::string wavHome_;
+    std::string distractionAudio_;
+    std::string yawnAudio_;
+    std::string frequentYawnAudio_;
+    std::string sleepyAudio_;
 public:
     ResultProcessor(key_t msgKey);
     ~ResultProcessor();
@@ -32,6 +37,21 @@ public:
     }
     void set_tarFolder(const std::string &tarFolder){
         tarFolder_=tarFolder;
+    }
+    void set_wavHome(const std::string &wavHome){
+        wavHome_=wavHome;
+    }
+    void set_distracionAudio(const std::string &distrationAudio){
+        distractionAudio_=distrationAudio;
+    }
+    void set_yawnAudio(const std::string &yawnAudio){
+        yawnAudio_=yawnAudio;
+    }
+    void set_frequentYawnAudio(const std::string &frequentYawnAudio){
+        frequentYawnAudio_=frequentYawnAudio;
+    }
+    void set_sleepyAudio(const std::string &sleepyAudio){
+        sleepyAudio_=sleepyAudio;
     }
 private:
     void process(const fdd::FatigueMessage &fmsg,int msgType);

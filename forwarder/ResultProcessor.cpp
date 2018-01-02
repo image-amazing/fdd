@@ -7,6 +7,8 @@ namespace forwarder{
 ResultProcessor::ResultProcessor(key_t msgKey)
     :msgQue_(msgKey),fddDataHome_("./"),eeFolder_("eyeEvidence")
     ,meFolder_("mouthEvidence"),resultFolder_("result")
+    ,wavHome_("./"),distractionAudio_("distraciont.wav"),yawnAudio_("yawn.wav")
+    ,frequentYawnAudio_("frequentyawn.wav"),sleepyAudio_("sleepy.wav")
 {
 
 }
@@ -39,20 +41,34 @@ void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
     {
         std::stringstream sout;
         sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<" -C "
-           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName();
+           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<" &";
          std::string cmd=sout.str();
          system(cmd.c_str());
          std::cout<<cmd<<" :executed"<<std::endl;
+#ifdef WITH_SOUND
+         sout.str("");
+         sout<<"play "<<wavHome_+distractionAudio_<<" 2>&1 1>>play.log &";
+         cmd=sout.str();
+         system(cmd.c_str());
+          std::cout<<cmd<<" :executed"<<std::endl;
+#endif
     }
         break;
     case 2:
     {
         std::stringstream sout;
         sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<" -C "
-           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName();
+           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<" &";
          std::string cmd=sout.str();
          system(cmd.c_str());
          std::cout<<cmd<<" :executed"<<std::endl;
+#ifdef WITH_SOUND
+         sout.str("");
+         sout<<"play "<<wavHome_+ yawnAudio_<<"  2>&1 1>play.log &";
+         cmd = sout.str();
+         system(cmd.c_str());
+         std::cout<<cmd<<" :executed"<<std::endl;
+#endif
     }
         break;
     case 3:
@@ -60,10 +76,17 @@ void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
         std::stringstream sout;
         sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<
               " -C "<<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<
-              " -C "<<fddDataHome_<<"/"<<meFolder_<<" "<<fmsg.getEvidenceName();
+              " -C "<<fddDataHome_<<"/"<<meFolder_<<" "<<fmsg.getEvidenceName()<<" &";
         std::string cmd=sout.str();
         system(cmd.c_str());
         std::cout<<cmd<<" :executed"<<std::endl;
+#ifdef WITH_SOUND
+        sout.str("");
+        sout<<"play "<<wavHome_+ frequentYawnAudio_<<" 2>&1 1>play.log &";
+        cmd = sout.str();
+        system(cmd.c_str());
+        std::cout<<cmd<<" :executed"<<std::endl;
+#endif
     }
         break;
     case 4:
@@ -71,10 +94,17 @@ void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
         std::stringstream sout;
         sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<
               " -C "<<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<
-              " -C "<<fddDataHome_<<"/"<<eeFolder_<<" "<<fmsg.getEvidenceName();
+              " -C "<<fddDataHome_<<"/"<<eeFolder_<<" "<<fmsg.getEvidenceName()<<" &";
         std::string cmd=sout.str();
         system(cmd.c_str());
         std::cout<<cmd<<" :executed"<<std::endl;
+#ifdef WITH_SOUND
+        sout.str("");
+        sout<<"play "<<wavHome_+ sleepyAudio_<<" 2>&1 1>play.log &";
+        cmd = sout.str();
+        system(cmd.c_str());
+        std::cout<<cmd<<" :executed"<<std::endl;
+#endif
     }
         break;
     }

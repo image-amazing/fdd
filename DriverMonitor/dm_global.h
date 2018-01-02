@@ -16,9 +16,6 @@ struct DriverMonitorConfigure{
   std::string mouthChinStatusSVMModelName;
   std::string featurePointsRegressorModelName;
   std::string regName;
-  std::string mediaHome;
-  std::string rightEyeFatigueAudio;
-  std::string mouthFatigueAudio;
   std::string outputDataHome;
   std::string videoFolder;
   std::string eyeEvidenceFolder;

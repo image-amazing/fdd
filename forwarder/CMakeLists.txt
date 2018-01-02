@@ -1,6 +1,7 @@
 project(forwarder)
 cmake_minimum_required(VERSION 2.8)
 add_compile_options(-std=c++11)
+add_definitions(-DWITH_SOUND)
 aux_source_directory(. SRC_LIST)
 add_library(MessageQueue MessageQueue.cpp Exception.cpp)
 install(TARGETS MessageQueue ARCHIVE DESTINATION lib)
