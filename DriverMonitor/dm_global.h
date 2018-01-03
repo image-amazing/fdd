@@ -20,7 +20,6 @@ struct DriverMonitorConfigure{
   std::string videoFolder;
   std::string eyeEvidenceFolder;
   std::string mouthEvidenceFolder;
-  std::string logFolder;
   std::string resultFolder;
   std::string rightEyeDNNModelFile;
   std::string rightEyeDNNWeightsFile;

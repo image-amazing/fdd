@@ -29,7 +29,6 @@ DriverMonitorConfigure configGlobalVariables(const std::string &configFile) {
          dmc.videoFolder = cfg.lookup("videoFolder").c_str();
           dmc.eyeEvidenceFolder=cfg.lookup("eyeEvidenceFolder").c_str();
          dmc.mouthEvidenceFolder=cfg.lookup("mouthEvidenceFolder").c_str();
-         dmc.logFolder=cfg.lookup("logFolder").c_str();
          dmc.resultFolder=cfg.lookup("resultFolder").c_str();
          dmc.rightEyeDNNModelFile = cfg.lookup("rightEyeDNNModelFile").c_str();
          dmc.rightEyeDNNWeightsFile = cfg.lookup("rightEyeDNNWeightsFile").c_str();

@@ -1,12 +1,13 @@
 #include"ResultProcessor.h"
 #include<iostream>
 #include<sstream>
+#include<glog/logging.h>
 
 namespace forwarder{
 
 ResultProcessor::ResultProcessor(key_t msgKey)
     :msgQue_(msgKey),fddDataHome_("./"),eeFolder_("eyeEvidence")
-    ,meFolder_("mouthEvidence"),resultFolder_("result")
+    ,meFolder_("mouthEvidence"),resultFolder_("result"),logFolder_("./")
     ,wavHome_("./"),distractionAudio_("distraciont.wav"),yawnAudio_("yawn.wav")
     ,frequentYawnAudio_("frequentyawn.wav"),sleepyAudio_("sleepy.wav")
 {
@@ -15,6 +16,12 @@ ResultProcessor::ResultProcessor(key_t msgKey)
 
 ResultProcessor::~ResultProcessor(){
     msgQue_.deleteQueue();
+    google::ShutdownGoogleLogging();
+}
+
+void ResultProcessor::initProcessor(){
+    google::InitGoogleLogging("ResultProcessor");
+    google::SetLogDestination(google::GLOG_INFO,(fddDataHome_+"/"+logFolder_+"/rp").c_str());
 }
 
 void ResultProcessor::run(){
@@ -39,72 +46,106 @@ void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
         break;
     case 1:
     {
+       LOG(INFO)<<"distraction";
         std::stringstream sout;
-        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<" -C "
-           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<" &";
-         std::string cmd=sout.str();
-         system(cmd.c_str());
-         std::cout<<cmd<<" :executed"<<std::endl;
+        std::string cmd="";
 #ifdef WITH_SOUND
-         sout.str("");
          sout<<"play "<<wavHome_+distractionAudio_<<" 2>&1 1>>play.log &";
          cmd=sout.str();
          system(cmd.c_str());
-          std::cout<<cmd<<" :executed"<<std::endl;
+         LOG(INFO)<<cmd<<" :executed";
 #endif
+        sout.str("");
+        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<" -C "
+           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName();
+         cmd=sout.str();
+         system(cmd.c_str());
+         LOG(INFO)<<cmd<<" :executed";
+         sout.str("");
+         sout<<"rm "<<fddDataHome_<<"/"<<resultFolder_<<"/"<<fmsg.getResultFileName()<<" &";
+         cmd=sout.str();
+         system(cmd.c_str());
+         LOG(INFO)<<cmd<<" :executed";
+         google::FlushLogFiles(google::INFO);
     }
         break;
     case 2:
     {
+        LOG(INFO)<<"yawn";
         std::stringstream sout;
-        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<" -C "
-           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<" &";
-         std::string cmd=sout.str();
-         system(cmd.c_str());
-         std::cout<<cmd<<" :executed"<<std::endl;
+         std::string cmd="";
 #ifdef WITH_SOUND
-         sout.str("");
          sout<<"play "<<wavHome_+ yawnAudio_<<"  2>&1 1>play.log &";
          cmd = sout.str();
          system(cmd.c_str());
-         std::cout<<cmd<<" :executed"<<std::endl;
+          LOG(INFO)<<cmd<<" :executed";
 #endif
+        sout.str("");
+        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<" -C "
+           <<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName();
+         cmd=sout.str();
+         system(cmd.c_str());
+         LOG(INFO)<<cmd<<" :executed";
+          sout.str("");
+          sout<<"rm "<<fddDataHome_<<"/"<<resultFolder_<<"/"<<fmsg.getResultFileName()<<" &";
+          cmd=sout.str();
+          system(cmd.c_str());
+          LOG(INFO)<<cmd<<" :executed";
+         google::FlushLogFiles(google::INFO);
     }
         break;
     case 3:
     {
+        LOG(INFO)<<"frequent yawn";
         std::stringstream sout;
-        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<
-              " -C "<<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<
-              " -C "<<fddDataHome_<<"/"<<meFolder_<<" "<<fmsg.getEvidenceName()<<" &";
-        std::string cmd=sout.str();
-        system(cmd.c_str());
-        std::cout<<cmd<<" :executed"<<std::endl;
+        std::string cmd="";
 #ifdef WITH_SOUND
-        sout.str("");
         sout<<"play "<<wavHome_+ frequentYawnAudio_<<" 2>&1 1>play.log &";
         cmd = sout.str();
         system(cmd.c_str());
-        std::cout<<cmd<<" :executed"<<std::endl;
+         LOG(INFO)<<cmd<<" :executed";
 #endif
+         sout.str("");
+        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<
+              " -C "<<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<
+              " -C "<<fddDataHome_<<"/"<<meFolder_<<" "<<fmsg.getEvidenceName();
+        cmd=sout.str();
+        system(cmd.c_str());
+        LOG(INFO)<<cmd<<" :executed";
+        sout.str("");
+        sout<<"rm "<<fddDataHome_<<"/"<<resultFolder_<<"/"<<fmsg.getResultFileName()
+           <<" "<<fddDataHome_<<"/"<<meFolder_<<"/"<<fmsg.getEvidenceName()<<" &";
+        cmd=sout.str();
+        system(cmd.c_str());
+        LOG(INFO)<<cmd<<" :executed";
+        google::FlushLogFiles(google::INFO);
     }
         break;
     case 4:
     {
+        LOG(INFO)<<"sleepy";
         std::stringstream sout;
-        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<
-              " -C "<<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<
-              " -C "<<fddDataHome_<<"/"<<eeFolder_<<" "<<fmsg.getEvidenceName()<<" &";
-        std::string cmd=sout.str();
-        system(cmd.c_str());
-        std::cout<<cmd<<" :executed"<<std::endl;
+        std::string cmd="";
 #ifdef WITH_SOUND
-        sout.str("");
         sout<<"play "<<wavHome_+ sleepyAudio_<<" 2>&1 1>play.log &";
         cmd = sout.str();
         system(cmd.c_str());
-        std::cout<<cmd<<" :executed"<<std::endl;
+         LOG(INFO)<<cmd<<" :executed";
 #endif
+        sout.str("");
+        sout<<"tar -cf "<<tarFolder_<<"/"<<fileTitle<<".tar "<<
+              " -C "<<fddDataHome_<<"/"<<resultFolder_<<" "<<fmsg.getResultFileName()<<
+              " -C "<<fddDataHome_<<"/"<<eeFolder_<<" "<<fmsg.getEvidenceName();
+        cmd=sout.str();
+        system(cmd.c_str());
+         LOG(INFO)<<cmd<<" :executed";
+         sout.str("");
+         sout<<"rm "<<fddDataHome_<<"/"<<resultFolder_<<"/"<<fmsg.getResultFileName()
+            <<" "<<fddDataHome_<<"/"<<eeFolder_<<"/"<<fmsg.getEvidenceName()<<" &";
+         cmd=sout.str();
+         system(cmd.c_str());
+         LOG(INFO)<<cmd<<" :executed";
+         google::FlushLogFiles(google::INFO);
     }
         break;
     }

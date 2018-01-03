@@ -1,6 +1,6 @@
 #include"FatigueDetectionFrameSequenceProcessor.h"
 #include<limits.h>
-#include<glog/logging.h>
+//#include<glog/logging.h>
 #include<time.h>
 #include<sstream>
 #include<fstream>
@@ -10,7 +10,7 @@ namespace fdd{
 
 FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pFaceAnalysisModel,key_t msgKey)
     :pFaceAnalysisModel_(pFaceAnalysisModel) ,face_(cv::Ptr<Frame>(&frame_),pFaceAnalysisModel_)
-    ,videoFolder_("./"),eeFolder_("./"),meFolder_("./"),logFolder_("./"),resultFolder_("./"),msgQue_(msgKey)
+    ,videoFolder_("./"),eeFolder_("./"),meFolder_("./"),resultFolder_("./"),msgQue_(msgKey)
 {
 
 }
@@ -21,7 +21,6 @@ FatigueDetectionFrameSequenceProcessor::~FatigueDetectionFrameSequenceProcessor(
     eevm_.release();
     mevm_.release();
     msgQue_.deleteQueue();
-    google::ShutdownGoogleLogging();
 }
 
 inline void FatigueDetectionFrameSequenceProcessor::updateEyeParameters(EyeParameters &eyeParam,FaceComponent::Status eyeStatus)
@@ -122,7 +121,7 @@ void FatigueDetectionFrameSequenceProcessor::countYawnFrame(FaceComponent::Statu
                         //open mouth time exceeds 2s,yawn detected
 						yawnParam_.yawnFrameCount_ += yawnParam_.currentOpenMouthFrameCount_;
 						yawnParam_.yawnCount_++;
-                        LOG(INFO)<<"yawn";
+                      //  LOG(INFO)<<"yawn";
 						std::cout << "yawn" << std::endl;
                         std::string resultFileName= outputResult(DriverStatus::yawn);
                         FatigueMessage fmsg;
@@ -304,9 +303,6 @@ void FatigueDetectionFrameSequenceProcessor::printParamsToRight(cv::Mat &colorIm
 
 void FatigueDetectionFrameSequenceProcessor::initProcessor(){
 
-    google::InitGoogleLogging("fdfsp");
-    google::SetLogDestination(google::GLOG_INFO,(logFolder_+"fdfsp").c_str());
-
     face_.rightEye().colorImgScale(1.3);
     face_.leftEye().colorImgScale(1.3);
 
@@ -375,7 +371,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
         if(systemParam_.nowTime_!=systemParam_.lastSecond_
                 &&0==systemParam_.nowTime_%faceParam_.distractionDetectionInterval_){
                 if(detectDistractionByFrameRate(faceParam_.distractionFrameRateThreshold_)){
-                   LOG(INFO)<<"frequent distraction detected!!!";
+                  // LOG(INFO)<<"frequent distraction detected!!!";
                    std::cout<<"frequent distraction detected!!!"<<std::endl;
                    std::string resultFileName=outputResult(DriverStatus::distraction);
                     FatigueMessage fmsg;
@@ -388,7 +384,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     {
         if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Front,faceParam_.distractionLastedThreshold_))
         {
-            LOG(INFO)<<"distraction detected!!!";
+            //LOG(INFO)<<"distraction detected!!!";
             std::cout<<"distraction detected!!!"<<std::endl;
             std::string resultFileName=outputResult(DriverStatus::distraction);
             FatigueMessage fmsg;
@@ -462,7 +458,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 bool bFatigueLeft = judgeFatigueByEye(leftEyeParam_);
                 if(judgeFatigueByEye(eyesParam_))
 				{
-                    LOG(INFO)<<"sleepy!!!";
+                  //  LOG(INFO)<<"sleepy!!!";
                     std::cout << "************************" <<std:: endl;
                     std::cout << "sleepy!!!" << std::endl;
                     std::cout << "************************" << std::endl;
@@ -487,7 +483,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
                 mevm_.release();
                 if (judgeFatigueByMouth())
 				{
-                    LOG(INFO)<< "frequent yawn!!!";
+                    //LOG(INFO)<< "frequent yawn!!!";
                     std::cout << "************************" << std::endl;
                     std::cout << "frequent yawn!!!" << std::endl;
                     std::cout << "************************" << std::endl;
@@ -517,7 +513,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
     }else if(face_.bContainLeftFace()){
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Left,faceParam_.distractionLastedThreshold_))
     {
-        LOG(INFO)<<"distraction detected!!!  left";
+       // LOG(INFO)<<"distraction detected!!!  left";
         std::cout<<"distraction detected!!!  left"<<std::endl;
         std::string resultFileName= outputResult(DriverStatus::distraction);
         FatigueMessage fmsg;
@@ -534,7 +530,7 @@ void FatigueDetectionFrameSequenceProcessor::process(cv::Mat rawFrame)
 #endif
     }else if(face_.bContainRightFace()){
     if(detectDistractionByTimeInterval(FaceAnalysisModel::FaceType::Right,faceParam_.distractionLastedThreshold_)){
-        LOG(INFO)<<"distraction detected!!! right";
+       // LOG(INFO)<<"distraction detected!!! right";
         std::cout<<"distraction detected!!! right"<<std::endl;
         std::string resultFileName = outputResult(DriverStatus::distraction);
         FatigueMessage fmsg;

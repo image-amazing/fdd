@@ -12,6 +12,7 @@ struct ResultMessageProcessorConfigure{
      std::string eyeEvidenceFolder;
      std::string mouthEvidenceFolder;
      std::string resultFolder;
+     std::string logFolder;
      std::string tarFolder;
      std::string resultMessageQueueKey;
      std::string wavHome;
@@ -26,6 +27,7 @@ struct ResultMessageProcessorConfigure{
          eyeEvidenceFolder=cfg.lookup("eyeEvidenceFolder").c_str();
          mouthEvidenceFolder=cfg.lookup("mouthEvidenceFolder").c_str();
          resultFolder=cfg.lookup("resultFolder").c_str();
+         logFolder=cfg.lookup("logFolder").c_str();
          tarFolder=cfg.lookup("tarFolder").c_str();
          resultMessageQueueKey=cfg.lookup("resultMessageQueueKey").c_str();
          wavHome=cfg.lookup("wavHome").c_str();
@@ -52,12 +54,16 @@ int main(int argc,char *args[]){
     rp.set_eeFolder(rmpc.eyeEvidenceFolder);
     rp.set_meFolder(rmpc.mouthEvidenceFolder);
     rp.set_resultFolder(rmpc.resultFolder);
+    rp.set_logFolder(rmpc.logFolder);
     rp.set_tarFolder(rmpc.tarFolder);
     rp.set_wavHome(rmpc.wavHome);
     rp.set_distracionAudio(rmpc.distractionAudio);
     rp.set_yawnAudio(rmpc.yawnAudio);
     rp.set_frequentYawnAudio(rmpc.frequentYawnAudio);
     rp.set_sleepyAudio(rmpc.sleepyAudio);
+
+    rp.initProcessor();
+
     rp.run();
     return 0;
 }

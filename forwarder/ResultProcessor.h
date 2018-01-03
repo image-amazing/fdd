@@ -11,6 +11,7 @@ private:
     std::string eeFolder_;
     std::string meFolder_;
     std::string resultFolder_;
+    std::string logFolder_;
     std::string tarFolder_;
     std::string wavHome_;
     std::string distractionAudio_;
@@ -21,6 +22,7 @@ public:
     ResultProcessor(key_t msgKey);
     ~ResultProcessor();
 public:
+    void initProcessor();
     void run();
 public:
     void set_fddDataHome(const std::string &fddDataHome){
@@ -34,6 +36,9 @@ public:
     }
     void set_resultFolder(const std::string &resultFolder){
         resultFolder_=resultFolder;
+    }
+    void set_logFolder(const std::string &logFolder){
+        logFolder_=logFolder;
     }
     void set_tarFolder(const std::string &tarFolder){
         tarFolder_=tarFolder;

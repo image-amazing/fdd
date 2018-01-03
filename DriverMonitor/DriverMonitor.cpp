@@ -50,7 +50,6 @@ int main(int argc,char *args[])
     checkFolder(dmc.outputDataHome+dmc.videoFolder);
     checkFolder(dmc.outputDataHome+dmc.eyeEvidenceFolder);
     checkFolder(dmc.outputDataHome+dmc.mouthEvidenceFolder);
-    checkFolder(dmc.outputDataHome+dmc.logFolder);
     checkFolder(dmc.outputDataHome+dmc.resultFolder);
 
     std::stringstream sout;
@@ -82,7 +81,6 @@ int main(int argc,char *args[])
     fps.set_videoFolder( dmc.outputDataHome+dmc.videoFolder);
     fps.set_eyeEvidenceFolder(dmc.outputDataHome+dmc.eyeEvidenceFolder);
     fps.set_mouthEvidenceFolder(dmc.outputDataHome+dmc.mouthEvidenceFolder);
-    fps.set_logFolder(dmc.outputDataHome+dmc.logFolder);
     fps.set_resultFolder(dmc.outputDataHome+dmc.resultFolder);
 
     //intialize camera

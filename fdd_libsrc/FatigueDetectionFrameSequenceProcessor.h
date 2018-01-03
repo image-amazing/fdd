@@ -124,7 +124,6 @@ private:
 	std::string videoFolder_ = "";
     std::string eeFolder_="";
     std::string meFolder_="";
-    std::string logFolder_="";
     std::string resultFolder_="";
     int verticalID_=1;
     int driverID_=1;
@@ -145,9 +144,6 @@ public:
     }
     void set_mouthEvidenceFolder(const std::string &meFolder){
         meFolder_=meFolder;
-    }
-    void set_logFolder(const std::string &logFolder){
-        logFolder_=logFolder;
     }
     void set_resultFolder(const std::string &resultFolder){
         resultFolder_=resultFolder;
