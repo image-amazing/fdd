@@ -42,7 +42,7 @@ public:
 
 int main(int argc,char *args[])
 {
-   assert(2==argc);
+   assert(2<=argc);
    std::string configFilePath=args[1];
     DriverMonitorConfigure dmc = configGlobalVariables(configFilePath);
 
@@ -84,7 +84,12 @@ int main(int argc,char *args[])
     fps.set_resultFolder(dmc.outputDataHome+dmc.resultFolder);
 
     //intialize camera
-    const int cameraId=atoi(dmc.cameraID.c_str());
+    int cameraId=0;
+    if(2==argc){
+        cameraId=atoi(dmc.cameraID.c_str());
+    }else if(3==argc){
+        cameraId=atoi(args[2]);
+    }
     Camera camera(fps,cameraId);
 	camera.run();
 
