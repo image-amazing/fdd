@@ -170,20 +170,8 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Dependencies for the target
-Forwarder_LIB_DEPENDS:STATIC=general;TCPSocket;general;MessageQueue;
-
-//Dependencies for target
-MessageQueue_LIB_DEPENDS:STATIC=
-
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/local/share/OpenCV
-
-//Dependencies for the target
-SensorDataServer_LIB_DEPENDS:STATIC=general;TCPSocket;
-
-//Dependencies for target
-TCPSocket_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 forwarder_BINARY_DIR:STATIC=/home/lyfe667/fdd/forwarder/build

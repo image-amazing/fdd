@@ -1,12 +1,10 @@
 #ifndef RESULTPROCESSOR_H
 #define RESULTPROCESSOR_H
-#include<FDDGlobal.h>
-#include"MessageQueue.h"
+#include<MessageQueue.h>
 
-namespace forwarder{
 class ResultProcessor{
 private:
-    MessageQueue msgQue_;
+    forwarder::MessageQueue msgQue_;
     std::string fddDataHome_;
     std::string eeFolder_;
     std::string meFolder_;
@@ -59,7 +57,6 @@ public:
         sleepyAudio_=sleepyAudio;
     }
 private:
-    void process(const fdd::FatigueMessage &fmsg,int msgType);
+    void process(const  forwarder::FatigueMessage &fmsg,int msgType);
 };
-}
 #endif // RESULTPROCESSOR_H

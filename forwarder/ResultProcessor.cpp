@@ -3,7 +3,7 @@
 #include<sstream>
 #include<glog/logging.h>
 
-namespace forwarder{
+using namespace forwarder;
 
 ResultProcessor::ResultProcessor(key_t msgKey)
     :msgQue_(msgKey),fddDataHome_("./"),eeFolder_("eyeEvidence")
@@ -25,7 +25,6 @@ void ResultProcessor::initProcessor(){
 }
 
 void ResultProcessor::run(){
-    using namespace fdd;
     while(true){
         Message<FatigueMessage> msg;
         msgQue_.pop<FatigueMessage>(msg);
@@ -36,7 +35,7 @@ void ResultProcessor::run(){
     }
 }
 
-void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
+void ResultProcessor::process(const FatigueMessage &fmsg,int msgType){
     std::string resultFileName=fmsg.getResultFileName();
     std::string fileTitle=resultFileName.substr(0,resultFileName.find_last_of("."));
     switch(msgType){
@@ -151,5 +150,4 @@ void ResultProcessor::process(const fdd::FatigueMessage &fmsg,int msgType){
     }
 }
 
-}
 

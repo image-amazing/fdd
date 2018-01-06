@@ -1,8 +1,2 @@
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/ExecuteForwarder.dir
 /home/lyfe667/fdd/forwarder/build/CMakeFiles/ExecuteResultProcessor.dir
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/ExecuteSensorDataServer.dir
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/Forwarder.dir
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/MessageQueue.dir
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/SensorDataServer.dir
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/TCPSocket.dir
 /home/lyfe667/fdd/forwarder/build/CMakeFiles/TestResultProcessor.dir

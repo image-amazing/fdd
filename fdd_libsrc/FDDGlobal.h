@@ -20,26 +20,5 @@ inline std::string getNowTimeStr(){
     return getTimeStr(time_seconds);
 }
 
-const int PATH_LENGTH=256;
-
-struct FatigueMessage{
-    char resultFileName_[PATH_LENGTH];
-    char evidenceName_[PATH_LENGTH];
-    void setResultFileName(const std::string &resultFileName){
-        strncpy(resultFileName_,resultFileName.c_str(),resultFileName.length());
-        resultFileName_[resultFileName.length()]='\0';
-    }
-    void setEvidenceName(const std::string &evidenceName){
-        strncpy(evidenceName_,evidenceName.c_str(),evidenceName.length());
-        evidenceName_[evidenceName.length()]='\0';
-    }
-    const std::string getResultFileName() const{
-           return resultFileName_;
-    }
-    const std::string getEvidenceName() const{
-           return evidenceName_;
-    }
-};
-
 }
 #endif

@@ -6,6 +6,8 @@
 #include<fstream>
 #include<exception>
 
+using namespace forwarder;
+
 namespace fdd{
 
 FatigueDetectionFrameSequenceProcessor::FatigueDetectionFrameSequenceProcessor(const cv::Ptr<FaceAnalysisModel> & pFaceAnalysisModel,key_t msgKey)
@@ -124,7 +126,7 @@ void FatigueDetectionFrameSequenceProcessor::countYawnFrame(FaceComponent::Statu
                       //  LOG(INFO)<<"yawn";
 						std::cout << "yawn" << std::endl;
                         std::string resultFileName= outputResult(DriverStatus::yawn);
-                        FatigueMessage fmsg;
+                        forwarder:FatigueMessage fmsg;
                         fmsg.setResultFileName(resultFileName);
                         msgQue_.push<FatigueMessage>(fmsg,static_cast<int>(DriverStatus::yawn));
 					}

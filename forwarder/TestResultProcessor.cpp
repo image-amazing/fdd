@@ -1,7 +1,6 @@
 #include"MessageQueue.h"
-#include<FDDGlobal.h>
+#include<MessageQueue.h>
 
-using namespace fdd;
 using namespace forwarder;
 
 int main(){

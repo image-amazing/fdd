@@ -1,0 +1,3 @@
+/usr/local/lib/libMessageQueue.a
+/usr/local/include/MessageQueue.h
+/usr/local/include/Exception.h

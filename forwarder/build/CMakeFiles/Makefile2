@@ -53,50 +53,13 @@ CMAKE_SOURCE_DIR = /home/lyfe667/fdd/forwarder
 CMAKE_BINARY_DIR = /home/lyfe667/fdd/forwarder/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/ExecuteForwarder.dir
-
-# All Build rule for target.
-CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/MessageQueue.dir/all
-CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/Forwarder.dir/all
-CMakeFiles/ExecuteForwarder.dir/all: CMakeFiles/TCPSocket.dir/all
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/depend
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  1
-	@echo "Built target ExecuteForwarder"
-.PHONY : CMakeFiles/ExecuteForwarder.dir/all
-
-# Include target in all.
-all: CMakeFiles/ExecuteForwarder.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/ExecuteForwarder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExecuteForwarder.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
-.PHONY : CMakeFiles/ExecuteForwarder.dir/rule
-
-# Convenience name for target.
-ExecuteForwarder: CMakeFiles/ExecuteForwarder.dir/rule
-.PHONY : ExecuteForwarder
-
-# clean rule for target.
-CMakeFiles/ExecuteForwarder.dir/clean:
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/clean
-.PHONY : CMakeFiles/ExecuteForwarder.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/ExecuteForwarder.dir/clean
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/ExecuteResultProcessor.dir
 
 # All Build rule for target.
-CMakeFiles/ExecuteResultProcessor.dir/all: CMakeFiles/MessageQueue.dir/all
+CMakeFiles/ExecuteResultProcessor.dir/all:
 	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/depend
 	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  1 2
 	@echo "Built target ExecuteResultProcessor"
 .PHONY : CMakeFiles/ExecuteResultProcessor.dir/all
 
@@ -106,7 +69,7 @@ all: CMakeFiles/ExecuteResultProcessor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExecuteResultProcessor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExecuteResultProcessor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
 .PHONY : CMakeFiles/ExecuteResultProcessor.dir/rule
@@ -125,190 +88,13 @@ clean: CMakeFiles/ExecuteResultProcessor.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ExecuteSensorDataServer.dir
-
-# All Build rule for target.
-CMakeFiles/ExecuteSensorDataServer.dir/all: CMakeFiles/SensorDataServer.dir/all
-CMakeFiles/ExecuteSensorDataServer.dir/all: CMakeFiles/TCPSocket.dir/all
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/depend
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  4
-	@echo "Built target ExecuteSensorDataServer"
-.PHONY : CMakeFiles/ExecuteSensorDataServer.dir/all
-
-# Include target in all.
-all: CMakeFiles/ExecuteSensorDataServer.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/ExecuteSensorDataServer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExecuteSensorDataServer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
-.PHONY : CMakeFiles/ExecuteSensorDataServer.dir/rule
-
-# Convenience name for target.
-ExecuteSensorDataServer: CMakeFiles/ExecuteSensorDataServer.dir/rule
-.PHONY : ExecuteSensorDataServer
-
-# clean rule for target.
-CMakeFiles/ExecuteSensorDataServer.dir/clean:
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/clean
-.PHONY : CMakeFiles/ExecuteSensorDataServer.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/ExecuteSensorDataServer.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/Forwarder.dir
-
-# All Build rule for target.
-CMakeFiles/Forwarder.dir/all: CMakeFiles/MessageQueue.dir/all
-CMakeFiles/Forwarder.dir/all: CMakeFiles/TCPSocket.dir/all
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/depend
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  5
-	@echo "Built target Forwarder"
-.PHONY : CMakeFiles/Forwarder.dir/all
-
-# Include target in all.
-all: CMakeFiles/Forwarder.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Forwarder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Forwarder.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
-.PHONY : CMakeFiles/Forwarder.dir/rule
-
-# Convenience name for target.
-Forwarder: CMakeFiles/Forwarder.dir/rule
-.PHONY : Forwarder
-
-# clean rule for target.
-CMakeFiles/Forwarder.dir/clean:
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/clean
-.PHONY : CMakeFiles/Forwarder.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/Forwarder.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/MessageQueue.dir
-
-# All Build rule for target.
-CMakeFiles/MessageQueue.dir/all:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/depend
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  6 7
-	@echo "Built target MessageQueue"
-.PHONY : CMakeFiles/MessageQueue.dir/all
-
-# Include target in all.
-all: CMakeFiles/MessageQueue.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/MessageQueue.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MessageQueue.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
-.PHONY : CMakeFiles/MessageQueue.dir/rule
-
-# Convenience name for target.
-MessageQueue: CMakeFiles/MessageQueue.dir/rule
-.PHONY : MessageQueue
-
-# clean rule for target.
-CMakeFiles/MessageQueue.dir/clean:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/clean
-.PHONY : CMakeFiles/MessageQueue.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/MessageQueue.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/SensorDataServer.dir
-
-# All Build rule for target.
-CMakeFiles/SensorDataServer.dir/all: CMakeFiles/TCPSocket.dir/all
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/depend
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  8
-	@echo "Built target SensorDataServer"
-.PHONY : CMakeFiles/SensorDataServer.dir/all
-
-# Include target in all.
-all: CMakeFiles/SensorDataServer.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/SensorDataServer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SensorDataServer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
-.PHONY : CMakeFiles/SensorDataServer.dir/rule
-
-# Convenience name for target.
-SensorDataServer: CMakeFiles/SensorDataServer.dir/rule
-.PHONY : SensorDataServer
-
-# clean rule for target.
-CMakeFiles/SensorDataServer.dir/clean:
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/clean
-.PHONY : CMakeFiles/SensorDataServer.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/SensorDataServer.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/TCPSocket.dir
-
-# All Build rule for target.
-CMakeFiles/TCPSocket.dir/all:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/depend
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  9 10 11
-	@echo "Built target TCPSocket"
-.PHONY : CMakeFiles/TCPSocket.dir/all
-
-# Include target in all.
-all: CMakeFiles/TCPSocket.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/TCPSocket.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TCPSocket.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
-.PHONY : CMakeFiles/TCPSocket.dir/rule
-
-# Convenience name for target.
-TCPSocket: CMakeFiles/TCPSocket.dir/rule
-.PHONY : TCPSocket
-
-# clean rule for target.
-CMakeFiles/TCPSocket.dir/clean:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/clean
-.PHONY : CMakeFiles/TCPSocket.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/TCPSocket.dir/clean
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/TestResultProcessor.dir
 
 # All Build rule for target.
-CMakeFiles/TestResultProcessor.dir/all: CMakeFiles/MessageQueue.dir/all
+CMakeFiles/TestResultProcessor.dir/all:
 	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/depend
 	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  12
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lyfe667/fdd/forwarder/build/CMakeFiles  3
 	@echo "Built target TestResultProcessor"
 .PHONY : CMakeFiles/TestResultProcessor.dir/all
 
@@ -318,7 +104,7 @@ all: CMakeFiles/TestResultProcessor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TestResultProcessor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TestResultProcessor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lyfe667/fdd/forwarder/build/CMakeFiles 0
 .PHONY : CMakeFiles/TestResultProcessor.dir/rule

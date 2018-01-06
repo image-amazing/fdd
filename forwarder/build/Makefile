@@ -57,47 +57,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -140,19 +99,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ExecuteForwarder
-
-# Build rule for target.
-ExecuteForwarder: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExecuteForwarder
-.PHONY : ExecuteForwarder
-
-# fast build rule for target.
-ExecuteForwarder/fast:
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/build
-.PHONY : ExecuteForwarder/fast
-
-#=============================================================================
 # Target rules for targets named ExecuteResultProcessor
 
 # Build rule for target.
@@ -166,71 +112,6 @@ ExecuteResultProcessor/fast:
 .PHONY : ExecuteResultProcessor/fast
 
 #=============================================================================
-# Target rules for targets named ExecuteSensorDataServer
-
-# Build rule for target.
-ExecuteSensorDataServer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExecuteSensorDataServer
-.PHONY : ExecuteSensorDataServer
-
-# fast build rule for target.
-ExecuteSensorDataServer/fast:
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/build
-.PHONY : ExecuteSensorDataServer/fast
-
-#=============================================================================
-# Target rules for targets named Forwarder
-
-# Build rule for target.
-Forwarder: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Forwarder
-.PHONY : Forwarder
-
-# fast build rule for target.
-Forwarder/fast:
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/build
-.PHONY : Forwarder/fast
-
-#=============================================================================
-# Target rules for targets named MessageQueue
-
-# Build rule for target.
-MessageQueue: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MessageQueue
-.PHONY : MessageQueue
-
-# fast build rule for target.
-MessageQueue/fast:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/build
-.PHONY : MessageQueue/fast
-
-#=============================================================================
-# Target rules for targets named SensorDataServer
-
-# Build rule for target.
-SensorDataServer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 SensorDataServer
-.PHONY : SensorDataServer
-
-# fast build rule for target.
-SensorDataServer/fast:
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/build
-.PHONY : SensorDataServer/fast
-
-#=============================================================================
-# Target rules for targets named TCPSocket
-
-# Build rule for target.
-TCPSocket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TCPSocket
-.PHONY : TCPSocket
-
-# fast build rule for target.
-TCPSocket/fast:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/build
-.PHONY : TCPSocket/fast
-
-#=============================================================================
 # Target rules for targets named TestResultProcessor
 
 # Build rule for target.
@@ -242,57 +123,6 @@ TestResultProcessor: cmake_check_build_system
 TestResultProcessor/fast:
 	$(MAKE) -f CMakeFiles/TestResultProcessor.dir/build.make CMakeFiles/TestResultProcessor.dir/build
 .PHONY : TestResultProcessor/fast
-
-Exception.o: Exception.cpp.o
-.PHONY : Exception.o
-
-# target to build an object file
-Exception.cpp.o:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.o
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.o
-.PHONY : Exception.cpp.o
-
-Exception.i: Exception.cpp.i
-.PHONY : Exception.i
-
-# target to preprocess a source file
-Exception.cpp.i:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.i
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.i
-.PHONY : Exception.cpp.i
-
-Exception.s: Exception.cpp.s
-.PHONY : Exception.s
-
-# target to generate assembly for a file
-Exception.cpp.s:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/Exception.cpp.s
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Exception.cpp.s
-.PHONY : Exception.cpp.s
-
-ExecuteForwarder.o: ExecuteForwarder.cpp.o
-.PHONY : ExecuteForwarder.o
-
-# target to build an object file
-ExecuteForwarder.cpp.o:
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/ExecuteForwarder.cpp.o
-.PHONY : ExecuteForwarder.cpp.o
-
-ExecuteForwarder.i: ExecuteForwarder.cpp.i
-.PHONY : ExecuteForwarder.i
-
-# target to preprocess a source file
-ExecuteForwarder.cpp.i:
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/ExecuteForwarder.cpp.i
-.PHONY : ExecuteForwarder.cpp.i
-
-ExecuteForwarder.s: ExecuteForwarder.cpp.s
-.PHONY : ExecuteForwarder.s
-
-# target to generate assembly for a file
-ExecuteForwarder.cpp.s:
-	$(MAKE) -f CMakeFiles/ExecuteForwarder.dir/build.make CMakeFiles/ExecuteForwarder.dir/ExecuteForwarder.cpp.s
-.PHONY : ExecuteForwarder.cpp.s
 
 ExecuteResultProcessor.o: ExecuteResultProcessor.cpp.o
 .PHONY : ExecuteResultProcessor.o
@@ -318,78 +148,6 @@ ExecuteResultProcessor.cpp.s:
 	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ExecuteResultProcessor.cpp.s
 .PHONY : ExecuteResultProcessor.cpp.s
 
-ExecuteSensorDataServer.o: ExecuteSensorDataServer.cpp.o
-.PHONY : ExecuteSensorDataServer.o
-
-# target to build an object file
-ExecuteSensorDataServer.cpp.o:
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/ExecuteSensorDataServer.cpp.o
-.PHONY : ExecuteSensorDataServer.cpp.o
-
-ExecuteSensorDataServer.i: ExecuteSensorDataServer.cpp.i
-.PHONY : ExecuteSensorDataServer.i
-
-# target to preprocess a source file
-ExecuteSensorDataServer.cpp.i:
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/ExecuteSensorDataServer.cpp.i
-.PHONY : ExecuteSensorDataServer.cpp.i
-
-ExecuteSensorDataServer.s: ExecuteSensorDataServer.cpp.s
-.PHONY : ExecuteSensorDataServer.s
-
-# target to generate assembly for a file
-ExecuteSensorDataServer.cpp.s:
-	$(MAKE) -f CMakeFiles/ExecuteSensorDataServer.dir/build.make CMakeFiles/ExecuteSensorDataServer.dir/ExecuteSensorDataServer.cpp.s
-.PHONY : ExecuteSensorDataServer.cpp.s
-
-Forwarder.o: Forwarder.cpp.o
-.PHONY : Forwarder.o
-
-# target to build an object file
-Forwarder.cpp.o:
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/Forwarder.cpp.o
-.PHONY : Forwarder.cpp.o
-
-Forwarder.i: Forwarder.cpp.i
-.PHONY : Forwarder.i
-
-# target to preprocess a source file
-Forwarder.cpp.i:
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/Forwarder.cpp.i
-.PHONY : Forwarder.cpp.i
-
-Forwarder.s: Forwarder.cpp.s
-.PHONY : Forwarder.s
-
-# target to generate assembly for a file
-Forwarder.cpp.s:
-	$(MAKE) -f CMakeFiles/Forwarder.dir/build.make CMakeFiles/Forwarder.dir/Forwarder.cpp.s
-.PHONY : Forwarder.cpp.s
-
-MessageQueue.o: MessageQueue.cpp.o
-.PHONY : MessageQueue.o
-
-# target to build an object file
-MessageQueue.cpp.o:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o
-.PHONY : MessageQueue.cpp.o
-
-MessageQueue.i: MessageQueue.cpp.i
-.PHONY : MessageQueue.i
-
-# target to preprocess a source file
-MessageQueue.cpp.i:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/MessageQueue.cpp.i
-.PHONY : MessageQueue.cpp.i
-
-MessageQueue.s: MessageQueue.cpp.s
-.PHONY : MessageQueue.s
-
-# target to generate assembly for a file
-MessageQueue.cpp.s:
-	$(MAKE) -f CMakeFiles/MessageQueue.dir/build.make CMakeFiles/MessageQueue.dir/MessageQueue.cpp.s
-.PHONY : MessageQueue.cpp.s
-
 ResultProcessor.o: ResultProcessor.cpp.o
 .PHONY : ResultProcessor.o
 
@@ -413,78 +171,6 @@ ResultProcessor.s: ResultProcessor.cpp.s
 ResultProcessor.cpp.s:
 	$(MAKE) -f CMakeFiles/ExecuteResultProcessor.dir/build.make CMakeFiles/ExecuteResultProcessor.dir/ResultProcessor.cpp.s
 .PHONY : ResultProcessor.cpp.s
-
-SensorDataServer.o: SensorDataServer.cpp.o
-.PHONY : SensorDataServer.o
-
-# target to build an object file
-SensorDataServer.cpp.o:
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/SensorDataServer.cpp.o
-.PHONY : SensorDataServer.cpp.o
-
-SensorDataServer.i: SensorDataServer.cpp.i
-.PHONY : SensorDataServer.i
-
-# target to preprocess a source file
-SensorDataServer.cpp.i:
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/SensorDataServer.cpp.i
-.PHONY : SensorDataServer.cpp.i
-
-SensorDataServer.s: SensorDataServer.cpp.s
-.PHONY : SensorDataServer.s
-
-# target to generate assembly for a file
-SensorDataServer.cpp.s:
-	$(MAKE) -f CMakeFiles/SensorDataServer.dir/build.make CMakeFiles/SensorDataServer.dir/SensorDataServer.cpp.s
-.PHONY : SensorDataServer.cpp.s
-
-Socket.o: Socket.cpp.o
-.PHONY : Socket.o
-
-# target to build an object file
-Socket.cpp.o:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Socket.cpp.o
-.PHONY : Socket.cpp.o
-
-Socket.i: Socket.cpp.i
-.PHONY : Socket.i
-
-# target to preprocess a source file
-Socket.cpp.i:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Socket.cpp.i
-.PHONY : Socket.cpp.i
-
-Socket.s: Socket.cpp.s
-.PHONY : Socket.s
-
-# target to generate assembly for a file
-Socket.cpp.s:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/Socket.cpp.s
-.PHONY : Socket.cpp.s
-
-TCPSocket.o: TCPSocket.cpp.o
-.PHONY : TCPSocket.o
-
-# target to build an object file
-TCPSocket.cpp.o:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.o
-.PHONY : TCPSocket.cpp.o
-
-TCPSocket.i: TCPSocket.cpp.i
-.PHONY : TCPSocket.i
-
-# target to preprocess a source file
-TCPSocket.cpp.i:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.i
-.PHONY : TCPSocket.cpp.i
-
-TCPSocket.s: TCPSocket.cpp.s
-.PHONY : TCPSocket.s
-
-# target to generate assembly for a file
-TCPSocket.cpp.s:
-	$(MAKE) -f CMakeFiles/TCPSocket.dir/build.make CMakeFiles/TCPSocket.dir/TCPSocket.cpp.s
-.PHONY : TCPSocket.cpp.s
 
 TestResultProcessor.o: TestResultProcessor.cpp.o
 .PHONY : TestResultProcessor.o
@@ -516,50 +202,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... ExecuteForwarder"
 	@echo "... ExecuteResultProcessor"
-	@echo "... ExecuteSensorDataServer"
-	@echo "... Forwarder"
-	@echo "... MessageQueue"
-	@echo "... SensorDataServer"
-	@echo "... TCPSocket"
 	@echo "... TestResultProcessor"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Exception.o"
-	@echo "... Exception.i"
-	@echo "... Exception.s"
-	@echo "... ExecuteForwarder.o"
-	@echo "... ExecuteForwarder.i"
-	@echo "... ExecuteForwarder.s"
 	@echo "... ExecuteResultProcessor.o"
 	@echo "... ExecuteResultProcessor.i"
 	@echo "... ExecuteResultProcessor.s"
-	@echo "... ExecuteSensorDataServer.o"
-	@echo "... ExecuteSensorDataServer.i"
-	@echo "... ExecuteSensorDataServer.s"
-	@echo "... Forwarder.o"
-	@echo "... Forwarder.i"
-	@echo "... Forwarder.s"
-	@echo "... MessageQueue.o"
-	@echo "... MessageQueue.i"
-	@echo "... MessageQueue.s"
 	@echo "... ResultProcessor.o"
 	@echo "... ResultProcessor.i"
 	@echo "... ResultProcessor.s"
-	@echo "... SensorDataServer.o"
-	@echo "... SensorDataServer.i"
-	@echo "... SensorDataServer.s"
-	@echo "... Socket.o"
-	@echo "... Socket.i"
-	@echo "... Socket.s"
-	@echo "... TCPSocket.o"
-	@echo "... TCPSocket.i"
-	@echo "... TCPSocket.s"
 	@echo "... TestResultProcessor.o"
 	@echo "... TestResultProcessor.i"
 	@echo "... TestResultProcessor.s"
