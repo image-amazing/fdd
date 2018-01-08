@@ -1,7 +1,0 @@
-project(forwarder_libsrc)
-cmake_minimum_required(VERSION 2.8)
-add_compile_options(-std=c++11)
-aux_source_directory(. SRC_LIST)
-add_library(MessageQueue MessageQueue.cpp Exception.cpp)
-install(TARGETS MessageQueue ARCHIVE DESTINATION lib)
-install(FILES MessageQueue.h Exception.h DESTINATION include)

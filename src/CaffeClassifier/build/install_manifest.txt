@@ -1,0 +1,5 @@
+/usr/local/lib/libCaffeClassifier.a
+/usr/local/share/CaffeClassifier.cmake
+/usr/local/share/CaffeClassifier-noconfig.cmake
+/usr/local/include/CaffeClassifier.h
+/usr/local/include/caffe_layers_registry.hpp

@@ -1,3 +1,0 @@
-FILE(REMOVE_RECURSE
-  "lib3000fps.a"
-)

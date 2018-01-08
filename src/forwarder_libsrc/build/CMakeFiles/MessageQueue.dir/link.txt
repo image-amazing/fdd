@@ -1,0 +1,2 @@
+/usr/bin/ar cr libMessageQueue.a  CMakeFiles/MessageQueue.dir/MessageQueue.cpp.o CMakeFiles/MessageQueue.dir/Exception.cpp.o
+/usr/bin/ranlib libMessageQueue.a

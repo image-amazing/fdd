@@ -1,0 +1,3 @@
+/home/lyfe667/fdd/src/3000fps/build/CMakeFiles/3000fps.dir
+/home/lyfe667/fdd/src/3000fps/build/liblinear/blas/CMakeFiles/blas.dir
+/home/lyfe667/fdd/src/3000fps/build/liblinear/CMakeFiles/liblinear.dir

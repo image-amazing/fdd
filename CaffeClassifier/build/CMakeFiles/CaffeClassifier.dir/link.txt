@@ -1,2 +1,0 @@
-/usr/bin/ar cr libCaffeClassifier.a  CMakeFiles/CaffeClassifier.dir/CaffeClassifier.cpp.o
-/usr/bin/ranlib libCaffeClassifier.a

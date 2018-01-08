@@ -1,0 +1,2 @@
+/usr/bin/ar cr liblibfdd.a  CMakeFiles/libfdd.dir/RightEye.cpp.o CMakeFiles/libfdd.dir/ResourceManagers.cpp.o CMakeFiles/libfdd.dir/LeftEye.cpp.o CMakeFiles/libfdd.dir/Mouth.cpp.o CMakeFiles/libfdd.dir/FrameSequenceProcessor.cpp.o CMakeFiles/libfdd.dir/FDDGlobal.cpp.o CMakeFiles/libfdd.dir/Camera.cpp.o CMakeFiles/libfdd.dir/Frame.cpp.o CMakeFiles/libfdd.dir/FaceAnalysisModel.cpp.o CMakeFiles/libfdd.dir/FaceComponent.cpp.o CMakeFiles/libfdd.dir/Face.cpp.o CMakeFiles/libfdd.dir/FatigueDetectionFrameSequenceProcessor.cpp.o
+/usr/bin/ranlib liblibfdd.a

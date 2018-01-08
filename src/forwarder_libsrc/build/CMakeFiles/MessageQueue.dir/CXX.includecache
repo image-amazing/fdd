@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lyfe667/fdd/src/forwarder_libsrc/Exception.cpp
+Exception.h
+/home/lyfe667/fdd/src/forwarder_libsrc/Exception.h
+
+/home/lyfe667/fdd/src/forwarder_libsrc/Exception.h
+exception
+-
+string
+-
+
+/home/lyfe667/fdd/src/forwarder_libsrc/MessageQueue.cpp
+
