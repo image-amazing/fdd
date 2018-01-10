@@ -472,16 +472,6 @@ string
 caffe/proto/caffe.pb.h
 /home/lyfe667/caffe/build/install/include/caffe/util/caffe/proto/caffe.pb.h
 
-/home/lyfe667/fdd/src/fdd_libsrc/Camera.cpp
-Camera.h
-/home/lyfe667/fdd/src/fdd_libsrc/Camera.h
-
-/home/lyfe667/fdd/src/fdd_libsrc/Camera.h
-ResourceManagers.h
-/home/lyfe667/fdd/src/fdd_libsrc/ResourceManagers.h
-FrameSequenceProcessor.h
-/home/lyfe667/fdd/src/fdd_libsrc/FrameSequenceProcessor.h
-
 /home/lyfe667/fdd/src/fdd_libsrc/FDDGlobal.cpp
 FDDGlobal.h
 /home/lyfe667/fdd/src/fdd_libsrc/FDDGlobal.h
@@ -570,17 +560,9 @@ FrameSequenceProcessor.h
 MessageQueue.h
 -
 
-/home/lyfe667/fdd/src/fdd_libsrc/Frame.cpp
-Frame.h
-/home/lyfe667/fdd/src/fdd_libsrc/Frame.h
-
 /home/lyfe667/fdd/src/fdd_libsrc/Frame.h
 opencv2/opencv.hpp
 -
-
-/home/lyfe667/fdd/src/fdd_libsrc/FrameSequenceProcessor.cpp
-FrameSequenceProcessor.h
-/home/lyfe667/fdd/src/fdd_libsrc/FrameSequenceProcessor.h
 
 /home/lyfe667/fdd/src/fdd_libsrc/FrameSequenceProcessor.h
 opencv2/opencv.hpp
@@ -607,12 +589,6 @@ FaceAnalysisModel.h
 /home/lyfe667/fdd/src/fdd_libsrc/Mouth.h
 FaceComponent.h
 /home/lyfe667/fdd/src/fdd_libsrc/FaceComponent.h
-
-/home/lyfe667/fdd/src/fdd_libsrc/ResourceManagers.cpp
-ResourceManagers.h
-/home/lyfe667/fdd/src/fdd_libsrc/ResourceManagers.h
-exception
--
 
 /home/lyfe667/fdd/src/fdd_libsrc/ResourceManagers.h
 opencv2/opencv.hpp
