@@ -1,2 +1,0 @@
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/ExecuteResultProcessor.dir
-/home/lyfe667/fdd/forwarder/build/CMakeFiles/TestResultProcessor.dir
