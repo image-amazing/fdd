@@ -1,2 +1,0 @@
-/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/DriverMonitor.dir
-/home/lyfe667/fdd/DriverMonitor/build/CMakeFiles/dm_global.dir
