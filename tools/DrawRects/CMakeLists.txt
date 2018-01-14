@@ -1,15 +1,5 @@
-project(DrawRects)
-cmake_minimum_required(VERSION 2.8)
-add_compile_options(-std=c++11)
-add_definitions(-DCPU_ONLY)
-find_package(Caffe REQUIRED)
-include_directories(${Caffe_DIR}/install/include)
-include(${CMAKE_INSTALL_PREFIX}/share/3000fps.cmake)
-include(${CMAKE_INSTALL_PREFIX}/share/CaffeClassifier.cmake)
-include(${CMAKE_INSTALL_PREFIX}/share/libfdd.cmake)
-include(${CMAKE_INSTALL_PREFIX}/share/dm_global.cmake)
 aux_source_directory(. COFC_CPPS)
-add_executable(${CMAKE_PROJECT_NAME} ${COFC_CPPS})
-target_link_libraries(${CMAKE_PROJECT_NAME} libfdd dm_global)
+add_executable(DrawRects ${COFC_CPPS})
+target_link_libraries(DrawRects libfdd dm_global)
 
 

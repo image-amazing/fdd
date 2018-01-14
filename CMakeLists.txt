@@ -27,4 +27,16 @@ include_directories(include/dm)
 add_subdirectory(src/dm)
 add_subdirectory(DriverMonitor)
 
+option(BUILD_TOOLS "build tools" ON)
+if(BUILD_TOOLS)
+    add_subdirectory(tools/CutOutFaceComponents)
+    add_subdirectory(tools/LBF_demo)
+    add_subdirectory(tools/TestFunc)
+    add_subdirectory(tools/DrawRects)
+    add_subdirectory(tools/MakeHeadposeDataset)
+    add_subdirectory(tools/TestHeadposeModel)
+    add_subdirectory(tools/GenerateGrayImages)
+    add_subdirectory(tools/SplitImage)
+endif(BUILD_TOOLS)
+
 

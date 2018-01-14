@@ -1,6 +1,3 @@
-project(TestFunc)
-cmake_minimum_required(VERSION 2.8)
 aux_source_directory(. SRC_LIST)
-include(${CMAKE_INSTALL_PREFIX}/share/dm_global.cmake)
-add_executable(${PROJECT_NAME} ${SRC_LIST})
-target_link_libraries(${PROJECT_NAME} dm_global)
+add_executable(TestFunc ${SRC_LIST})
+target_link_libraries(TestFunc dm_global)

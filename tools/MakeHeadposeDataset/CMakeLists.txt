@@ -1,10 +1,3 @@
-project(make_head_pose_dataset)
-cmake_minimum_required(VERSION 2.8)
-add_compile_options(-std=c++11)
-#set build type to Debug
-set(CMAKE_BUILD_TYPE Debug)
-find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
 aux_source_directory(. ALL_CPPS)
 add_executable(make_head_pose_dataset ${ALL_CPPS})
 target_link_libraries(make_head_pose_dataset ${OpenCV_LIBRARIES})
