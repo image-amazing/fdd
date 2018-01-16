@@ -60,7 +60,7 @@ The second parameter of DriverMonitor is the camera id which is optional.
 
 ## License
 fdd_linux is licensed under the [MIT](https://mit-license.org/) license.<br>
-Copyright © 2018 lyfe667
+Copyright © 2018 Lyfe667
 
 
 
