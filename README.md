@@ -31,7 +31,7 @@ You can visit their official website to get source code and learn how to compile
   cd fdd_linux
   vim CMakeLists.txt
 ```
- If you switched play sound on,you should install sox at first.
+ If you switched play sound option on,you should install sox at first.
 ```
    sudo apt-get install sox
 ```
