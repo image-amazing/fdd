@@ -2,7 +2,11 @@
 This is a linux project for fatigue driving detection,which aims to monitor the driver's fatigue driving behavior,including distraction,yawn,frequent yawn,sleepy, by face analysis.<br>
 
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
-[![npm](https://img.shields.io/npm/dt/express.svg)]()
+[![Opencv](https://img.shields.io/badge/Opencv-v3.1-brightgreen.svg)](https://opencv.org/)
+[![Caffe](https://img.shields.io/badge/Caffe-v1.0-brightgreen.svg)](http://caffe.berkeleyvision.org/)
+[![libconfig](https://img.shields.io/badge/libconfig-v1.7.2-brightgreen.svg)](https://github.com/hyperrealm/libconfig)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
+
 
 ## Table of Contents
 * [Requirements](#Requirements)
