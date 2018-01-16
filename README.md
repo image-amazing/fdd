@@ -25,8 +25,7 @@ You can visit their official website to get source code and learn how to compile
 ## <a name='Usage'>Usage</a>
 1. Compile and install Opencv,Caffe,libconfig++.
 2. Clone the fdd_linux repository.
-3. Switch the compile options ,according the system has screen or not,the system can play sound or not ,you need to
-   compile tools or not, by editing top level CMakeLists.txt.
+3. Switch the compile options ,according whether the system has screen or not, whether the system can play sound or not ,whether you need to compile tools or not, by editing top level CMakeLists.txt.
 ```
   cd fdd_linux
   vim CMakeLists.txt
