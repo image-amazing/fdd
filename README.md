@@ -1,6 +1,8 @@
 # fdd_linux
-This is a linux project for fatigue driving detection,which aims to monitor the driver's fatigue driving behavior,including distraction,
-yawn,frequent yawn,sleepy, by face analysis.
+This is a linux project for fatigue driving detection,which aims to monitor the driver's fatigue driving behavior,including distraction,yawn,frequent yawn,sleepy, by face analysis.<br>
+
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
+[![npm](https://img.shields.io/npm/dt/express.svg)]()
 
 ## Table of Contents
 * [Requirements](#Requirements)
